@@ -3,6 +3,33 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      /* Primary Color */
+  --color-primary: oklch(0.67 0.1 213);  /* #689FAE */
+
+  /* Complete Color */
+  --color-complete: oklch(0.74 0.08 210);  /* #8FB8C3 */
+
+  /* Background color 1 */
+  --color-background-1: oklch(0.91 0.03 204);  /* #DAE9E9 */
+
+  /* Dark Base */
+  --color-dark-base: oklch(0.45 0.04 255);  /* #575F6E */
+
+  /* Stroke lines */
+  --color-stroke: oklch(0.86 0.04 240);  /* #D0D8E8 */
+
+  /* Background color 2 */
+  --color-background-2: oklch(0.98 0.003 105);  /* #F9F9F9 */
+
+  /* Text Color 1 */
+  --color-text-1: oklch(0.64 0.003 105);  /* #939393 */
+
+  /* Text Color 2 */
+  --color-text-2: oklch(0.23 0.02 264);  /* #242731 */
+
+  /* Button disabled */
+  --color-button-disabled: oklch(0.87 0.003 105);  /* #D9D9D9 */
+
 }
 
 html,
