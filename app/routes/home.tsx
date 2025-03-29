@@ -106,7 +106,7 @@ export default function Home() {
 
         <div className="space-y-4">
           <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">Speakers Table Demo</h2>
-          <SpeakersTable speakers={sampleSpeakers} />
+          <SpeakersTable />
         </div>
 
         <div className="space-y-4">
