@@ -5,7 +5,6 @@ import { Spinner } from '~/components/Spinner';
 import type { Speaker } from '~/lib/types';
 import { RegisterSpeakerButton } from '~/components/SpeakerFormDialog/RegisterSpeakerButton';
 import { SpeakerFormDialogContainer } from '~/components/SpeakerFormDialog/SpeakerFormDialogContainer';
-import type { SpeakerFormData } from '~/components/SpeakerFormDialog/SpeakerFormDialogView';
 
 type LoaderData = {
   speakers: Promise<Speaker[]>;
@@ -69,8 +68,11 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export async function loader(): Promise<LoaderData> {
-  const speakers = await fetch(`${process.env.API_BASE_URL}/speakers`);
-  return { speakers: new Promise(resolve => setTimeout(() => resolve(speakers.json()), 2000)) };
+  const response = await fetch('http://localhost:3001/speakers');
+  if (!response.ok) {
+    throw new Error('Failed to fetch speakers');
+  }
+  return { speakers: response.json() };
 }
 
 export default function Speakers({ loaderData }: { loaderData: LoaderData }) {

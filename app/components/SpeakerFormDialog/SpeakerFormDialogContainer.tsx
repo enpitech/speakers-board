@@ -72,7 +72,6 @@ export function SpeakerFormDialogContainer({
         onChange={handleChange}
         onAddSocialNetwork={handleAddSocialNetwork}
         onRemoveSocialNetwork={handleRemoveSocialNetwork}
-        onClose={onClose}
         errors={errors}
         isSubmitting={isSubmitting}
       />
