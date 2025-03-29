@@ -2,7 +2,6 @@ import { Suspense } from 'react';
 import { Await } from 'react-router';
 import { SpeakersTableView, SuspendedSpeakersTableView } from '~/components/SpeakersTableView';
 import type { Speaker } from '~/lib/types';
-// import { SuspendedSpeakersTableView } from '~/components/SuspendedSpeakersTableView';
 
 type LoaderData = {
   speakers: Promise<Speaker[]>;
