@@ -1,7 +1,8 @@
 import type { Route } from "./+types/home";
 import { Avatar } from "~/components/Avatar";
-import { SpeakersTable } from "~/components/SpeakersTable";
-import { SpeakersTableView } from "~/components/SpeakersTableView";
+import { SpeakersTable } from "~/components/ui/table/SpeakersTable";
+import { SpeakersTableView } from "~/components/ui/table/SpeakersTableView";
+import { RegisterSpeakerButton } from "~/components/SpeakerFormDialog/RegisterSpeakerButtons";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -52,7 +53,10 @@ const sampleSpeakers = [
 export default function Home() {
   return (
     <div className="p-8 space-y-8">
-      <h1 className="text-3xl font-bold text-[var(--color-text-2)]">Welcome to the Frontendistim Speakers Board!</h1>
+      <div className="flex justify-between items-center">
+        <h1 className="text-3xl font-bold text-[var(--color-text-2)]">Welcome to the Frontendistim Speakers Board!</h1>
+        <RegisterSpeakerButton variant="primary" size="md" />
+      </div>
 
       <div className="space-y-8">
         <div className="space-y-4">

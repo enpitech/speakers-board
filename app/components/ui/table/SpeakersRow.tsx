@@ -1,13 +1,13 @@
-import { Avatar } from './Avatar';
-import { StarRating } from './StarRating';
-import { SessionsButton } from './SessionsButton';
+import { Avatar } from '../../Avatar';
+import { StarRating } from '../../StarRating';
+import { SessionsButton } from '../../SessionsButton';
 import { Youtube } from 'lucide-react';
-import { cn } from '../lib/utils';
-import { Row } from './ui/Row';
-import { TableCell } from './ui/table/table-cell';
-import { SocialIcon } from './ui/social-icon';
-import { Button } from './ui/button';
-import { SocialIconsGroup } from './ui/social-icons-group';
+import { cn } from '../../../lib/utils';
+import { Row } from './Row';
+import { TableCell } from './TableCell';
+import { SocialIcon } from '../SocialIcon';
+import { Button } from '../button';
+import { SocialIconsGroup } from '../SocialIconsGroup';
 
 export interface Speaker {
   id: string;

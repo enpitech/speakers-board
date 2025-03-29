@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { SpeakersTableView } from "./ui/table/SpeakersTableView";
-import type { Speaker } from "./ui/table/SpeakersRow";
+import { SpeakersTableView } from "./SpeakersTableView";
+import type { Speaker } from "./SpeakersRow";
 
 // This would typically come from an API
 const mockSpeakers: Speaker[] = [

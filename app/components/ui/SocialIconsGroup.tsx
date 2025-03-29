@@ -1,4 +1,4 @@
-import { SocialIcon } from "./social-icon"
+import { SocialIcon } from "./SocialIcon"
 
 type SocialPlatform =
   | "linkedin"

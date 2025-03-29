@@ -1,5 +1,5 @@
-import { Table } from "./ui/Table";
-import { TableCell } from "./ui/table/table-cell";
+import { Table } from "./Table";
+import { TableCell } from "./TableCell";
 import { SpeakerRow, type Speaker } from "./SpeakersRow";
 
 const columnWidths = {
