@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { Await } from 'react-router';
 import { SpeakersTableView, SuspendedSpeakersTableView } from '~/components/SpeakersTableView';
+import { Spinner } from '~/components/Spinner';
 import type { Speaker } from '~/lib/types';
 
 type LoaderData = {
@@ -15,7 +16,7 @@ export async function loader(): Promise<LoaderData> {
 export default function Speakers({ loaderData }: { loaderData: LoaderData }) {
   const { speakers } = loaderData;
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Spinner size="lg" />}>
       <Await resolve={speakers}>{speakers => <SpeakersTableView speakers={speakers} />}</Await>
     </Suspense>
   );
