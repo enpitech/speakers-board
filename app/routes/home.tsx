@@ -1,66 +1,70 @@
-import type { Route } from "./+types/home";
-import { Avatar } from "~/components/Avatar";
-import { SpeakersTable } from "~/components/ui/table/SpeakersTable";
-import { SpeakersTableView } from "~/components/ui/table/SpeakersTableView";
-import { RegisterSpeakerButton } from "~/components/SpeakerFormDialog/RegisterSpeakerButtons";
+import type { Route } from './+types/home';
+import { Avatar } from '~/components/Avatar';
+import { SpeakersTable } from '~/components/ui/table/SpeakersTable';
+import { SpeakersTableView } from '~/components/ui/table/SpeakersTableView';
+import { RegisterSpeakerButton } from '~/components/SpeakerFormDialog/RegisterSpeakerButtons';
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Speakers Board" },
-    { name: "description", content: "Welcome to the Frontendistim Speakers Board!" },
+    { title: 'Speakers Board' },
+    { name: 'description', content: 'Welcome to the Frontendistim Speakers Board!' },
   ];
 }
 
 const sampleSpeakers = [
   {
-    name: "Sarah Johnson",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=sarah",
-    topics: ["React", "TypeScript", "Performance"],
-    languages: ["English", "Spanish"],
+    name: 'Sarah Johnson',
+    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=sarah',
+    topics: ['React', 'TypeScript', 'Performance'],
+    languages: ['English', 'Spanish'],
     rating: 4.8,
     socialLinks: {
-      twitter: "https://twitter.com/sarahj",
-      linkedin: "https://linkedin.com/in/sarahj",
-      github: "https://github.com/sarahj"
-    }
+      twitter: 'https://twitter.com/sarahj',
+      linkedin: 'https://linkedin.com/in/sarahj',
+      github: 'https://github.com/sarahj',
+    },
   },
   {
-    name: "Michael Chen",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=michael",
-    topics: ["Vue.js", "State Management", "Testing"],
-    languages: ["English", "Mandarin"],
+    name: 'Michael Chen',
+    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=michael',
+    topics: ['Vue.js', 'State Management', 'Testing'],
+    languages: ['English', 'Mandarin'],
     rating: 4.9,
     socialLinks: {
-      twitter: "https://twitter.com/michaelc",
-      linkedin: "https://linkedin.com/in/michaelc",
-      github: "https://github.com/michaelc"
-    }
+      twitter: 'https://twitter.com/michaelc',
+      linkedin: 'https://linkedin.com/in/michaelc',
+      github: 'https://github.com/michaelc',
+    },
   },
   {
-    name: "Emma Rodriguez",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=emma",
-    topics: ["Angular", "RxJS", "Architecture"],
-    languages: ["English", "Spanish", "French"],
+    name: 'Emma Rodriguez',
+    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=emma',
+    topics: ['Angular', 'RxJS', 'Architecture'],
+    languages: ['English', 'Spanish', 'French'],
     rating: 4.7,
     socialLinks: {
-      twitter: "https://twitter.com/emmar",
-      linkedin: "https://linkedin.com/in/emmar",
-      github: "https://github.com/emmar"
-    }
-  }
+      twitter: 'https://twitter.com/emmar',
+      linkedin: 'https://linkedin.com/in/emmar',
+      github: 'https://github.com/emmar',
+    },
+  },
 ];
 
 export default function Home() {
   return (
     <div className="p-8 space-y-8">
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-[var(--color-text-2)]">Welcome to the Frontendistim Speakers Board!</h1>
+        <h1 className="text-3xl font-bold text-[var(--color-text-2)]">
+          Welcome to the Frontendistim Speakers Board!
+        </h1>
         <RegisterSpeakerButton variant="primary" size="md" />
       </div>
 
       <div className="space-y-8">
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">Avatar Component Demo</h2>
+          <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">
+            Avatar Component Demo
+          </h2>
           <div className="flex items-center gap-4">
             <Avatar
               src="https://api.dicebear.com/7.x/avataaars/svg?seed=small"
@@ -83,16 +87,8 @@ export default function Home() {
         <div className="space-y-4">
           <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">Fallback State</h2>
           <div className="flex items-center gap-4">
-            <Avatar
-              alt="John Doe"
-              fallback="John Doe"
-              size="md"
-            />
-            <Avatar
-              alt="Jane Smith"
-              fallback="Jane Smith"
-              size="md"
-            />
+            <Avatar alt="John Doe" fallback="John Doe" size="md" />
+            <Avatar alt="Jane Smith" fallback="Jane Smith" size="md" />
           </div>
         </div>
 
