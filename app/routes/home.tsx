@@ -3,6 +3,7 @@ import type { Route } from './+types/home';
 import { Avatar } from '~/components/Avatar';
 import { SpeakersTable } from '~/components/SpeakersTable';
 import { SpeakersTableView } from '~/components/SpeakersTableView';
+import { RegisterSpeakerButton } from '~/components/SpeakerFormDialog/RegisterSpeakerButton';
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -69,6 +70,19 @@ export default function Home() {
         <div className="space-y-4">
           <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">Empty State Demo</h2>
           <SpeakersTableView speakers={[]} />
+        </div>
+
+        <div className="space-y-4">
+          <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">Register Speaker Form Demo</h2>
+          <div className="flex items-center gap-4">
+            <RegisterSpeakerButton variant="primary" size="md" />
+            <RegisterSpeakerButton variant="secondary" size="md" />
+            <RegisterSpeakerButton variant="outline" size="md" />
+          </div>
+          <div className="flex items-center gap-4">
+            <RegisterSpeakerButton variant="primary" size="sm" />
+            <RegisterSpeakerButton variant="primary" size="lg" />
+          </div>
         </div>
       </div>
     </div>
