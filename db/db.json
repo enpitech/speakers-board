@@ -6,7 +6,7 @@
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=sarah",
       "topics": ["React", "TypeScript", "Performance"],
       "languages": ["English", "Spanish"],
-      "rating": 4.8,
+      "rating": 2,
       "socialLinks": [
         { "platform": "twitter", "url": "https://twitter.com/sarahj" },
         { "platform": "linkedin", "url": "https://linkedin.com/in/sarahj" },
@@ -20,7 +20,7 @@
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=michael",
       "topics": ["Vue.js", "State Management", "Testing"],
       "languages": ["English", "Mandarin"],
-      "rating": 4.9,
+      "rating": 3,
       "socialLinks": [
         { "platform": "twitter", "url": "https://twitter.com/michaelc" },
         { "platform": "linkedin", "url": "https://linkedin.com/in/michaelc" },
@@ -33,7 +33,7 @@
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=emma",
       "topics": ["Angular", "RxJS", "Architecture"],
       "languages": ["English", "Spanish", "French"],
-      "rating": 4.7,
+      "rating": 4,
       "socialLinks": [
         { "platform": "twitter", "url": "https://twitter.com/emmar" },
         { "platform": "linkedin", "url": "https://linkedin.com/in/emmar" },
@@ -46,7 +46,7 @@
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=raj",
       "topics": ["Node.js", "Microservices", "API Design"],
       "languages": ["English", "Hindi", "Gujarati"],
-      "rating": 4.9,
+      "rating": 5,
       "socialLinks": [
         { "platform": "twitter", "url": "https://twitter.com/rajp" },
         { "platform": "linkedin", "url": "https://linkedin.com/in/rajp" },
@@ -59,7 +59,7 @@
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=olivia",
       "topics": ["GraphQL", "Apollo", "Database Design"],
       "languages": ["English", "Korean"],
-      "rating": 4.8,
+      "rating": 2,
       "socialLinks": [
         { "platform": "twitter", "url": "https://twitter.com/oliviak" },
         { "platform": "linkedin", "url": "https://linkedin.com/in/oliviak" },
@@ -231,7 +231,7 @@
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=lucas",
       "topics": ["Svelte", "Animation", "Web Components"],
       "languages": ["English", "Vietnamese", "French"],
-      "rating": 4.7,
+      "rating": 2,
       "socialLinks": [
         { "platform": "twitter", "url": "https://twitter.com/lucasn" },
         { "platform": "linkedin", "url": "https://linkedin.com/in/lucasn" },

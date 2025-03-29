@@ -38,7 +38,7 @@ export function StarRating({
               'transition-colors',
               isFilled
                 ? 'fill-[var(--color-blue-500)] stroke-[var(--color-blue-500)]'
-                : 'fill-transparent stroke-[var(--color-blue-500)]'
+                : 'fill-transparent stroke-[var(--color-blue-500)]',
             )}
           />
         );
