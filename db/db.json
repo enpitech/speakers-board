@@ -11,7 +11,8 @@
         { "platform": "twitter", "url": "https://twitter.com/sarahj" },
         { "platform": "linkedin", "url": "https://linkedin.com/in/sarahj" },
         { "platform": "github", "url": "https://github.com/sarahj" }
-      ]
+      ],
+      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
     },
     {
       "id": "speaker-002",
@@ -24,7 +25,8 @@
         { "platform": "twitter", "url": "https://twitter.com/michaelc" },
         { "platform": "linkedin", "url": "https://linkedin.com/in/michaelc" },
         { "platform": "github", "url": "https://github.com/michaelc" }
-      ]
+      ],
+      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
     },
     {
       "name": "Emma Rodriguez",
@@ -36,7 +38,8 @@
         { "platform": "twitter", "url": "https://twitter.com/emmar" },
         { "platform": "linkedin", "url": "https://linkedin.com/in/emmar" },
         { "platform": "github", "url": "https://github.com/emmar" }
-      ]
+      ],
+      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
     },
     {
       "name": "Raj Patel",
@@ -48,7 +51,8 @@
         { "platform": "twitter", "url": "https://twitter.com/rajp" },
         { "platform": "linkedin", "url": "https://linkedin.com/in/rajp" },
         { "platform": "github", "url": "https://github.com/rajp" }
-      ]
+      ],
+      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
     },
     {
       "name": "Olivia Kim",
@@ -60,7 +64,8 @@
         { "platform": "twitter", "url": "https://twitter.com/oliviak" },
         { "platform": "linkedin", "url": "https://linkedin.com/in/oliviak" },
         { "platform": "github", "url": "https://github.com/oliviak" }
-      ]
+      ],
+      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
     },
     {
       "name": "Jackson Williams",
@@ -72,7 +77,8 @@
         { "platform": "twitter", "url": "https://twitter.com/jacksonw" },
         { "platform": "linkedin", "url": "https://linkedin.com/in/jacksonw" },
         { "platform": "github", "url": "https://github.com/jacksonw" }
-      ]
+      ],
+      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
     },
     {
       "name": "Anya Petrova",
@@ -84,7 +90,8 @@
         { "platform": "twitter", "url": "https://twitter.com/anyap" },
         { "platform": "linkedin", "url": "https://linkedin.com/in/anyap" },
         { "platform": "github", "url": "https://github.com/anyap" }
-      ]
+      ],
+      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
     },
     {
       "name": "Mateo Fernandez",
@@ -96,7 +103,8 @@
         { "platform": "twitter", "url": "https://twitter.com/mateof" },
         { "platform": "linkedin", "url": "https://linkedin.com/in/mateof" },
         { "platform": "github", "url": "https://github.com/mateof" }
-      ]
+      ],
+      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
     },
     {
       "name": "Zara Ahmed",
@@ -108,7 +116,8 @@
         { "platform": "twitter", "url": "https://twitter.com/zaraa" },
         { "platform": "linkedin", "url": "https://linkedin.com/in/zaraa" },
         { "platform": "github", "url": "https://github.com/zaraa" }
-      ]
+      ],
+      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
     },
     {
       "name": "Liam O'Connor",
@@ -128,6 +137,7 @@
       "topics": ["React Native", "Mobile UX", "Cross-platform Development"],
       "languages": ["English", "Japanese"],
       "rating": 4.9,
+
       "socialLinks": [
         { "platform": "twitter", "url": "#" },
         { "platform": "tiktok", "url": "#" },
