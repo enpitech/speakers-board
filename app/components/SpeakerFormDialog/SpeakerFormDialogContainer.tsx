@@ -2,17 +2,17 @@ import { useState } from "react"
 import { Dialog } from "../ui/Dialog/Dialog"
 import { SpeakerFormDialogView } from "./SpeakerFormDialogView"
 import type { SpeakerFormData } from "./SpeakerFormDialogView"
+import { useNavigation, useActionData } from "react-router"
+import React from "react"
 
 interface SpeakerFormDialogContainerProps {
   isOpen: boolean
   onClose: () => void
-  onSubmit: (data: SpeakerFormData) => Promise<void>
 }
 
 export function SpeakerFormDialogContainer({
   isOpen,
   onClose,
-  onSubmit,
 }: SpeakerFormDialogContainerProps) {
   const [formData, setFormData] = useState<SpeakerFormData>({
     fullName: "",
@@ -21,8 +21,23 @@ export function SpeakerFormDialogContainer({
     previousTalksUrl: "",
     socialNetworks: [{ network: "twitter", username: "" }],
   })
-  const [errors, setErrors] = useState<Partial<Record<keyof SpeakerFormData, string>>>({})
-  const [isSubmitting, setIsSubmitting] = useState(false)
+
+
+  const navigation = useNavigation();
+  const actionData = useActionData<{ errors?: Record<string, string>; success?: boolean }>();
+  const [errors, setErrors] = useState<Partial<Record<keyof SpeakerFormData, string>>>({...actionData?.errors})
+  const isSubmitting = navigation.state === "submitting";
+
+  // Close dialog on successful submission
+  React.useEffect(() => {
+    if (actionData?.success) {
+      onClose();
+    }
+  }, [actionData?.success, onClose]);
+
+  React.useEffect(() => {
+    setErrors({...actionData?.errors})
+  }, [actionData?.errors])
 
   const handleChange = (data: Partial<SpeakerFormData>) => {
     setFormData((prev) => ({ ...prev, ...data }))
@@ -50,19 +65,6 @@ export function SpeakerFormDialogContainer({
     }))
   }
 
-  const handleSubmit = async () => {
-    setIsSubmitting(true)
-    try {
-      await onSubmit(formData)
-      onClose()
-    } catch (error) {
-      // Handle validation errors here if needed
-      console.error("Form submission error:", error)
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
   return (
     <Dialog isOpen={isOpen} onClose={onClose} title="Sign up as a Speaker">
       <SpeakerFormDialogView
@@ -70,7 +72,7 @@ export function SpeakerFormDialogContainer({
         onChange={handleChange}
         onAddSocialNetwork={handleAddSocialNetwork}
         onRemoveSocialNetwork={handleRemoveSocialNetwork}
-        onSubmit={handleSubmit}
+        onClose={onClose}
         errors={errors}
         isSubmitting={isSubmitting}
       />

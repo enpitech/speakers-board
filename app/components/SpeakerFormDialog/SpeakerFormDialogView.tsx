@@ -1,8 +1,10 @@
 import { Camera, Youtube } from "lucide-react"
+import { Form } from "react-router"
 import { TextInput } from "../ui/form/TextInput"
 import { ChipInput } from "../ui/form/ChipInput"
 import { SocialNetworkInput, type SocialNetwork } from "../ui/form/SocialNetworkInput"
 import { FormError } from "../ui/form/FormError"
+import React from "react"
 
 export interface SpeakerFormData {
   fullName: string
@@ -21,8 +23,7 @@ interface SpeakerFormDialogViewProps {
   onChange: (data: Partial<SpeakerFormData>) => void
   onAddSocialNetwork: () => void
   onRemoveSocialNetwork: (index: number) => void
-  onSubmit: () => void
-  errors: Partial<Record<keyof SpeakerFormData, string>>
+  errors: Record<string, string>
   isSubmitting: boolean
 }
 
@@ -31,18 +32,29 @@ export function SpeakerFormDialogView({
   onChange,
   onAddSocialNetwork,
   onRemoveSocialNetwork,
-  onSubmit,
   errors,
   isSubmitting,
 }: SpeakerFormDialogViewProps) {
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault()
-        onSubmit()
-      }}
+    <Form
+      method="post"
       className="space-y-6"
     >
+      {/* Show generic form error if it exists */}
+      {errors._form && (
+        <div className="rounded-md bg-red-50 p-4">
+          <FormError message={errors._form} />
+        </div>
+      )}
+
+      {/* Convert form data to hidden inputs for submission */}
+      <input type="hidden" name="fullName" value={formData.fullName} />
+      <input type="hidden" name="languages" value={JSON.stringify(formData.languages)} />
+      <input type="hidden" name="topics" value={JSON.stringify(formData.topics)} />
+      <input type="hidden" name="previousTalksUrl" value={formData.previousTalksUrl} />
+      <input type="hidden" name="socialNetworks" value={JSON.stringify(formData.socialNetworks)} />
+      {formData.avatarUrl && <input type="hidden" name="avatarUrl" value={formData.avatarUrl} />}
+
       {/* Avatar Upload */}
       <div className="flex justify-left">
         <div className="relative">
@@ -127,7 +139,9 @@ export function SpeakerFormDialogView({
           </div>
         ))}
 
-        {errors.socialNetworks && <FormError message={errors.socialNetworks} />}
+        {errors.socialNetworks && (
+          <FormError message={errors.socialNetworks} />
+        )}
 
         <button
           type="button"
@@ -146,6 +160,6 @@ export function SpeakerFormDialogView({
       >
         {isSubmitting ? "Signing up..." : "Sign up"}
       </button>
-    </form>
+    </Form>
   )
 }

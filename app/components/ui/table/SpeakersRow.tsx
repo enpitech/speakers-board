@@ -19,7 +19,6 @@ interface SpeakerRowProps {
 }
 
 export function SpeakerRow({ speaker, columnWidths }: SpeakerRowProps) {
-  console.log(speaker.rating);
   return (
     <Row>
       <TableCell width={columnWidths.name}>
