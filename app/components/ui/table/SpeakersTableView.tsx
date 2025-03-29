@@ -1,8 +1,8 @@
+import { Table } from './Table';
+import { TableCell } from './TableCell';
+import { SpeakerRow } from './SpeakersRow';
 import type { Speaker } from '~/lib/types';
 import { use } from 'react';
-import { TableCell } from './ui/table/TableCell';
-import { Table } from './ui/table/Table';
-import { SpeakerRow } from './ui/table/SpeakersRow';
 
 const columnWidths = {
   name: '20%',

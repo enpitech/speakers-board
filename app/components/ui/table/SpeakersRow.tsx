@@ -1,12 +1,13 @@
-import { Avatar } from './Avatar';
-import { StarRating } from './StarRating';
-import { SessionsButton } from './SessionsButton';
+import { Avatar } from '../../Avatar';
+import { StarRating } from '../../StarRating';
+import { SessionsButton } from '../../SessionsButton';
 import { Youtube } from 'lucide-react';
-import { cn } from '../lib/utils';
-import { Row } from './ui/Row';
-import { TableCell } from './ui/table/table-cell';
-import { SocialIcon } from './ui/social-icon';
-import { Button } from './ui/button';
+import { cn } from '../../../lib/utils';
+import { Row } from './Row';
+import { TableCell } from './TableCell';
+import { SocialIcon } from '../SocialIcon';
+import { Button } from '../button';
+import { SocialIconsGroup } from '../SocialIconsGroup';
 
 export interface Speaker {
   id: string;
@@ -61,19 +62,8 @@ export function SpeakerRow({ speaker, columnWidths }: SpeakerRowProps) {
       </TableCell>
 
       <TableCell width={columnWidths.social}>
-        <div className="flex flex-wrap items-center gap-2">
-          {speaker.socialLinks.map((link, index) => (
-            <a
-              key={index}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80 transition-opacity"
-            >
-              <SocialIcon platform={link.platform} className="w-4 h-4" />
-            </a>
-          ))}
-        </div>
+      <SocialIconsGroup links={speaker.socialLinks} maxIcons={5} showCount={true} />
+
       </TableCell>
 
       <TableCell width={columnWidths.information}>
