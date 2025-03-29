@@ -1,13 +1,15 @@
-import { Table } from "./ui/Table";
-import { TableCell } from "./ui/table/table-cell";
-import { SpeakerRow, type Speaker } from "./SpeakersRow";
+import { Table } from './ui/Table';
+import { TableCell } from './ui/table/table-cell';
+import { SpeakerRow } from './SpeakersRow';
+import type { Speaker } from '~/lib/types';
+import { use } from 'react';
 
 const columnWidths = {
-  name: "20%",
-  topics: "20%",
-  languages: "20%",
-  social: "15%",
-  information: "25%",
+  name: '20%',
+  topics: '20%',
+  languages: '20%',
+  social: '15%',
+  information: '25%',
 };
 
 interface SpeakersTableViewProps {
@@ -38,7 +40,7 @@ export function SpeakersTableView({ speakers }: SpeakersTableViewProps) {
   return (
     <Table
       data={speakers}
-      renderRow={(speaker) => (
+      renderRow={speaker => (
         <SpeakerRow key={speaker.id} speaker={speaker} columnWidths={columnWidths} />
       )}
       headers={tableHeaders}
@@ -46,4 +48,13 @@ export function SpeakersTableView({ speakers }: SpeakersTableViewProps) {
       aria-label="Speakers list"
     />
   );
+}
+
+type SuspendedSpeakersTableViewProps = {
+  speakers: Promise<Speaker[]>;
+};
+
+export function SuspendedSpeakersTableView({ speakers }: SuspendedSpeakersTableViewProps) {
+  const speakersData = use(speakers);
+  return <SpeakersTableView speakers={speakersData} />;
 }

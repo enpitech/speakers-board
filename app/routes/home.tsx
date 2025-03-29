@@ -11,45 +11,6 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-const sampleSpeakers = [
-  {
-    name: 'Sarah Johnson',
-    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=sarah',
-    topics: ['React', 'TypeScript', 'Performance'],
-    languages: ['English', 'Spanish'],
-    rating: 4.8,
-    socialLinks: {
-      twitter: 'https://twitter.com/sarahj',
-      linkedin: 'https://linkedin.com/in/sarahj',
-      github: 'https://github.com/sarahj',
-    },
-  },
-  {
-    name: 'Michael Chen',
-    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=michael',
-    topics: ['Vue.js', 'State Management', 'Testing'],
-    languages: ['English', 'Mandarin'],
-    rating: 4.9,
-    socialLinks: {
-      twitter: 'https://twitter.com/michaelc',
-      linkedin: 'https://linkedin.com/in/michaelc',
-      github: 'https://github.com/michaelc',
-    },
-  },
-  {
-    name: 'Emma Rodriguez',
-    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=emma',
-    topics: ['Angular', 'RxJS', 'Architecture'],
-    languages: ['English', 'Spanish', 'French'],
-    rating: 4.7,
-    socialLinks: {
-      twitter: 'https://twitter.com/emmar',
-      linkedin: 'https://linkedin.com/in/emmar',
-      github: 'https://github.com/emmar',
-    },
-  },
-];
-
 export default function Home() {
   const { t } = useTranslation();
   return (
@@ -102,7 +63,7 @@ export default function Home() {
 
         <div className="space-y-4">
           <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">Speakers Table Demo</h2>
-          <SpeakersTable speakers={sampleSpeakers} />
+          <SpeakersTable speakers={[]} />
         </div>
 
         <div className="space-y-4">
