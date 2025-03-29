@@ -20,9 +20,9 @@ export default function Speakers({ loaderData }: { loaderData: LoaderData }) {
       <Await resolve={speakers}>{speakers => <SpeakersTableView speakers={speakers} />}</Await>
     </Suspense>
   );
-  //   return (
-  //     <Suspense fallback={<div>Loading...</div>}>
-  //       <SuspendedSpeakersTableView speakers={speakers} />
-  //     </Suspense>
-  //   );
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SuspendedSpeakersTableView speakers={speakers} />
+    </Suspense>
+  );
 }

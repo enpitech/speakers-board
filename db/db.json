@@ -129,9 +129,14 @@
       "languages": ["English", "Japanese"],
       "rating": 4.9,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/yukit" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/yukit" },
-        { "platform": "github", "url": "https://github.com/yukit" }
+        { "platform": "twitter", "url": "#" },
+        { "platform": "tiktok", "url": "#" },
+        { "platform": "facebook", "url": "#" },
+        { "platform": "linkedin", "url": "#" },
+        { "platform": "spotify", "url": "#" },
+        { "platform": "instagram", "url": "#" },
+        { "platform": "discord", "url": "#" },
+        { "platform": "github", "url": "#" }
       ]
     },
     {
@@ -141,9 +146,14 @@
       "languages": ["English", "German"],
       "rating": 4.8,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/davidm" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/davidm" },
-        { "platform": "github", "url": "https://github.com/davidm" }
+        { "platform": "twitter", "url": "#" },
+        { "platform": "tiktok", "url": "#" },
+        { "platform": "facebook", "url": "#" },
+        { "platform": "linkedin", "url": "#" },
+        { "platform": "spotify", "url": "#" },
+        { "platform": "instagram", "url": "#" },
+        { "platform": "discord", "url": "#" },
+        { "platform": "github", "url": "#" }
       ]
     },
     {
@@ -237,9 +247,14 @@
       "languages": ["English", "Twi"],
       "rating": 4.8,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/kwameo" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/kwameo" },
-        { "platform": "github", "url": "https://github.com/kwameo" }
+        { "platform": "twitter", "url": "#" },
+        { "platform": "tiktok", "url": "#" },
+        { "platform": "facebook", "url": "#" },
+        { "platform": "linkedin", "url": "#" },
+        { "platform": "spotify", "url": "#" },
+        { "platform": "instagram", "url": "#" },
+        { "platform": "discord", "url": "#" },
+        { "platform": "github", "url": "#" }
       ]
     },
     {
@@ -273,9 +288,14 @@
       "languages": ["English", "Cantonese", "Mandarin"],
       "rating": 4.8,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/nadiaw" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/nadiaw" },
-        { "platform": "github", "url": "https://github.com/nadiaw" }
+        { "platform": "twitter", "url": "#" },
+        { "platform": "tiktok", "url": "#" },
+        { "platform": "facebook", "url": "#" },
+        { "platform": "linkedin", "url": "#" },
+        { "platform": "spotify", "url": "#" },
+        { "platform": "instagram", "url": "#" },
+        { "platform": "discord", "url": "#" },
+        { "platform": "github", "url": "#" }
       ]
     }
   ]

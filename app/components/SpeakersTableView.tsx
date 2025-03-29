@@ -8,7 +8,7 @@ const columnWidths = {
   name: '20%',
   topics: '20%',
   languages: '20%',
-  social: '15%',
+  social: '25%',
   information: '25%',
 };
 
