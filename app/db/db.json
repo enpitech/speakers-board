@@ -1,0 +1,280 @@
+{
+  "speakers": [
+    {
+      "name": "Sarah Johnson",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=sarah",
+      "topics": ["React", "TypeScript", "Performance"],
+      "languages": ["English", "Spanish"],
+      "rating": 4.8,
+      "socialLinks": {
+        "twitter": "https://twitter.com/sarahj",
+        "linkedin": "https://linkedin.com/in/sarahj",
+        "github": "https://github.com/sarahj"
+      }
+    },
+    {
+      "name": "Michael Chen",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=michael",
+      "topics": ["Vue.js", "State Management", "Testing"],
+      "languages": ["English", "Mandarin"],
+      "rating": 4.9,
+      "socialLinks": {
+        "twitter": "https://twitter.com/michaelc",
+        "linkedin": "https://linkedin.com/in/michaelc",
+        "github": "https://github.com/michaelc"
+      }
+    },
+    {
+      "name": "Emma Rodriguez",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=emma",
+      "topics": ["Angular", "RxJS", "Architecture"],
+      "languages": ["English", "Spanish", "French"],
+      "rating": 4.7,
+      "socialLinks": {
+        "twitter": "https://twitter.com/emmar",
+        "linkedin": "https://linkedin.com/in/emmar",
+        "github": "https://github.com/emmar"
+      }
+    },
+    {
+      "name": "Raj Patel",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=raj",
+      "topics": ["Node.js", "Microservices", "API Design"],
+      "languages": ["English", "Hindi", "Gujarati"],
+      "rating": 4.9,
+      "socialLinks": {
+        "twitter": "https://twitter.com/rajp",
+        "linkedin": "https://linkedin.com/in/rajp",
+        "github": "https://github.com/rajp"
+      }
+    },
+    {
+      "name": "Olivia Kim",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=olivia",
+      "topics": ["GraphQL", "Apollo", "Database Design"],
+      "languages": ["English", "Korean"],
+      "rating": 4.8,
+      "socialLinks": {
+        "twitter": "https://twitter.com/oliviak",
+        "linkedin": "https://linkedin.com/in/oliviak",
+        "github": "https://github.com/oliviak"
+      }
+    },
+    {
+      "name": "Jackson Williams",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=jackson",
+      "topics": ["TensorFlow.js", "Machine Learning", "Data Visualization"],
+      "languages": ["English"],
+      "rating": 4.7,
+      "socialLinks": {
+        "twitter": "https://twitter.com/jacksonw",
+        "linkedin": "https://linkedin.com/in/jacksonw",
+        "github": "https://github.com/jacksonw"
+      }
+    },
+    {
+      "name": "Anya Petrova",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=anya",
+      "topics": ["CSS Architecture", "Accessibility", "Design Systems"],
+      "languages": ["English", "Russian"],
+      "rating": 4.6,
+      "socialLinks": {
+        "twitter": "https://twitter.com/anyap",
+        "linkedin": "https://linkedin.com/in/anyap",
+        "github": "https://github.com/anyap"
+      }
+    },
+    {
+      "name": "Mateo Fernandez",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=mateo",
+      "topics": ["Progressive Web Apps", "Service Workers", "Offline First"],
+      "languages": ["English", "Spanish", "Portuguese"],
+      "rating": 4.9,
+      "socialLinks": {
+        "twitter": "https://twitter.com/mateof",
+        "linkedin": "https://linkedin.com/in/mateof",
+        "github": "https://github.com/mateof"
+      }
+    },
+    {
+      "name": "Zara Ahmed",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=zara",
+      "topics": ["Web Security", "Auth Patterns", "Encryption"],
+      "languages": ["English", "Arabic", "French"],
+      "rating": 4.8,
+      "socialLinks": {
+        "twitter": "https://twitter.com/zaraa",
+        "linkedin": "https://linkedin.com/in/zaraa",
+        "github": "https://github.com/zaraa"
+      }
+    },
+    {
+      "name": "Liam O'Connor",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=liam",
+      "topics": ["Serverless", "AWS", "Cloud Architecture"],
+      "languages": ["English", "Irish"],
+      "rating": 4.7,
+      "socialLinks": {
+        "twitter": "https://twitter.com/liamo",
+        "linkedin": "https://linkedin.com/in/liamo",
+        "github": "https://github.com/liamo"
+      }
+    },
+    {
+      "name": "Yuki Tanaka",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=yuki",
+      "topics": ["React Native", "Mobile UX", "Cross-platform Development"],
+      "languages": ["English", "Japanese"],
+      "rating": 4.9,
+      "socialLinks": {
+        "twitter": "https://twitter.com/yukit",
+        "linkedin": "https://linkedin.com/in/yukit",
+        "github": "https://github.com/yukit"
+      }
+    },
+    {
+      "name": "David Müller",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=david",
+      "topics": ["WebAssembly", "Performance Optimization", "C++"],
+      "languages": ["English", "German"],
+      "rating": 4.8,
+      "socialLinks": {
+        "twitter": "https://twitter.com/davidm",
+        "linkedin": "https://linkedin.com/in/davidm",
+        "github": "https://github.com/davidm"
+      }
+    },
+    {
+      "name": "Sophia Lee",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=sophia",
+      "topics": ["Design Thinking", "UI/UX", "Product Design"],
+      "languages": ["English", "Cantonese"],
+      "rating": 4.6,
+      "socialLinks": {
+        "twitter": "https://twitter.com/sophial",
+        "linkedin": "https://linkedin.com/in/sophial",
+        "github": "https://github.com/sophial"
+      }
+    },
+    {
+      "name": "Omar Hassan",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=omar",
+      "topics": ["Docker", "Kubernetes", "DevOps"],
+      "languages": ["English", "Arabic"],
+      "rating": 4.9,
+      "socialLinks": {
+        "twitter": "https://twitter.com/omarh",
+        "linkedin": "https://linkedin.com/in/omarh",
+        "github": "https://github.com/omarh"
+      }
+    },
+    {
+      "name": "Isabella Rossi",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=isabella",
+      "topics": ["WebGL", "Three.js", "Creative Coding"],
+      "languages": ["English", "Italian"],
+      "rating": 4.7,
+      "socialLinks": {
+        "twitter": "https://twitter.com/isabellar",
+        "linkedin": "https://linkedin.com/in/isabellar",
+        "github": "https://github.com/isabellar"
+      }
+    },
+    {
+      "name": "Andre Silva",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=andre",
+      "topics": ["Jest", "Testing Strategies", "TDD"],
+      "languages": ["English", "Portuguese"],
+      "rating": 4.6,
+      "socialLinks": {
+        "twitter": "https://twitter.com/andres",
+        "linkedin": "https://linkedin.com/in/andres",
+        "github": "https://github.com/andres"
+      }
+    },
+    {
+      "name": "Priya Sharma",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=priya",
+      "topics": ["Next.js", "SSR", "Jamstack"],
+      "languages": ["English", "Hindi", "Bengali"],
+      "rating": 4.8,
+      "socialLinks": {
+        "twitter": "https://twitter.com/priyas",
+        "linkedin": "https://linkedin.com/in/priyas",
+        "github": "https://github.com/priyas"
+      }
+    },
+    {
+      "name": "Lucas Nguyen",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=lucas",
+      "topics": ["Svelte", "Animation", "Web Components"],
+      "languages": ["English", "Vietnamese", "French"],
+      "rating": 4.7,
+      "socialLinks": {
+        "twitter": "https://twitter.com/lucasn",
+        "linkedin": "https://linkedin.com/in/lucasn",
+        "github": "https://github.com/lucasn"
+      }
+    },
+    {
+      "name": "Elena Popova",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=elena",
+      "topics": ["WebRTC", "Real-time Communication", "Video Streaming"],
+      "languages": ["English", "Russian", "Ukrainian"],
+      "rating": 4.9,
+      "socialLinks": {
+        "twitter": "https://twitter.com/elenap",
+        "linkedin": "https://linkedin.com/in/elenap",
+        "github": "https://github.com/elenap"
+      }
+    },
+    {
+      "name": "Kwame Osei",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=kwame",
+      "topics": ["Blockchain", "Web3", "Smart Contracts"],
+      "languages": ["English", "Twi"],
+      "rating": 4.8,
+      "socialLinks": {
+        "twitter": "https://twitter.com/kwameo",
+        "linkedin": "https://linkedin.com/in/kwameo",
+        "github": "https://github.com/kwameo"
+      }
+    },
+    {
+      "name": "Gabriela Mendez",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=gabriela",
+      "topics": ["Ember.js", "Frontend Architecture", "SPA"],
+      "languages": ["English", "Spanish"],
+      "rating": 4.7,
+      "socialLinks": {
+        "twitter": "https://twitter.com/gabrielam",
+        "linkedin": "https://linkedin.com/in/gabrielam",
+        "github": "https://github.com/gabrielam"
+      }
+    },
+    {
+      "name": "Amir Khan",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=amir",
+      "topics": ["Gatsby", "Static Site Generation", "Headless CMS"],
+      "languages": ["English", "Urdu", "Persian"],
+      "rating": 4.8,
+      "socialLinks": {
+        "twitter": "https://twitter.com/amirk",
+        "linkedin": "https://linkedin.com/in/amirk",
+        "github": "https://github.com/amirk"
+      }
+    },
+    {
+      "name": "Nadia Wong",
+      "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=nadia",
+      "topics": ["Tailwind CSS", "Responsive Design", "Design Systems"],
+      "languages": ["English", "Cantonese", "Mandarin"],
+      "rating": 4.8,
+      "socialLinks": {
+        "twitter": "https://twitter.com/nadiaw",
+        "linkedin": "https://linkedin.com/in/nadiaw",
+        "github": "https://github.com/nadiaw"
+      }
+    }
+  ]
+}
