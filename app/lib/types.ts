@@ -1,3 +1,18 @@
+export type SocialNetwork =
+  | 'linkedin'
+  | 'twitter'
+  | 'facebook'
+  | 'instagram'
+  | 'youtube'
+  | 'github'
+  | 'tiktok'
+  | 'spotify'
+  | 'discord';
+
+export type SocialLink = {
+  platform: SocialNetwork;
+  url: string;
+};
 export type Speaker = {
   id: string;
   name: string;
@@ -7,19 +22,7 @@ export type Speaker = {
   experience?: string;
   topics: string[];
   languages: string[];
-  socialLinks: {
-    platform:
-      | 'linkedin'
-      | 'twitter'
-      | 'facebook'
-      | 'instagram'
-      | 'youtube'
-      | 'github'
-      | 'tiktok'
-      | 'spotify'
-      | 'discord';
-    url: string;
-  }[];
+  socialLinks: SocialLink[];
   rating: number;
   sessionsUrl?: string;
 };
@@ -42,4 +45,14 @@ export type Review = {
   text: string;
   date: string;
   speakerId: string;
+};
+
+export type SpeakerFormData = {
+  fullName: string;
+  languages: string[];
+  topics: string[];
+  sessionsUrl: string;
+  socialLinks: SocialLink[];
+  avatar?: string;
+  bio?: string;
 };

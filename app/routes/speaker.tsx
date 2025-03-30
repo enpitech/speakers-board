@@ -7,7 +7,7 @@ import { Button } from '~/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/components/ui/tabs';
 
-import type { Speaker, Session, Review } from '~/lib/types';
+import type { Speaker, Session, Review, SocialNetwork } from '~/lib/types';
 
 type LoaderData = {
   speaker: Promise<Speaker>;
@@ -92,7 +92,7 @@ export async function loader({ params }: { params: { speakerId: string } }): Pro
   return { speaker, upcomingSessions, pastSessions, reviews };
 }
 
-const SocialIcon = ({ platform }: { platform: Speaker['socialLinks'][0]['platform'] }) => {
+const SocialIcon = ({ platform }: { platform: SocialNetwork }) => {
   switch (platform) {
     case 'linkedin':
       return (
@@ -104,18 +104,6 @@ const SocialIcon = ({ platform }: { platform: Speaker['socialLinks'][0]['platfor
           fill="#006699"
         >
           <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-        </svg>
-      );
-    case 'spotify':
-      return (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="#10bc4c"
-        >
-          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.5 14.5c-.2 0-.3-.1-.4-.2-1.2-.7-2.7-1.1-4.2-1.1-1.4 0-2.7.3-3.9.8-.1.1-.3.1-.4.1-.3 0-.5-.2-.5-.5s.1-.4.3-.5c1.4-.6 2.9-.9 4.5-.9 1.7 0 3.4.4 4.9 1.3.2.1.3.2.3.4 0 .3-.2.6-.6.6zm1.2-2.7c-.2 0-.4-.1-.5-.2-1.4-.8-3.1-1.3-4.9-1.3-1.9 0-3.6.4-5.1 1.2-.2.1-.3.1-.5.1-.4 0-.7-.3-.7-.7 0-.3.1-.5.4-.6 1.8-.9 3.8-1.4 5.9-1.4 2.1 0 4.1.5 5.8 1.5.2.1.4.4.4.6 0 .4-.3.8-.8.8zm1.4-3.1c-.2 0-.4-.1-.6-.2-1.7-1-3.7-1.5-5.7-1.5-2.1 0-4.1.5-5.9 1.4-.2.1-.4.2-.6.2-.5 0-.9-.4-.9-.9 0-.3.2-.6.4-.8 2.1-1 4.3-1.6 6.9-1.6 2.5 0 4.9.6 7 1.7.3.1.5.4.5.8 0 .4-.4.9-.9.9z" />
         </svg>
       );
     case 'instagram':
@@ -232,7 +220,11 @@ const SpeakerPageHeader = ({ speaker }: { speaker: Speaker }) => {
       <div className="bg-white p-6 relative">
         <div className="absolute -top-16 left-8 w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-md">
           {avatar ? (
-            <img src={avatar || '/placeholder.svg'} alt={name} className="object-cover" />
+            <img
+              src={avatar || '/placeholder.svg'}
+              alt={name}
+              className="object-cover w-full h-full"
+            />
           ) : (
             <div className="w-full h-full bg-[#eefaff] flex items-center justify-center text-[#006699] text-4xl font-bold">
               {name.charAt(0)}
@@ -304,17 +296,17 @@ const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
   const { bio, topics, languages } = speaker;
   return (
     <div className="md:col-span-1 space-y-6">
-      {/* About */}
-      <Card>
-        <CardHeader>
-          <CardTitle>About</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-[#939393]">{bio}</p>
-        </CardContent>
-      </Card>
+      {bio && (
+        <Card>
+          <CardHeader>
+            <CardTitle>About</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-[#939393]">{bio}</p>
+          </CardContent>
+        </Card>
+      )}
 
-      {/* Topics */}
       <Card>
         <CardHeader>
           <CardTitle>Expertise</CardTitle>
@@ -330,7 +322,6 @@ const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
         </CardContent>
       </Card>
 
-      {/* Languages */}
       <Card>
         <CardHeader>
           <CardTitle>Languages</CardTitle>
