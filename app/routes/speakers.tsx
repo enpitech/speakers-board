@@ -1,6 +1,6 @@
 import { Suspense, useEffect, useState } from 'react';
 import { Await, type ActionFunctionArgs, useLocation } from 'react-router';
-import { SpeakersTableView } from '~/components/SpeakersTableView';
+import { SpeakersTableView } from '~/components/SpeakersTable';
 import { SpeakersFilters } from '~/components/SpeakersFilters';
 import { Spinner } from '~/components/Spinner';
 import type { Speaker } from '~/lib/types';
@@ -74,7 +74,7 @@ export default function Speakers({ loaderData }: { loaderData: LoaderData }) {
 
       const ratingMatches =
         filters.rating === null || Math.round(speaker.rating) === filters.rating;
-        
+
       return languageMatches && topicMatches && ratingMatches;
     });
   };

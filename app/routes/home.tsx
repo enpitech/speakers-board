@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import type { Route } from './+types/home';
 import { Avatar } from '~/components/Avatar';
-import { SpeakersTable } from '~/components/SpeakersTable';
-import { SpeakersTableView } from '~/components/SpeakersTableView';
+import { SpeakersTableView } from '~/components/SpeakersTable';
 import { RegisterSpeakerButton } from '~/components/SpeakerFormDialog/RegisterSpeakerButton';
 
 export function meta({}: Route.MetaArgs) {
@@ -63,17 +62,14 @@ export default function Home() {
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">Speakers Table Demo</h2>
-          <SpeakersTable speakers={[]} />
-        </div>
-
-        <div className="space-y-4">
           <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">Empty State Demo</h2>
           <SpeakersTableView speakers={[]} />
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">Register Speaker Form Demo</h2>
+          <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">
+            Register Speaker Form Demo
+          </h2>
           <div className="flex items-center gap-4">
             <RegisterSpeakerButton variant="primary" size="md" />
             <RegisterSpeakerButton variant="secondary" size="md" />
