@@ -8,9 +8,18 @@
       "languages": ["English", "Spanish"],
       "rating": 2,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/sarahj" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/sarahj" },
-        { "platform": "github", "url": "https://github.com/sarahj" }
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/sarahj"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/sarahj"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/sarahj"
+        }
       ],
       "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
     },
@@ -22,9 +31,18 @@
       "languages": ["English", "Mandarin"],
       "rating": 3,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/michaelc" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/michaelc" },
-        { "platform": "github", "url": "https://github.com/michaelc" }
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/michaelc"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/michaelc"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/michaelc"
+        }
       ],
       "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
     },
@@ -35,11 +53,21 @@
       "languages": ["English", "Spanish", "French"],
       "rating": 4,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/emmar" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/emmar" },
-        { "platform": "github", "url": "https://github.com/emmar" }
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/emmar"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/emmar"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/emmar"
+        }
       ],
-      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
+      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001",
+      "id": "cf56"
     },
     {
       "name": "Raj Patel",
@@ -48,11 +76,21 @@
       "languages": ["English", "Hindi", "Gujarati"],
       "rating": 5,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/rajp" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/rajp" },
-        { "platform": "github", "url": "https://github.com/rajp" }
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/rajp"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/rajp"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/rajp"
+        }
       ],
-      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
+      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001",
+      "id": "8049"
     },
     {
       "name": "Olivia Kim",
@@ -61,11 +99,21 @@
       "languages": ["English", "Korean"],
       "rating": 2,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/oliviak" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/oliviak" },
-        { "platform": "github", "url": "https://github.com/oliviak" }
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/oliviak"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/oliviak"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/oliviak"
+        }
       ],
-      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
+      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001",
+      "id": "c59b"
     },
     {
       "name": "Jackson Williams",
@@ -74,11 +122,21 @@
       "languages": ["English"],
       "rating": 4.7,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/jacksonw" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/jacksonw" },
-        { "platform": "github", "url": "https://github.com/jacksonw" }
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/jacksonw"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/jacksonw"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/jacksonw"
+        }
       ],
-      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
+      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001",
+      "id": "303f"
     },
     {
       "name": "Anya Petrova",
@@ -87,11 +145,21 @@
       "languages": ["English", "Russian"],
       "rating": 4.6,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/anyap" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/anyap" },
-        { "platform": "github", "url": "https://github.com/anyap" }
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/anyap"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/anyap"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/anyap"
+        }
       ],
-      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
+      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001",
+      "id": "6b31"
     },
     {
       "name": "Mateo Fernandez",
@@ -100,11 +168,21 @@
       "languages": ["English", "Spanish", "Portuguese"],
       "rating": 4.9,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/mateof" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/mateof" },
-        { "platform": "github", "url": "https://github.com/mateof" }
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/mateof"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/mateof"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/mateof"
+        }
       ],
-      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
+      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001",
+      "id": "68e5"
     },
     {
       "name": "Zara Ahmed",
@@ -113,11 +191,21 @@
       "languages": ["English", "Arabic", "French"],
       "rating": 4.8,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/zaraa" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/zaraa" },
-        { "platform": "github", "url": "https://github.com/zaraa" }
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/zaraa"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/zaraa"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/zaraa"
+        }
       ],
-      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
+      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001",
+      "id": "d529"
     },
     {
       "name": "Liam O'Connor",
@@ -126,10 +214,20 @@
       "languages": ["English", "Irish"],
       "rating": 4.7,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/liamo" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/liamo" },
-        { "platform": "github", "url": "https://github.com/liamo" }
-      ]
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/liamo"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/liamo"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/liamo"
+        }
+      ],
+      "id": "d1cd"
     },
     {
       "name": "Yuki Tanaka",
@@ -137,17 +235,41 @@
       "topics": ["React Native", "Mobile UX", "Cross-platform Development"],
       "languages": ["English", "Japanese"],
       "rating": 4.9,
-
       "socialLinks": [
-        { "platform": "twitter", "url": "#" },
-        { "platform": "tiktok", "url": "#" },
-        { "platform": "facebook", "url": "#" },
-        { "platform": "linkedin", "url": "#" },
-        { "platform": "spotify", "url": "#" },
-        { "platform": "instagram", "url": "#" },
-        { "platform": "discord", "url": "#" },
-        { "platform": "github", "url": "#" }
-      ]
+        {
+          "platform": "twitter",
+          "url": "#"
+        },
+        {
+          "platform": "tiktok",
+          "url": "#"
+        },
+        {
+          "platform": "facebook",
+          "url": "#"
+        },
+        {
+          "platform": "linkedin",
+          "url": "#"
+        },
+        {
+          "platform": "spotify",
+          "url": "#"
+        },
+        {
+          "platform": "instagram",
+          "url": "#"
+        },
+        {
+          "platform": "discord",
+          "url": "#"
+        },
+        {
+          "platform": "github",
+          "url": "#"
+        }
+      ],
+      "id": "4cc0"
     },
     {
       "name": "David Müller",
@@ -156,15 +278,40 @@
       "languages": ["English", "German"],
       "rating": 4.8,
       "socialLinks": [
-        { "platform": "twitter", "url": "#" },
-        { "platform": "tiktok", "url": "#" },
-        { "platform": "facebook", "url": "#" },
-        { "platform": "linkedin", "url": "#" },
-        { "platform": "spotify", "url": "#" },
-        { "platform": "instagram", "url": "#" },
-        { "platform": "discord", "url": "#" },
-        { "platform": "github", "url": "#" }
-      ]
+        {
+          "platform": "twitter",
+          "url": "#"
+        },
+        {
+          "platform": "tiktok",
+          "url": "#"
+        },
+        {
+          "platform": "facebook",
+          "url": "#"
+        },
+        {
+          "platform": "linkedin",
+          "url": "#"
+        },
+        {
+          "platform": "spotify",
+          "url": "#"
+        },
+        {
+          "platform": "instagram",
+          "url": "#"
+        },
+        {
+          "platform": "discord",
+          "url": "#"
+        },
+        {
+          "platform": "github",
+          "url": "#"
+        }
+      ],
+      "id": "5005"
     },
     {
       "name": "Sophia Lee",
@@ -173,10 +320,20 @@
       "languages": ["English", "Cantonese"],
       "rating": 4.6,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/sophial" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/sophial" },
-        { "platform": "github", "url": "https://github.com/sophial" }
-      ]
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/sophial"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/sophial"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/sophial"
+        }
+      ],
+      "id": "6531"
     },
     {
       "name": "Omar Hassan",
@@ -185,10 +342,20 @@
       "languages": ["English", "Arabic"],
       "rating": 4.9,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/omarh" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/omarh" },
-        { "platform": "github", "url": "https://github.com/omarh" }
-      ]
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/omarh"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/omarh"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/omarh"
+        }
+      ],
+      "id": "f39e"
     },
     {
       "name": "Isabella Rossi",
@@ -197,10 +364,20 @@
       "languages": ["English", "Italian"],
       "rating": 4.7,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/isabellar" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/isabellar" },
-        { "platform": "github", "url": "https://github.com/isabellar" }
-      ]
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/isabellar"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/isabellar"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/isabellar"
+        }
+      ],
+      "id": "7c54"
     },
     {
       "name": "Andre Silva",
@@ -209,10 +386,20 @@
       "languages": ["English", "Portuguese"],
       "rating": 4.6,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/andres" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/andres" },
-        { "platform": "github", "url": "https://github.com/andres" }
-      ]
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/andres"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/andres"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/andres"
+        }
+      ],
+      "id": "7ce8"
     },
     {
       "name": "Priya Sharma",
@@ -221,10 +408,20 @@
       "languages": ["English", "Hindi", "Bengali"],
       "rating": 4.8,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/priyas" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/priyas" },
-        { "platform": "github", "url": "https://github.com/priyas" }
-      ]
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/priyas"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/priyas"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/priyas"
+        }
+      ],
+      "id": "3d74"
     },
     {
       "name": "Lucas Nguyen",
@@ -233,10 +430,20 @@
       "languages": ["English", "Vietnamese", "French"],
       "rating": 2,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/lucasn" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/lucasn" },
-        { "platform": "github", "url": "https://github.com/lucasn" }
-      ]
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/lucasn"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/lucasn"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/lucasn"
+        }
+      ],
+      "id": "16cf"
     },
     {
       "name": "Elena Popova",
@@ -245,10 +452,20 @@
       "languages": ["English", "Russian", "Ukrainian"],
       "rating": 4.9,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/elenap" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/elenap" },
-        { "platform": "github", "url": "https://github.com/elenap" }
-      ]
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/elenap"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/elenap"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/elenap"
+        }
+      ],
+      "id": "56d5"
     },
     {
       "name": "Kwame Osei",
@@ -257,15 +474,40 @@
       "languages": ["English", "Twi"],
       "rating": 4.8,
       "socialLinks": [
-        { "platform": "twitter", "url": "#" },
-        { "platform": "tiktok", "url": "#" },
-        { "platform": "facebook", "url": "#" },
-        { "platform": "linkedin", "url": "#" },
-        { "platform": "spotify", "url": "#" },
-        { "platform": "instagram", "url": "#" },
-        { "platform": "discord", "url": "#" },
-        { "platform": "github", "url": "#" }
-      ]
+        {
+          "platform": "twitter",
+          "url": "#"
+        },
+        {
+          "platform": "tiktok",
+          "url": "#"
+        },
+        {
+          "platform": "facebook",
+          "url": "#"
+        },
+        {
+          "platform": "linkedin",
+          "url": "#"
+        },
+        {
+          "platform": "spotify",
+          "url": "#"
+        },
+        {
+          "platform": "instagram",
+          "url": "#"
+        },
+        {
+          "platform": "discord",
+          "url": "#"
+        },
+        {
+          "platform": "github",
+          "url": "#"
+        }
+      ],
+      "id": "cefb"
     },
     {
       "name": "Gabriela Mendez",
@@ -274,10 +516,20 @@
       "languages": ["English", "Spanish"],
       "rating": 4.7,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/gabrielam" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/gabrielam" },
-        { "platform": "github", "url": "https://github.com/gabrielam" }
-      ]
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/gabrielam"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/gabrielam"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/gabrielam"
+        }
+      ],
+      "id": "2eae"
     },
     {
       "name": "Amir Khan",
@@ -286,10 +538,20 @@
       "languages": ["English", "Urdu", "Persian"],
       "rating": 4.8,
       "socialLinks": [
-        { "platform": "twitter", "url": "https://twitter.com/amirk" },
-        { "platform": "linkedin", "url": "https://linkedin.com/in/amirk" },
-        { "platform": "github", "url": "https://github.com/amirk" }
-      ]
+        {
+          "platform": "twitter",
+          "url": "https://twitter.com/amirk"
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://linkedin.com/in/amirk"
+        },
+        {
+          "platform": "github",
+          "url": "https://github.com/amirk"
+        }
+      ],
+      "id": "36c7"
     },
     {
       "name": "Nadia Wong",
@@ -298,15 +560,40 @@
       "languages": ["English", "Cantonese", "Mandarin"],
       "rating": 4.8,
       "socialLinks": [
-        { "platform": "twitter", "url": "#" },
-        { "platform": "tiktok", "url": "#" },
-        { "platform": "facebook", "url": "#" },
-        { "platform": "linkedin", "url": "#" },
-        { "platform": "spotify", "url": "#" },
-        { "platform": "instagram", "url": "#" },
-        { "platform": "discord", "url": "#" },
-        { "platform": "github", "url": "#" }
-      ]
+        {
+          "platform": "twitter",
+          "url": "#"
+        },
+        {
+          "platform": "tiktok",
+          "url": "#"
+        },
+        {
+          "platform": "facebook",
+          "url": "#"
+        },
+        {
+          "platform": "linkedin",
+          "url": "#"
+        },
+        {
+          "platform": "spotify",
+          "url": "#"
+        },
+        {
+          "platform": "instagram",
+          "url": "#"
+        },
+        {
+          "platform": "discord",
+          "url": "#"
+        },
+        {
+          "platform": "github",
+          "url": "#"
+        }
+      ],
+      "id": "fc3b"
     }
   ],
   "reviews": [

@@ -1,4 +1,3 @@
-
 import type React from "react"
 
 import { useState, useRef, useEffect } from "react"
@@ -195,11 +194,11 @@ export function SocialNetworkInput({ value, onChange, className }: SocialNetwork
         {isOpen && (
           <div
             ref={dropdownRef}
-            className="fixed z-50 mt-1 overflow-y-auto rounded-md border border-stroke bg-white py-1 shadow-lg"
+            className="absolute z-50 mt-1 overflow-y-auto rounded-md border border-stroke bg-white py-1 shadow-lg"
             style={{
-              top: `${dropdownPosition.top}px`,
-              left: `${dropdownPosition.left}px`,
-              width: `${dropdownPosition.width}px`,
+              top: "100%",
+              left: 0,
+              width: "100%",
               maxHeight: "320px",
             }}
           >
