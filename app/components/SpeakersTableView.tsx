@@ -46,6 +46,7 @@ export function SpeakersTableView({ speakers }: SpeakersTableViewProps) {
       headers={tableHeaders}
       emptyMessage="No speakers found"
       aria-label="Speakers list"
+      className="w-full min-h-[500px]"
     />
   );
 }

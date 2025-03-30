@@ -6,6 +6,7 @@ import { TableCell } from './TableCell';
 import { Button } from '../button';
 import { SocialIconsGroup } from '../SocialIconsGroup';
 import type { Speaker } from '~/lib/types';
+import { useNavigate } from 'react-router';
 
 interface SpeakerRowProps {
   speaker: Speaker;
@@ -19,8 +20,9 @@ interface SpeakerRowProps {
 }
 
 export function SpeakerRow({ speaker, columnWidths }: SpeakerRowProps) {
+  const navigate = useNavigate();
   return (
-    <Row>
+    <Row onClick={() => navigate(`/speakers/${speaker.id}`)}>
       <TableCell width={columnWidths.name}>
         <div className="flex items-center gap-3 min-w-0">
           <Avatar src={speaker.avatar} alt={speaker.name} size="sm" fallback={speaker.name} />

@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Chip } from './ui/Chip';
+import { useSearchParams } from 'react-router';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 
 interface SpeakersFiltersProps {
   AvailableFilters: {
@@ -31,7 +32,7 @@ export function SpeakersFilters({ AvailableFilters }: SpeakersFiltersProps) {
     setFilters({
       language: languagesFromUrl.filter(Boolean),
       topic: topicsFromUrl.filter(Boolean),
-      rating: ratingFromUrl ? parseInt(ratingFromUrl) : null, 
+      rating: ratingFromUrl ? parseInt(ratingFromUrl) : null,
     });
   }, [searchParams]);
 
@@ -45,16 +46,12 @@ export function SpeakersFilters({ AvailableFilters }: SpeakersFiltersProps) {
     if (newFilters.language.length > 0)
       newSearchParams.set('language', newFilters.language.join(','));
     if (newFilters.topic.length > 0) newSearchParams.set('topic', newFilters.topic.join(','));
-    if (newFilters.rating !== null) newSearchParams.set('rating', newFilters.rating.toString()); 
+    if (newFilters.rating !== null) newSearchParams.set('rating', newFilters.rating.toString());
 
     setSearchParams(newSearchParams);
   };
 
-  const handleSelectChange = (
-    e: React.ChangeEvent<HTMLSelectElement>,
-    type: 'language' | 'topic',
-  ) => {
-    const value = e.target.value;
+  const handleSelectChange = (value: string, type: 'language' | 'topic') => {
     if (!value) return;
 
     setFilters(prevFilters => {
@@ -65,8 +62,6 @@ export function SpeakersFilters({ AvailableFilters }: SpeakersFiltersProps) {
       updateFiltersInUrl(updatedFilters);
       return updatedFilters;
     });
-
-    e.target.value = '';
   };
 
   const handleRemove = (type: 'language' | 'topic', value: string) => {
@@ -78,28 +73,33 @@ export function SpeakersFilters({ AvailableFilters }: SpeakersFiltersProps) {
     });
   };
 
-  const handleRatingChange = (rating: number | null) => {
+  const handleRatingChange = (rating: string) => {
     setFilters(prevFilters => {
-      const updatedFilters = { ...prevFilters, rating };
+      const updatedFilters = {
+        ...prevFilters,
+        rating: rating === 'null' ? null : parseInt(rating),
+      };
       updateFiltersInUrl(updatedFilters);
       return updatedFilters;
     });
   };
 
   return (
-    <div className="flex gap-4 mb-4">
+    <div className="flex gap-4 mb-4 w-full border border-primary rounded-md p-4">
       <div className="flex-1">
-        <select
-          onChange={e => handleSelectChange(e, 'language')}
-          className="w-full border border-gray-300 rounded-md p-2 mt-1 font-graphik font-normal text-gray-600"
-        >
-          <option value="">Languages</option>
-          {availableLanguages.map(lang => (
-            <option key={lang} value={lang}>
-              {lang}
-            </option>
-          ))}
-        </select>
+        <Select value="" onValueChange={value => handleSelectChange(value, 'language')}>
+          <SelectTrigger className="w-full">
+            <SelectValue placeholder="Filter by language" />
+          </SelectTrigger>
+          <SelectContent>
+            {availableLanguages.map(lang => (
+              <SelectItem key={lang} value={lang}>
+                {lang}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+
         <div className="flex gap-2 mt-2 flex-wrap">
           {filters.language.map(lang => (
             <Chip key={lang} label={lang} onRemove={() => handleRemove('language', lang)} />
@@ -108,17 +108,18 @@ export function SpeakersFilters({ AvailableFilters }: SpeakersFiltersProps) {
       </div>
 
       <div className="flex-1">
-        <select
-          onChange={e => handleSelectChange(e, 'topic')}
-          className="w-full border border-gray-300 rounded-md p-2 mt-1 font-graphik font-normal text-gray-600"
-        >
-          <option value="">Topics</option>
-          {availableTopics.map(topic => (
-            <option key={topic} value={topic}>
-              {topic}
-            </option>
-          ))}
-        </select>
+        <Select value="" onValueChange={value => handleSelectChange(value, 'topic')}>
+          <SelectTrigger className="w-full">
+            <SelectValue placeholder="Filter by topic" />
+          </SelectTrigger>
+          <SelectContent>
+            {availableTopics.map(topic => (
+              <SelectItem key={topic} value={topic}>
+                {topic}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
         <div className="flex gap-2 mt-2 flex-wrap">
           {filters.topic.map(topic => (
             <Chip key={topic} label={topic} onRemove={() => handleRemove('topic', topic)} />
@@ -127,19 +128,24 @@ export function SpeakersFilters({ AvailableFilters }: SpeakersFiltersProps) {
       </div>
 
       <div className="flex-1">
-        <select
-          onChange={e =>
-            handleRatingChange(e.target.value === 'null' ? null : parseInt(e.target.value))
-          }
-          className="w-full border border-gray-300 rounded-md p-2 mt-1 font-graphik font-normal text-gray-600"
-        >
-          <option value="null">All ratings</option>
-          {[5, 4, 3, 2, 1].map(rating => (
-            <option key={rating} value={rating}>
-              {'⭐'.repeat(rating)}
-            </option>
-          ))}
-        </select>
+        <Select value="" onValueChange={value => handleRatingChange(value)}>
+          <SelectTrigger className="w-full">
+            <SelectValue placeholder="Filter by rating" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="null">All ratings</SelectItem>
+            {[5, 4, 3, 2, 1].map(rating => (
+              <SelectItem key={rating} value={rating.toString()}>
+                {'⭐'.repeat(rating)}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <div className="flex gap-2 mt-2 flex-wrap">
+          {filters.rating && (
+            <Chip label={'⭐'.repeat(filters.rating)} onRemove={() => handleRatingChange('null')} />
+          )}
+        </div>
       </div>
     </div>
   );
