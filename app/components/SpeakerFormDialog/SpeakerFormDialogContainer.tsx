@@ -1,32 +1,30 @@
-import { useState } from "react"
-import { Dialog } from "../ui/Dialog/Dialog"
-import { SpeakerFormDialogView } from "./SpeakerFormDialogView"
-import type { SpeakerFormData } from "./SpeakerFormDialogView"
-import { useNavigation, useActionData } from "react-router"
-import React from "react"
+import { useState } from 'react';
+import { Dialog } from '../ui/Dialog/Dialog';
+import { SpeakerFormDialogView } from './SpeakerFormDialogView';
+import type { SpeakerFormData } from './SpeakerFormDialogView';
+import { useNavigation, useActionData } from 'react-router';
+import React from 'react';
 
 interface SpeakerFormDialogContainerProps {
-  isOpen: boolean
-  onClose: () => void
+  isOpen: boolean;
+  onClose: () => void;
 }
 
-export function SpeakerFormDialogContainer({
-  isOpen,
-  onClose,
-}: SpeakerFormDialogContainerProps) {
+export function SpeakerFormDialogContainer({ isOpen, onClose }: SpeakerFormDialogContainerProps) {
   const [formData, setFormData] = useState<SpeakerFormData>({
-    fullName: "",
+    fullName: '',
     languages: [],
     topics: [],
-    previousTalksUrl: "",
-    socialNetworks: [{ network: "twitter", username: "" }],
-  })
-
+    sessionsUrl: '',
+    socialLinks: [{ platform: 'twitter', url: '' }],
+  });
 
   const navigation = useNavigation();
   const actionData = useActionData<{ errors?: Record<string, string>; success?: boolean }>();
-  const [errors, setErrors] = useState<Partial<Record<keyof SpeakerFormData, string>>>({...actionData?.errors})
-  const isSubmitting = navigation.state === "submitting";
+  const [errors, setErrors] = useState<Partial<Record<keyof SpeakerFormData, string>>>({
+    ...actionData?.errors,
+  });
+  const isSubmitting = navigation.state === 'submitting';
 
   // Close dialog on successful submission
   React.useEffect(() => {
@@ -36,34 +34,34 @@ export function SpeakerFormDialogContainer({
   }, [actionData?.success, onClose]);
 
   React.useEffect(() => {
-    setErrors({...actionData?.errors})
-  }, [actionData?.errors])
+    setErrors({ ...actionData?.errors });
+  }, [actionData?.errors]);
 
   const handleChange = (data: Partial<SpeakerFormData>) => {
-    setFormData((prev) => ({ ...prev, ...data }))
+    setFormData(prev => ({ ...prev, ...data }));
     // Clear errors when user makes changes
-    setErrors((prev) => {
-      const newErrors = { ...prev }
-      Object.keys(data).forEach((key) => {
-        delete newErrors[key as keyof SpeakerFormData]
-      })
-      return newErrors
-    })
-  }
+    setErrors(prev => {
+      const newErrors = { ...prev };
+      Object.keys(data).forEach(key => {
+        delete newErrors[key as keyof SpeakerFormData];
+      });
+      return newErrors;
+    });
+  };
 
   const handleAddSocialNetwork = () => {
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
-      socialNetworks: [...prev.socialNetworks, { network: "twitter", username: "" }],
-    }))
-  }
+      socialLinks: [...prev.socialLinks, { platform: 'twitter', url: '' }],
+    }));
+  };
 
   const handleRemoveSocialNetwork = (index: number) => {
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
-      socialNetworks: prev.socialNetworks.filter((_, i) => i !== index),
-    }))
-  }
+      socialLinks: prev.socialLinks.filter((_, i) => i !== index),
+    }));
+  };
 
   return (
     <Dialog isOpen={isOpen} onClose={onClose} title="Sign up as a Speaker">
@@ -76,5 +74,5 @@ export function SpeakerFormDialogContainer({
         isSubmitting={isSubmitting}
       />
     </Dialog>
-  )
+  );
 }

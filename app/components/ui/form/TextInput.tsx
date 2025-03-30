@@ -1,22 +1,19 @@
-
-import type React from "react"
-
-import { forwardRef, useState } from "react"
-import { cn } from "~/lib/utils"
+import { forwardRef, useState } from 'react';
+import { cn } from '~/lib/utils';
 
 export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: string
-  error?: string
-  icon?: React.ReactNode
-  fullWidth?: boolean
+  label?: string;
+  error?: string;
+  icon?: React.ReactNode;
+  fullWidth?: boolean;
 }
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   ({ label, error, icon, fullWidth = true, className, ...props }, ref) => {
-    const [focused, setFocused] = useState(false)
+    const [focused, setFocused] = useState(false);
 
     return (
-      <div className={cn("flex flex-col", fullWidth ? "w-full" : "")}>
+      <div className={cn('flex flex-col', fullWidth ? 'w-full' : '')}>
         {label && (
           <label htmlFor={props.id} className="mb-1 text-sm font-medium text-text-2">
             {label}
@@ -24,9 +21,9 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         )}
         <div
           className={cn(
-            "flex items-center rounded-md border border-stroke bg-background-2 px-3 py-2 transition-colors",
-            focused ? "border-primary" : "hover:border-dark-base",
-            error ? "border-red-500" : "",
+            'flex items-center rounded-md border border-stroke  px-3 py-2 transition-colors',
+            focused ? 'border-primary' : 'hover:border-dark-base',
+            error ? 'border-red-500' : '',
             className,
           )}
         >
@@ -41,8 +38,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         </div>
         {error && <p className="mt-1 text-xs text-red-500">{error}</p>}
       </div>
-    )
+    );
   },
-)
+);
 
-TextInput.displayName = "TextInput"
+TextInput.displayName = 'TextInput';

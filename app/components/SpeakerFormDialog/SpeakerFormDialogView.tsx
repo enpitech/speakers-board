@@ -1,31 +1,21 @@
-import { Camera, Youtube } from "lucide-react"
-import { Form } from "react-router"
-import { TextInput } from "../ui/form/TextInput"
-import { ChipInput } from "../ui/form/ChipInput"
-import { SocialNetworkInput, type SocialNetwork } from "../ui/form/SocialNetworkInput"
-import { FormError } from "../ui/form/FormError"
-import React from "react"
+import { Camera, User, Youtube } from 'lucide-react';
+import { Form } from 'react-router';
+import { TextInput } from '../ui/form/TextInput';
+import { ChipInput } from '../ui/form/ChipInput';
+import { SocialNetworkInput } from '../ui/form/SocialNetworkInput';
+import { FormError } from '../ui/form/FormError';
+import type { SpeakerFormData } from '~/lib/types';
+import { Textarea } from '../ui/textarea';
+import { TextareaInput } from '../ui/form/TextareaInput';
 
-export interface SpeakerFormData {
-  fullName: string
-  languages: string[]
-  topics: string[]
-  previousTalksUrl: string
-  socialNetworks: Array<{
-    network: SocialNetwork
-    username: string
-  }>
-  avatarUrl?: string
-}
-
-interface SpeakerFormDialogViewProps {
-  formData: SpeakerFormData
-  onChange: (data: Partial<SpeakerFormData>) => void
-  onAddSocialNetwork: () => void
-  onRemoveSocialNetwork: (index: number) => void
-  errors: Record<string, string>
-  isSubmitting: boolean
-}
+type SpeakerFormDialogViewProps = {
+  formData: SpeakerFormData;
+  onChange: (data: Partial<SpeakerFormData>) => void;
+  onAddSocialNetwork: () => void;
+  onRemoveSocialNetwork: (index: number) => void;
+  errors: Record<string, string>;
+  isSubmitting: boolean;
+};
 
 export function SpeakerFormDialogView({
   formData,
@@ -36,10 +26,7 @@ export function SpeakerFormDialogView({
   isSubmitting,
 }: SpeakerFormDialogViewProps) {
   return (
-    <Form
-      method="post"
-      className="space-y-6"
-    >
+    <Form method="post" className="space-y-6">
       {/* Show generic form error if it exists */}
       {errors._form && (
         <div className="rounded-md bg-red-50 p-4">
@@ -51,83 +38,75 @@ export function SpeakerFormDialogView({
       <input type="hidden" name="fullName" value={formData.fullName} />
       <input type="hidden" name="languages" value={JSON.stringify(formData.languages)} />
       <input type="hidden" name="topics" value={JSON.stringify(formData.topics)} />
-      <input type="hidden" name="previousTalksUrl" value={formData.previousTalksUrl} />
-      <input type="hidden" name="socialNetworks" value={JSON.stringify(formData.socialNetworks)} />
-      {formData.avatarUrl && <input type="hidden" name="avatarUrl" value={formData.avatarUrl} />}
+      <input type="hidden" name="sessionsUrl" value={formData.sessionsUrl} />
+      <input type="hidden" name="socialLinks" value={JSON.stringify(formData.socialLinks)} />
+      {formData.avatar && <input type="hidden" name="avatar" value={formData.avatar} />}
 
       {/* Avatar Upload */}
       <div className="flex justify-left">
-        <div className="relative">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-background-1/30">
-            <Camera size={24} className="text-primary" />
-          </div>
-          <input
-            type="file"
-            id="avatar-upload"
-            className="absolute inset-0 cursor-pointer opacity-0"
-            accept="image/*"
-            aria-label="Upload profile picture"
-          />
-        </div>
+        <AvatarUpload avatar={formData.avatar} onChange={onChange} />
       </div>
 
-      {/* Full Name */}
       <TextInput
         label="Full Name"
         value={formData.fullName}
-        onChange={(e) => onChange({ fullName: e.target.value })}
+        onChange={e => onChange({ fullName: e.target.value })}
         placeholder="Enter your full name"
         error={errors.fullName}
       />
 
-      {/* Languages */}
       <ChipInput
         label="Languages"
         limit={8}
         values={formData.languages}
-        onChange={(languages) => onChange({ languages })}
+        onChange={languages => onChange({ languages })}
         placeholder="Type language and press Enter"
         error={errors.languages}
       />
 
-      {/* Topics */}
       <ChipInput
         label="Topics"
         limit={10}
         values={formData.topics}
-        onChange={(topics) => onChange({ topics })}
+        onChange={topics => onChange({ topics })}
         placeholder="Type topic and press Enter"
         error={errors.topics}
       />
 
-      {/* Previous Talks URL */}
       <TextInput
         label="Link to your previous talks"
-        value={formData.previousTalksUrl}
-        onChange={(e) => onChange({ previousTalksUrl: e.target.value })}
+        value={formData.sessionsUrl}
+        onChange={e => onChange({ sessionsUrl: e.target.value })}
         placeholder="https://youtube.com/..."
         icon={<Youtube size={18} className="text-[#FF0000]" />}
-        error={errors.previousTalksUrl}
+        error={errors.sessionsUrl}
       />
 
-      {/* Social Networks */}
+      <TextareaInput
+        label="Bio (optional)"
+        value={formData.bio}
+        onChange={e => onChange({ bio: e.target.value })}
+        placeholder="Tell us about yourself, your experience, and your expertise and why you'd be a great speaker"
+        error={errors.bio}
+        icon={<User size={18} className="text-[#FF0000]" />}
+      />
       <div className="space-y-4">
         <div className="flex flex-col">
           <h3 className="text-sm font-medium text-text-2">Social network</h3>
           <p className="text-xs text-text-1">Indicate the desired communication method</p>
         </div>
 
-        {formData.socialNetworks.map((social, index) => (
+        {formData.socialLinks.map((social, index) => (
           <div key={index} className="space-y-2">
             <SocialNetworkInput
               value={social}
-              onChange={(newValue) => {
-                const updatedNetworks = [...formData.socialNetworks]
-                updatedNetworks[index] = newValue
-                onChange({ socialNetworks: updatedNetworks })
+              onChange={newValue => {
+                const updatedNetworks = [...formData.socialLinks];
+                updatedNetworks[index] = newValue;
+                onChange({ socialLinks: updatedNetworks });
               }}
             />
-            {formData.socialNetworks.length > 1 && (
+            {formData.socialLinks.length > 1 && (
               <button
                 type="button"
                 onClick={() => onRemoveSocialNetwork(index)}
@@ -139,9 +118,7 @@ export function SpeakerFormDialogView({
           </div>
         ))}
 
-        {errors.socialNetworks && (
-          <FormError message={errors.socialNetworks} />
-        )}
+        {errors.socialLinks && <FormError message={errors.socialLinks} />}
 
         <button
           type="button"
@@ -152,14 +129,50 @@ export function SpeakerFormDialogView({
         </button>
       </div>
 
-      {/* Submit Button */}
       <button
         type="submit"
         disabled={isSubmitting}
         className="w-full rounded-md bg-primary py-3 text-center font-medium text-white transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-70"
       >
-        {isSubmitting ? "Signing up..." : "Sign up"}
+        {isSubmitting ? 'Signing up...' : 'Sign up'}
       </button>
     </Form>
-  )
+  );
 }
+
+const AvatarUpload = ({
+  avatar,
+  onChange,
+}: {
+  avatar: string | undefined;
+  onChange: (data: Partial<SpeakerFormData>) => void;
+}) => {
+  return (
+    <div className="relative">
+      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-background-1/30">
+        {avatar ? (
+          <img src={avatar} alt="Avatar" className="h-16 w-16 rounded-full object-cover" />
+        ) : (
+          <Camera size={24} className="text-primary" />
+        )}
+      </div>
+      <input
+        type="file"
+        id="avatar-upload"
+        className={`absolute inset-0 cursor-pointer opacity-0`}
+        accept="image/*"
+        aria-label="Upload profile picture"
+        onChange={e => {
+          const file = e.target.files?.[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+              onChange({ avatar: reader.result as string });
+            };
+            reader.readAsDataURL(file);
+          }
+        }}
+      />
+    </div>
+  );
+};
