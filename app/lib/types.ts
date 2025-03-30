@@ -2,6 +2,9 @@ export type Speaker = {
   id: string;
   name: string;
   avatar?: string;
+  bio?: string;
+  location?: string;
+  experience?: string;
   topics: string[];
   languages: string[];
   socialLinks: {
@@ -19,4 +22,24 @@ export type Speaker = {
   }[];
   rating: number;
   sessionsUrl?: string;
+};
+
+export type Session = {
+  id: string;
+  title: string;
+  date: string;
+  time: string;
+  location: string;
+  attendees: number;
+  videoUrl?: string;
+};
+
+export type Review = {
+  id: string;
+  author: string;
+  avatar?: string;
+  rating: number;
+  text: string;
+  date: string;
+  speakerId: string;
 };

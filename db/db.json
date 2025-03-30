@@ -308,5 +308,43 @@
         { "platform": "github", "url": "#" }
       ]
     }
+  ],
+  "reviews": [
+    {
+      "id": "r1",
+      "speakerId": "speaker-001",
+      "author": "Michael Chen",
+      "avatar": "/placeholder.svg?height=50&width=50",
+      "rating": 5,
+      "text": "Dana's React workshop was incredibly insightful. She has a talent for explaining complex concepts in a way that's easy to understand.",
+      "date": "March 15, 2023"
+    },
+    {
+      "id": "r2",
+      "speakerId": "speaker-001",
+      "author": "Michael Chen",
+      "avatar": "/placeholder.svg?height=50&width=50",
+      "rating": 5,
+      "text": "Dana's React workshop was incredibly insightful. She has a talent for explaining complex concepts in a way that's easy to understand.",
+      "date": "March 15, 2023"
+    },
+    {
+      "id": "r3",
+      "speakerId": "speaker-001",
+      "author": "Michael Chen",
+      "avatar": "/placeholder.svg?height=50&width=50",
+      "rating": 5,
+      "text": "Dana's React workshop was incredibly insightful. She has a talent for explaining complex concepts in a way that's easy to understand.",
+      "date": "March 15, 2023"
+    },
+    {
+      "id": "r4",
+      "speakerId": "speaker-001",
+      "author": "Michael Chen",
+      "avatar": "/placeholder.svg?height=50&width=50",
+      "rating": 5,
+      "text": "Dana's React workshop was incredibly insightful. She has a talent for explaining complex concepts in a way that's easy to understand.",
+      "date": "March 15, 2023"
+    }
   ]
 }
