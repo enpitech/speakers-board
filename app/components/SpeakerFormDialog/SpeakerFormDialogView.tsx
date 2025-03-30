@@ -1,10 +1,9 @@
 import { Camera, Youtube } from "lucide-react"
 import { Form } from "react-router"
 import { TextInput } from "../ui/form/TextInput"
-import { ChipInput } from "../ui/form/ChipInput"
+import { ChipInput } from "../ui/ChipInput"
 import { SocialNetworkInput, type SocialNetwork } from "../ui/form/SocialNetworkInput"
 import { FormError } from "../ui/form/FormError"
-import React from "react"
 
 export interface SpeakerFormData {
   fullName: string

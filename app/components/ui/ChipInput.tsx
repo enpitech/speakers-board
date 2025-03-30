@@ -1,8 +1,6 @@
-
-
 import { useState, useRef, type KeyboardEvent } from "react"
-import { Chip } from "../Chip"
-import { FormError } from "../form/FormError"
+import { Chip } from "./Chip"
+import { FormError } from "./form/FormError"
 import { cn } from "~/lib/utils"
 
 export interface ChipInputProps {
