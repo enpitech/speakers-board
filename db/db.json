@@ -666,98 +666,351 @@
     }
   ],
   "languages": [
-    "English",
-    "Spanish",
-    "French",
-    "German",
-    "Italian",
-    "Portuguese",
-    "Russian",
-    "Chinese",
-    "Japanese",
-    "Korean",
-    "Arabic",
-    "Turkish",
-    "Dutch",
-    "Polish",
-    "Romanian",
-    "Hungarian",
-    "Czech",
-    "Slovak",
-    "Swedish",
-    "Norwegian",
-    "Danish",
-    "Icelandic",
-    "Finnish",
-    "Estonian",
-    "Latvian",
-    "Lithuanian",
-    "Bulgarian",
-    "Croatian",
-    "Slovenian",
-    "Albanian"
+    {
+      "id": "en",
+      "name": "English"
+    },
+    {
+      "id": "es",
+      "name": "Spanish"
+    },
+    {
+      "id": "fr",
+      "name": "French"
+    },
+    {
+      "id": "de",
+      "name": "German"
+    },
+    {
+      "id": "it",
+      "name": "Italian"
+    },
+    {
+      "id": "pt",
+      "name": "Portuguese"
+    },
+    {
+      "id": "ru",
+      "name": "Russian"
+    },
+    {
+      "id": "zh",
+      "name": "Chinese"
+    },
+    {
+      "id": "ja",
+      "name": "Japanese"
+    },
+    {
+      "id": "ko",
+      "name": "Korean"
+    },
+    {
+      "id": "ar",
+      "name": "Arabic"
+    },
+    {
+      "id": "tr",
+      "name": "Turkish"
+    },
+    {
+      "id": "nl",
+      "name": "Dutch"
+    },
+    {
+      "id": "pl",
+      "name": "Polish"
+    },
+    {
+      "id": "ro",
+      "name": "Romanian"
+    },
+    {
+      "id": "hu",
+      "name": "Hungarian"
+    },
+    {
+      "id": "cs",
+      "name": "Czech"
+    },
+    {
+      "id": "sk",
+      "name": "Slovak"
+    },
+    {
+      "id": "sv",
+      "name": "Swedish"
+    },
+    {
+      "id": "no",
+      "name": "Norwegian"
+    },
+    {
+      "id": "da",
+      "name": "Danish"
+    },
+    {
+      "id": "is",
+      "name": "Icelandic"
+    },
+    {
+      "id": "fi",
+      "name": "Finnish"
+    },
+    {
+      "id": "ee",
+      "name": "Estonian"
+    },
+    {
+      "id": "lv",
+      "name": "Latvian"
+    },
+    {
+      "id": "lt",
+      "name": "Lithuanian"
+    },
+    {
+      "id": "bg",
+      "name": "Bulgarian"
+    },
+    {
+      "id": "hr",
+      "name": "Croatian"
+    },
+    {
+      "id": "sl",
+      "name": "Slovenian"
+    },
+    {
+      "id": "al",
+      "name": "Albanian"
+    }
   ],
   "topics": [
-    "React",
-    "JavaScript",
-    "TypeScript",
-    "Node.js",
-    "Next.js",
-    "CSS",
-    "HTML",
-    "Git",
-    "Docker",
-    "Kubernetes",
-    "Cloud",
-    "AWS",
-    "Azure",
-    "GCP",
-    "CI/CD",
-    "DevOps",
-    "Agile",
-    "Scrum",
-    "Agile",
-    "Backend",
-    "Frontend",
-    "Full Stack",
-    "Mobile",
-    "iOS",
-    "Android",
-    "Blockchain",
-    "AI",
-    "Machine Learning",
-    "Deep Learning",
-    "Computer Vision",
-    "Natural Language Processing",
-    "Data Science",
-    "Data Engineering",
-    "Data Analytics",
-    "Cross-platform Development",
-    "Game Development",
-    "VR/AR",
-    "Blockchain",
-    "Smart Contracts",
-    "Web3",
-    "Blockchain Development",
-    "Blockchain Security",
-    "Blockchain Architecture",
-    "Blockchain Design",
-    "Blockchain Development",
-    "Blockchain Security",
-    "Blockchain Architecture",
-    "Angular",
-    "Vue",
-    "Svelte",
-    "Solid",
-    "Solidity",
-    "Ethereum",
-    "Bitcoin",
-    "Rust",
-    "Go",
-    "Python",
-    "Java",
-    "C#",
-    "C++",
-    "C"
+    {
+      "id": "react",
+      "name": "React"
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript"
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript"
+    },
+    {
+      "id": "nodejs",
+      "name": "Node.js"
+    },
+    {
+      "id": "nextjs",
+      "name": "Next.js"
+    },
+    {
+      "id": "css",
+      "name": "CSS"
+    },
+    {
+      "id": "html",
+      "name": "HTML"
+    },
+    {
+      "id": "git",
+      "name": "Git"
+    },
+    {
+      "id": "docker",
+      "name": "Docker"
+    },
+    {
+      "id": "kubernetes",
+      "name": "Kubernetes"
+    },
+    {
+      "id": "cloud",
+      "name": "Cloud"
+    },
+    {
+      "id": "aws",
+      "name": "AWS"
+    },
+    {
+      "id": "azure",
+      "name": "Azure"
+    },
+    {
+      "id": "gcp",
+      "name": "GCP"
+    },
+    {
+      "id": "cicd",
+      "name": "CI/CD"
+    },
+    {
+      "id": "devops",
+      "name": "DevOps"
+    },
+    {
+      "id": "agile",
+      "name": "Agile"
+    },
+    {
+      "id": "scrum",
+      "name": "Scrum"
+    },
+    {
+      "id": "backend",
+      "name": "Backend"
+    },
+    {
+      "id": "frontend",
+      "name": "Frontend"
+    },
+    {
+      "id": "fullstack",
+      "name": "Full Stack"
+    },
+    {
+      "id": "mobile",
+      "name": "Mobile"
+    },
+    {
+      "id": "ios",
+      "name": "iOS"
+    },
+    {
+      "id": "android",
+      "name": "Android"
+    },
+    {
+      "id": "blockchain",
+      "name": "Blockchain"
+    },
+    {
+      "id": "ai",
+      "name": "AI"
+    },
+    {
+      "id": "deeplearning",
+      "name": "Deep Learning"
+    },
+    {
+      "id": "computervision",
+      "name": "Computer Vision"
+    },
+    {
+      "id": "naturallanguageprocessing",
+      "name": "Natural Language Processing"
+    },
+    {
+      "id": "datascience",
+      "name": "Data Science"
+    },
+    {
+      "id": "dataengineering",
+      "name": "Data Engineering"
+    },
+    {
+      "id": "dataanalytics",
+      "name": "Data Analytics"
+    },
+    {
+      "id": "crossplatformdevelopment",
+      "name": "Cross-platform Development"
+    },
+    {
+      "id": "gamedevelopment",
+      "name": "Game Development"
+    },
+    {
+      "id": "vr",
+      "name": "VR"
+    },
+    {
+      "id": "ar",
+      "name": "AR"
+    },
+    {
+      "id": "blockchain",
+      "name": "Blockchain"
+    },
+    {
+      "id": "smartcontracts",
+      "name": "Smart Contracts"
+    },
+    {
+      "id": "web3",
+      "name": "Web3"
+    },
+    {
+      "id": "blockchaindevelopment",
+      "name": "Blockchain Development"
+    },
+    {
+      "id": "blockchainsecurity",
+      "name": "Blockchain Security"
+    },
+    {
+      "id": "blockchainarchitecture",
+      "name": "Blockchain Architecture"
+    },
+    {
+      "id": "angular",
+      "name": "Angular"
+    },
+    {
+      "id": "vue",
+      "name": "Vue"
+    },
+    {
+      "id": "svelte",
+      "name": "Svelte"
+    },
+    {
+      "id": "solid",
+      "name": "Solid"
+    },
+    {
+      "id": "solidity",
+      "name": "Solidity"
+    },
+    {
+      "id": "ethereum",
+      "name": "Ethereum"
+    },
+    {
+      "id": "bitcoin",
+      "name": "Bitcoin"
+    },
+    {
+      "id": "rust",
+      "name": "Rust"
+    },
+    {
+      "id": "go",
+      "name": "Go"
+    },
+    {
+      "id": "python",
+      "name": "Python"
+    },
+    {
+      "id": "java",
+      "name": "Java"
+    },
+    {
+      "id": "csharp",
+      "name": "C#"
+    },
+    {
+      "id": "cplusplus",
+      "name": "C++"
+    },
+    {
+      "id": "c",
+      "name": "C"
+    }
   ]
 }

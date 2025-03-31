@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { Suspense, use, useEffect, useState } from 'react';
 import { Chip } from './ui/Chip';
 import { useSearchParams } from 'react-router';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import type { SpeakersDashboardFilters } from '~/lib/types';
 import { CheckIcon } from 'lucide-react';
+import { Spinner } from './Spinner';
 
 interface SpeakersFiltersProps {
   availableFilters: {
@@ -35,7 +36,11 @@ export function SpeakersFilters({ availableFilters }: SpeakersFiltersProps) {
 
         <div className="flex gap-2 mt-2 flex-wrap">
           {filters.language.map(lang => (
-            <Chip key={lang} label={lang} onRemove={() => handleRemove('language', lang)} />
+            <Chip
+              key={lang + Math.random()}
+              label={lang}
+              onRemove={() => handleRemove('language', lang)}
+            />
           ))}
         </div>
       </div>
@@ -47,7 +52,7 @@ export function SpeakersFilters({ availableFilters }: SpeakersFiltersProps) {
           </SelectTrigger>
           <SelectContent>
             {availableTopics.map(topic => (
-              <SelectItem key={topic} value={topic}>
+              <SelectItem key={topic + Math.random()} value={topic}>
                 {filters.topic.includes(topic) ? <CheckIcon /> : null} {topic}
               </SelectItem>
             ))}
@@ -55,7 +60,11 @@ export function SpeakersFilters({ availableFilters }: SpeakersFiltersProps) {
         </Select>
         <div className="flex gap-2 mt-2 flex-wrap">
           {filters.topic.filter(Boolean).map(topic => (
-            <Chip key={topic} label={topic} onRemove={() => handleRemove('topic', topic)} />
+            <Chip
+              key={topic + Math.random()}
+              label={topic}
+              onRemove={() => handleRemove('topic', topic)}
+            />
           ))}
         </div>
       </div>
@@ -76,7 +85,10 @@ export function SpeakersFilters({ availableFilters }: SpeakersFiltersProps) {
         </Select>
         <div className="flex gap-2 mt-2 flex-wrap">
           {filters.rating && (
-            <Chip label={'⭐'.repeat(filters.rating)} onRemove={() => handleRatingChange('null')} />
+            <Chip
+              label={'⭐'.repeat(filters.rating ?? 0)}
+              onRemove={() => handleRatingChange('null')}
+            />
           )}
         </div>
       </div>
@@ -84,67 +96,71 @@ export function SpeakersFilters({ availableFilters }: SpeakersFiltersProps) {
   );
 }
 
+interface SuspendedSpeakersFiltersProps {
+  availableFilters: {
+    availableLanguages: Promise<string[]>;
+    availableTopics: Promise<string[]>;
+  };
+}
+
+export function SuspendedSpeakersFilters({ availableFilters }: SuspendedSpeakersFiltersProps) {
+  const availableLanguages = use(availableFilters.availableLanguages);
+  const availableTopics = use(availableFilters.availableTopics);
+  return (
+    <Suspense fallback={<Spinner size="lg" />}>
+      <SpeakersFilters availableFilters={{ availableLanguages, availableTopics }} />
+    </Suspense>
+  );
+}
+
 const useSpeakersFilters = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const [filtersState, setFiltersState] = useState<SpeakersDashboardFilters>({
-    language: [],
-    topic: [],
-    rating: null,
-  });
+  const getFiltersFromSearchParams = () => {
+    return {
+      language: searchParams.get('language')?.split(',') || [],
+      topic: searchParams.get('topic')?.split(',') || [],
+      rating: searchParams.get('rating') ? parseInt(searchParams.get('rating')!) : null,
+    };
+  };
 
+  const [filters, setFilters] = useState<SpeakersDashboardFilters>(getFiltersFromSearchParams());
   const handleSelectChange = (value: string, type: 'language' | 'topic') => {
-    const newFilters: SpeakersDashboardFilters = { ...filtersState };
+    const newFilters: SpeakersDashboardFilters = { ...filters };
     newFilters[type].includes(value)
       ? newFilters[type].filter((v: string) => v !== value)
       : newFilters[type].push(value);
-    setFiltersState(newFilters);
+    setFilters(newFilters);
   };
 
   const handleRemove = (type: 'language' | 'topic', value: string) => {
-    const newFilters: SpeakersDashboardFilters = { ...filtersState };
+    const newFilters: SpeakersDashboardFilters = { ...filters };
     newFilters[type] = newFilters[type].filter((v: string) => v !== value);
-    setFiltersState(newFilters);
+    setFilters(newFilters);
   };
 
   const handleRatingChange = (rating: string) => {
-    const newFilters: SpeakersDashboardFilters = { ...filtersState };
+    const newFilters: SpeakersDashboardFilters = { ...filters };
     newFilters.rating = rating === 'null' ? null : parseInt(rating);
-    setFiltersState(newFilters);
+    setFilters(newFilters);
   };
-  const setFilters = (filters: SpeakersDashboardFilters) => {
+
+  const setFiltersInSearchParams = (filters: SpeakersDashboardFilters) => {
     const newSearchParams = new URLSearchParams();
 
     if (filters.language.length > 0) newSearchParams.set('language', filters.language.join(','));
     if (filters.topic.length > 0) newSearchParams.set('topic', filters.topic.join(','));
     if (filters.rating !== null) newSearchParams.set('rating', filters.rating.toString());
-
-    setSearchParams(newSearchParams);
-    setFiltersState(filters);
+    setSearchParams(newSearchParams, { replace: true });
   };
-  useEffect(() => {
-    const languagesFromUrl = searchParams.get('language')?.split(',') || [];
-    const topicsFromUrl = searchParams.get('topic')?.split(',') || [];
-    const ratingFromUrl = searchParams.get('rating');
-
-    setFilters({
-      language: languagesFromUrl.filter(Boolean),
-      topic: topicsFromUrl.filter(Boolean),
-      rating: ratingFromUrl ? parseInt(ratingFromUrl) : null,
-    });
-  }, []);
 
   useEffect(() => {
-    const searchParams = new URLSearchParams();
-    if (filtersState.language.length > 0)
-      searchParams.set('language', filtersState.language.join(','));
-    if (filtersState.topic.length > 0) searchParams.set('topic', filtersState.topic.join(','));
-    if (filtersState.rating !== null) searchParams.set('rating', filtersState.rating.toString());
-    setSearchParams(searchParams);
-  }, [filtersState]);
+    setFiltersInSearchParams(filters);
+  }, [filters]);
+
   return {
-    setFilters,
-    filters: filtersState,
+    setFiltersInSearchParams,
+    filters,
     handleSelectChange,
     handleRemove,
     handleRatingChange,
