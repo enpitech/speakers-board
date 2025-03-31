@@ -1,6 +1,6 @@
-import { Clock, FileWarningIcon, Globe, MapPin, MessageSquare, Star } from 'lucide-react';
-import { Suspense } from 'react';
-import { Await, Link } from 'react-router';
+import { Clock, FileWarningIcon, Globe, MapPin, Star, Pencil } from 'lucide-react';
+import { Suspense, useState } from 'react';
+import { Await, Link, Form } from 'react-router';
 import { ComponentErrorBoundary } from '~/components/ComponentErrorBoundary';
 import { SessionCard } from '~/components/SessionCard';
 import { Spinner } from '~/components/Spinner';
@@ -8,12 +8,50 @@ import { Badge } from '~/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/components/ui/tabs';
 import { speakerPageLoader } from '~/lib/loaders/speaker.loader';
+import { TextareaInput } from '~/components/ui/form/TextareaInput';
 
 import type { Speaker, Session, Review, SocialNetwork, SpeakerPageLoaderData } from '~/lib/types';
 import { EmptyResponseView } from '../components/EmptyResponseView';
 import ReviewsFeed from './reviews-feed';
+import { Button } from '~/components/ui/button';
 
 export const loader = speakerPageLoader;
+
+export async function action({
+  request,
+  params,
+}: {
+  request: Request;
+  params: { speakerId: string };
+}) {
+  const formData = await request.formData();
+  const bio = formData.get('bio') as string;
+
+  try {
+    const response = await fetch(`${process.env.API_BASE_URL}/speakers/${params.speakerId}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ bio }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to update speaker bio');
+    }
+
+    return new Response(JSON.stringify({ success: true }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  } catch (error) {
+    return new Response(
+      JSON.stringify({ errors: { _form: 'Failed to update bio. Please try again.' } }),
+      {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      },
+    );
+  }
+}
 
 const SocialIcon = ({ platform }: { platform: SocialNetwork }) => {
   switch (platform) {
@@ -271,16 +309,56 @@ const SpeakerPageHeaderSkeleton = () => {
     </div>
   );
 };
+
 const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
   const { bio, topics, languages } = speaker;
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedBio, setEditedBio] = useState(bio);
+
   return (
     <div className="md:col-span-1 space-y-6">
       <Card>
-        <CardHeader>
+        <CardHeader className="flex flex-row items-center justify-between">
           <CardTitle>About</CardTitle>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setIsEditing(!isEditing)}
+            className="h-8 w-8 p-0"
+          >
+            <Pencil className="h-4 w-4" />
+          </Button>
         </CardHeader>
         <CardContent>
-          <p className="text-[#939393]">{bio}</p>
+          {isEditing ? (
+            <Form method="post" className="space-y-4">
+              <TextareaInput
+                name="bio"
+                value={editedBio}
+                onChange={e => setEditedBio(e.target.value)}
+                placeholder="Tell us about yourself..."
+                className="min-h-[100px]"
+              />
+              <div className="flex justify-end gap-2">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    setIsEditing(false);
+                    setEditedBio(bio);
+                  }}
+                >
+                  Cancel
+                </Button>
+                <Button type="submit" size="sm">
+                  Save
+                </Button>
+              </div>
+            </Form>
+          ) : (
+            <p className="text-[#939393]">{bio}</p>
+          )}
         </CardContent>
       </Card>
 

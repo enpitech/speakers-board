@@ -6,6 +6,7 @@ export interface TextareaInputProps extends React.TextareaHTMLAttributes<HTMLTex
   icon?: React.ReactNode;
   id?: string;
   fullWidth?: boolean;
+  name?: string;
 }
 
 export const TextareaInput = ({
@@ -15,6 +16,7 @@ export const TextareaInput = ({
   placeholder,
   error,
   id,
+  name,
 }: TextareaInputProps) => {
   return (
     <div className="flex flex-col gap-2">
@@ -23,7 +25,7 @@ export const TextareaInput = ({
           {label}
         </label>
       )}
-      <Textarea value={value} onChange={onChange} placeholder={placeholder} />
+      <Textarea value={value} onChange={onChange} placeholder={placeholder} name={name} />
       {error && <p className="text-red-500 text-sm">{error}</p>}
     </div>
   );
