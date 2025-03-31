@@ -1,6 +1,6 @@
 import { Clock, FileWarningIcon, Globe, MapPin, Star, Pencil } from 'lucide-react';
-import { Suspense, useState } from 'react';
-import { Await, Link, Form } from 'react-router';
+import { Suspense, useOptimistic, useState, useTransition } from 'react';
+import { Await, Link, Form, useSubmit } from 'react-router';
 import { ComponentErrorBoundary } from '~/components/ComponentErrorBoundary';
 import { SessionCard } from '~/components/SessionCard';
 import { Spinner } from '~/components/Spinner';
@@ -14,6 +14,7 @@ import type { Speaker, Session, Review, SocialNetwork, SpeakerPageLoaderData } f
 import { EmptyResponseView } from '../components/EmptyResponseView';
 import ReviewsFeed from './reviews-feed';
 import { Button } from '~/components/ui/button';
+import { sleep } from '~/lib/utils';
 
 export const loader = speakerPageLoader;
 
@@ -28,6 +29,7 @@ export async function action({
   const bio = formData.get('bio') as string;
 
   try {
+    // await sleep(3000);
     const response = await fetch(`${process.env.API_BASE_URL}/speakers/${params.speakerId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
@@ -315,6 +317,39 @@ const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedBio, setEditedBio] = useState(bio);
 
+  const [isPending, startTransition] = useTransition();
+  const [optimisticBio, setOptimisticBio] = useOptimistic(
+    bio || '',
+    (state: string, newBio: string) => {
+      return newBio;
+    },
+  );
+  const submit = useSubmit();
+
+  // onClick handler
+  const handleSubmit = async (newBio: string) => {
+    startTransition(async () => {
+      setOptimisticBio(newBio);
+      const formData = new FormData();
+      formData.append('bio', newBio);
+      formData.append('speakerId', speaker.id);
+      await submit(formData, { method: 'post' });
+    });
+  };
+
+  // Form action
+  // const handleSubmit = async (formData: FormData) => {
+  //   // startTransition(async () => {
+  //   const newBio = formData.get('bio');
+  //   setOptimisticBio(newBio);
+  //   // const formData = new FormData();
+  //   // formData.append('bio', editedBio);
+  //   // formData.append('speakerId', speaker.id);
+  //   await submit(formData, { method: 'post' });
+
+  //   // });
+  // };
+
   return (
     <div className="md:col-span-1 space-y-6">
       <Card>
@@ -331,7 +366,8 @@ const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
         </CardHeader>
         <CardContent>
           {isEditing ? (
-            <Form method="post" className="space-y-4">
+            // <form action={handleSubmit} className="space-y-4">
+            <form className="space-y-4">
               <TextareaInput
                 name="bio"
                 value={editedBio}
@@ -351,13 +387,20 @@ const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
                 >
                   Cancel
                 </Button>
-                <Button type="submit" size="sm">
+                <Button
+                  type="submit"
+                  size="sm"
+                  onClick={() => {
+                    setIsEditing(false);
+                    handleSubmit(editedBio || '');
+                  }}
+                >
                   Save
                 </Button>
               </div>
-            </Form>
+            </form>
           ) : (
-            <p className="text-[#939393]">{bio}</p>
+            <p className="text-[#939393]">{optimisticBio}</p>
           )}
         </CardContent>
       </Card>
