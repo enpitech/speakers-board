@@ -1,10 +1,13 @@
 import { Star } from 'lucide-react';
 import { Text } from './Text';
+import { useTranslation } from 'react-i18next';
+
 export const RatingStars = ({ rating, reviewsCount }: { rating: number; reviewsCount: number }) => {
+  const { t } = useTranslation();
   return (
     <div className="flex items-center justify-between">
       <Text variant="h2" size="lg">
-        Reviews
+        {t('reviews.title')}
       </Text>
       <div className="flex items-center gap-2">
         <Text variant="span" size="lg">
@@ -19,7 +22,7 @@ export const RatingStars = ({ rating, reviewsCount }: { rating: number; reviewsC
           ))}
         </div>
         <Text variant="span" size="sm">
-          ({reviewsCount} reviews)
+          ({reviewsCount} {t('reviews.count')})
         </Text>
       </div>
     </div>

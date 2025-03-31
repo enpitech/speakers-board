@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '~/lib/utils';
 import type { SocialLink, SocialNetwork } from '~/lib/types';
+import { useTranslation } from 'react-i18next';
 
 interface SocialNetworkOption {
   value: SocialNetwork;
@@ -29,6 +30,7 @@ export function SocialNetworkInput({ value, onChange, className }: SocialNetwork
     buttonRef,
   } = useSocialNetworks(value, onChange);
 
+  const { t } = useTranslation();
   return (
     <div className={cn('flex w-full flex-col gap-2 sm:flex-row', className)}>
       <div className="relative min-w-[120px]">
@@ -81,7 +83,7 @@ export function SocialNetworkInput({ value, onChange, className }: SocialNetwork
         type="text"
         value={value.url}
         onChange={handleUrlChange}
-        placeholder={`Enter your ${selectedNetwork.label} url`}
+        placeholder={`${t('speaker.form.social.url.placeholder')}`}
         className="flex-grow rounded-md border border-stroke bg-background-2 px-3 py-2 text-sm text-text-2 outline-none transition-colors placeholder:text-text-1 hover:border-dark-base focus:border-primary"
       />
     </div>
@@ -187,6 +189,7 @@ const useSocialNetworks = (value: SocialLink, onChange: (value: SocialLink) => v
     buttonRef,
   };
 };
+
 const socialNetworks: SocialNetworkOption[] = [
   {
     value: 'twitter',

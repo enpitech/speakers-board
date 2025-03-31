@@ -3,8 +3,11 @@ import { MapPin, Clock, Star } from 'lucide-react';
 import type { Speaker } from '~/lib/types';
 import { SocialIcon } from './SocialIcon';
 import { Text } from './Text';
+import { useTranslation } from 'react-i18next';
+
 export const SpeakerPageHeader = ({ speaker }: { speaker: Speaker }) => {
   const { avatar, name, location, experience, rating, sessionsUrl, socialLinks } = speaker;
+  const { t } = useTranslation();
   return (
     <div className="bg-[#eefaff] rounded-lg overflow-hidden mb-8">
       <div className="h-48 bg-gradient-to-r from-[#006699] to-[#8fb8c3]"></div>
@@ -60,7 +63,7 @@ export const SpeakerPageHeader = ({ speaker }: { speaker: Speaker }) => {
                 to={sessionsUrl}
                 className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#006699] text-white hover:bg-[#005588] transition-colors"
               >
-                View All Sessions
+                {t('sessions.view.all')}
                 <SocialIcon platform="youtube" />
               </Link>
             )}

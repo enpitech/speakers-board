@@ -4,8 +4,11 @@ import { SocialIcon } from './ui/SocialIcon';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import type { Session } from '~/lib/types';
 import { Text } from './Text';
+import { useTranslation } from 'react-i18next';
+
 export const SessionCard = ({ session }: { session: Session }) => {
   const { id, title, date, attendees, videoUrl } = session;
+  const { t } = useTranslation();
   return (
     <Card key={id} className="overflow-hidden">
       <div className="border-l-4 border-primary">
@@ -22,7 +25,7 @@ export const SessionCard = ({ session }: { session: Session }) => {
               <div className="flex items-center gap-1">
                 <Users className="w-4 h-4 text-[#939393]" />
                 <Text variant="span" size="sm">
-                  {attendees} attendees
+                  {attendees} {t('sessions.attendees')}
                 </Text>
               </div>
             </div>
@@ -33,7 +36,7 @@ export const SessionCard = ({ session }: { session: Session }) => {
             <Button variant="outline" color="secondary">
               <SocialIcon platform="youtube" />
               <Text variant="span" size="sm">
-                Watch Recording
+                {t('sessions.watch.recording')}
               </Text>
             </Button>
           )}

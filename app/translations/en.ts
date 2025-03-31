@@ -44,5 +44,16 @@ export const en = {
     'table.error.message':
       "We couldn't load the table data. This might be due to a temporary issue or the data might be unavailable.",
     'table.reload': 'Reload Data',
+    'speaker.form.social.url.placeholder': 'Enter social network URL',
+    'error.general.title': 'An unexpected error occurred.',
+    'error.general.description': 'Our team has been notified.',
+    'error.general.try.again': 'Try Again',
+    'error.general.go.home': 'Go Home',
+    'error.network.title': 'Network Error',
+    'error.network.description':
+      "We couldn't connect to the server. Please check your internet connection and try again.",
+    'error.network.refresh': 'Refresh Page',
+    'reviews.title': 'Reviews',
+    'reviews.count': 'reviews',
   },
 } as const;

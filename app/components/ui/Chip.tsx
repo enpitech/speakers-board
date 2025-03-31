@@ -1,8 +1,7 @@
-'use client';
-
 import { X } from 'lucide-react';
 import { cn } from '~/lib/utils';
 import { Text } from '../Text';
+
 export interface ChipProps {
   label: string;
   onRemove?: () => void;

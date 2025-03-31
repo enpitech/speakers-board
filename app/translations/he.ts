@@ -43,5 +43,15 @@ export const he = {
     'table.error.message':
       'לא הצלחנו לטעון את נתוני הטבלה. ייתכן שזו בעיה זמנית או שהנתונים אינם זמינים.',
     'table.reload': 'טען מחדש',
+    'speaker.form.social.url.placeholder': 'הזן קישור לרשת חברתית',
+    'error.general.title': 'התרחשה שגיאה בלתי צפויה.',
+    'error.general.description': 'הצוות שלנו נאסף.',
+    'error.general.try.again': 'נסה שנית',
+    'error.general.go.home': 'חזרה לעמוד הבית',
+    'error.network.title': 'שגיאת רשת',
+    'error.network.description': 'לא הצלחנו להתחבר לשרת. אנא בדוק את חיבור האינטרנט שלך ונסה שנית.',
+    'error.network.refresh': 'טען מחדש',
+    'reviews.title': 'ביקורות',
+    'reviews.count': 'ביקורות',
   },
 } as const;

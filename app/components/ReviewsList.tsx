@@ -3,16 +3,19 @@ import { Button } from '~/components/ui/button';
 import { Card, CardContent } from '~/components/ui/card';
 import type { Review } from '~/lib/types';
 import { Text } from './Text';
+import { useTranslation } from 'react-i18next';
+
 type ReviewsListProps = {
   reviews?: Review[];
   rating: number;
 };
 
 export function ReviewsList({ reviews = [], rating }: ReviewsListProps) {
+  const { t } = useTranslation();
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <Text variant="h2">Reviews</Text>
+        <Text variant="h2">{t('reviews.title')}</Text>
         <div className="flex items-center gap-2">
           <Text variant="span">{rating}.0</Text>
           <div className="flex">
@@ -25,7 +28,9 @@ export function ReviewsList({ reviews = [], rating }: ReviewsListProps) {
               />
             ))}
           </div>
-          <Text variant="span">({reviews.length} reviews)</Text>
+          <Text variant="span">
+            ({reviews.length} {t('reviews.count')})
+          </Text>
         </div>
       </div>
 
@@ -77,14 +82,14 @@ export function ReviewsList({ reviews = [], rating }: ReviewsListProps) {
             </Card>
           ))
         ) : (
-          <div className="text-center py-8 text-[#939393]">No reviews available yet.</div>
+          <div className="text-center py-8 text-[#939393]">{t('reviews.no.reviews')}</div>
         )}
       </div>
 
       <div className="flex justify-center mt-8">
         <Button className="bg-[#006699] hover:bg-[#005588]">
           <MessageSquare className="w-4 h-4 mr-2" />
-          <Text variant="span">Write a Review</Text>
+          <Text variant="span">{t('reviews.write.review')}</Text>
         </Button>
       </div>
     </div>

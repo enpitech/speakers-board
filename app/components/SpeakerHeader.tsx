@@ -3,12 +3,14 @@ import { Link } from 'react-router';
 import type { Speaker } from '~/lib/types';
 import { SocialLinks } from './SocialLinks';
 import { Text } from './Text';
+import { useTranslation } from 'react-i18next';
 
 type SpeakerHeaderProps = {
   speaker: Speaker;
 };
 
 export function SpeakerHeader({ speaker }: SpeakerHeaderProps) {
+  const { t } = useTranslation();
   return (
     <div className="bg-[#eefaff] rounded-lg overflow-hidden mb-8">
       <div className="h-48 bg-gradient-to-r from-[#006699] to-[#8fb8c3]"></div>
@@ -72,7 +74,7 @@ export function SpeakerHeader({ speaker }: SpeakerHeaderProps) {
                 className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#006699] text-white hover:bg-[#005588] transition-colors"
               >
                 <Text variant="p" size="sm" className="text-white">
-                  View All Sessions
+                  {t('sessions.view.all')}
                 </Text>
                 <Youtube />
               </Link>

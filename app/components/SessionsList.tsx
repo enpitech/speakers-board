@@ -4,11 +4,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/com
 import type { Session } from '~/lib/types';
 import { Text } from './Text';
 import { EmptyResponseView } from './EmptyResponseView';
+import { useTranslation } from 'react-i18next';
+
 type UpcomingSessionsProps = {
   sessions?: Session[];
 };
 
 export function UpcomingSessions({ sessions = [] }: UpcomingSessionsProps) {
+  const { t } = useTranslation();
   return (
     <div className="space-y-4">
       <h2 className="text-2xl font-semibold text-[#006699]">Upcoming Sessions</h2>
@@ -42,20 +45,20 @@ export function UpcomingSessions({ sessions = [] }: UpcomingSessionsProps) {
                     <div className="flex items-center gap-1">
                       <Users className="w-4 h-4 text-[#939393]" />
                       <Text variant="span" size="sm">
-                        {session.attendees} attendees
+                        {session.attendees} {t('sessions.attendees')}
                       </Text>
                     </div>
                   </div>
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex justify-end">
-                <Button>Register Now</Button>
+                <Button>{t('sessions.register.now')}</Button>
               </CardContent>
             </div>
           </Card>
         ))
       ) : (
-        <div className="text-center py-8 text-[#939393]">No upcoming sessions at the moment.</div>
+        <div className="text-center py-8 text-[#939393]">{t('sessions.no.upcoming')}</div>
       )}
     </div>
   );
@@ -66,10 +69,11 @@ type PastSessionsProps = {
 };
 
 export function PastSessions({ sessions = [] }: PastSessionsProps) {
+  const { t } = useTranslation();
   return (
     <div className="space-y-4">
       <Text variant="h2" size="lg">
-        Past Sessions
+        {t('sessions.past.title')}
       </Text>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -94,7 +98,7 @@ export function PastSessions({ sessions = [] }: PastSessionsProps) {
                       <div className="flex items-center gap-1">
                         <Users className="w-4 h-4 text-[#939393]" />
                         <Text variant="span" size="sm">
-                          {session.attendees} attendees
+                          {session.attendees} {t('sessions.attendees')}
                         </Text>
                       </div>
                     </div>
@@ -105,7 +109,7 @@ export function PastSessions({ sessions = [] }: PastSessionsProps) {
                     <Button variant="outline">
                       <YoutubeIcon className="w-4 h-4" />
                       <Text variant="span" size="sm" className="ml-2">
-                        Watch Recording
+                        {t('sessions.watch.recording')}
                       </Text>
                     </Button>
                   )}
@@ -114,7 +118,7 @@ export function PastSessions({ sessions = [] }: PastSessionsProps) {
             </Card>
           ))
         ) : (
-          <EmptyResponseView message="No past sessions available." />
+          <EmptyResponseView message={t('sessions.no.past')} />
         )}
       </div>
     </div>

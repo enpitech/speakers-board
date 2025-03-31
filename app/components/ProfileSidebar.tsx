@@ -3,18 +3,20 @@ import { Badge } from '~/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
 import type { Speaker } from '~/lib/types';
 import { Text } from './Text';
+import { useTranslation } from 'react-i18next';
 
 type ProfileSidebarProps = {
   speaker: Speaker;
 };
 
 export function ProfileSidebar({ speaker }: ProfileSidebarProps) {
+  const { t } = useTranslation();
   return (
     <div className="space-y-6">
       {speaker.bio && (
         <Card>
           <CardHeader>
-            <CardTitle>About</CardTitle>
+            <CardTitle>{t('speaker.about')}</CardTitle>
           </CardHeader>
           <CardContent>
             <Text variant="p" size="sm">
@@ -26,7 +28,7 @@ export function ProfileSidebar({ speaker }: ProfileSidebarProps) {
 
       <Card>
         <CardHeader>
-          <CardTitle>Expertise</CardTitle>
+          <CardTitle>{t('speaker.expertise')}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2">
@@ -41,7 +43,7 @@ export function ProfileSidebar({ speaker }: ProfileSidebarProps) {
 
       <Card>
         <CardHeader>
-          <CardTitle>Languages</CardTitle>
+          <CardTitle>{t('speaker.languages')}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-2">
