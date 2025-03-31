@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import type { Route } from './+types/home';
 import { Avatar } from '~/components/Avatar';
+import { RegisterSpeakerButton } from '~/components/RegisterSpeakerButton';
 import { SpeakersTableView } from '~/components/SpeakersTable';
-import { RegisterSpeakerButton } from '~/components/SpeakerFormDialog/RegisterSpeakerButton';
 
 export function meta({}: Route.MetaArgs) {
   return [

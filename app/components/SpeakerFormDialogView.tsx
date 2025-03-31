@@ -1,11 +1,11 @@
 import { Camera, User, Youtube } from 'lucide-react';
 import { Form } from 'react-router';
-import { TextInput } from '../ui/form/TextInput';
-import { SocialNetworkInput } from '../ui/form/SocialNetworkInput';
-import { FormError } from '../ui/form/FormError';
+import { TextInput } from '~/components/ui/form/TextInput';
+import { SocialNetworkInput } from '~/components/ui/form/SocialNetworkInput';
+import { FormError } from '~/components/ui/form/FormError';
 import type { SpeakerFormData } from '~/lib/types';
-import { TextareaInput } from '../ui/form/TextareaInput';
-import { ChipInput } from '../ui/ChipInput';
+import { TextareaInput } from '~/components/ui/form/TextareaInput';
+import { ChipInput } from '~/components/ui/ChipInput';
 type SpeakerFormDialogViewProps = {
   formData: SpeakerFormData;
   onChange: (data: Partial<SpeakerFormData>) => void;

@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Dialog } from '../ui/Dialog/Dialog';
 import { SpeakerFormDialogView } from './SpeakerFormDialogView';
 import { useNavigation, useActionData } from 'react-router';
 import React from 'react';
 import type { SpeakerFormData } from '~/lib/types';
+import { Dialog } from './ui/Dialog/Dialog';
 
 interface SpeakerFormDialogContainerProps {
   isOpen: boolean;
