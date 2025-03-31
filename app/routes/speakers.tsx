@@ -12,10 +12,12 @@ import { GeneralError } from '~/components/GeneralErrorBoundary';
 import { NetworkError } from '~/components/NetworkErrorBoundary';
 import { getSpeakers } from '~/lib/fetchers/getSpeakers';
 import { getLanguages } from '~/lib/fetchers/getLanguages';
+import { getTopics } from '~/lib/fetchers/getTopics';
 
 type SpeakersLoaderData = {
   speakers: Promise<Speaker[]>;
   languages: string[];
+  topics: string[];
 };
 
 export async function action(args: ActionFunctionArgs) {
@@ -33,12 +35,13 @@ export async function loader({ request }: Route.LoaderArgs): Promise<SpeakersLoa
     topics: topic ? topic.split(',') : null,
     rating: rating ? parseInt(rating) : null,
   });
-  const languages = await getLanguages(language);
-  return { speakers, languages };
+  const languages = await getLanguages();
+  const topics = await getTopics();
+  return { speakers, languages, topics };
 }
 
 export default function Speakers({ loaderData }: { loaderData: SpeakersLoaderData }) {
-  const { speakers, languages } = loaderData;
+  const { speakers, languages, topics } = loaderData;
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [filters, setFilters] = useState<SpeakersDashboardFilters>({
     language: [],
@@ -49,7 +52,6 @@ export default function Speakers({ loaderData }: { loaderData: SpeakersLoaderDat
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
-
     const language = urlParams.get('language')?.split(',') || [];
     const topic = urlParams.get('topic')?.split(',') || [];
     const rating = urlParams.get('rating') ? parseInt(urlParams.get('rating')!) : null;
@@ -62,16 +64,10 @@ export default function Speakers({ loaderData }: { loaderData: SpeakersLoaderDat
   }, [location]);
 
   function getAvailableFilters(speakers: Speaker[]) {
-    const languagesSet = new Set<string>(languages);
-    const topicsSet = new Set<string>();
-
-    speakers.forEach(speaker => {
-      speaker.topics.forEach(topic => topicsSet.add(topic));
-    });
-
+    console.log({ languages, topics });
     return {
-      availableLanguages: Array.from(languagesSet),
-      availableTopics: Array.from(topicsSet),
+      availableLanguages: languages,
+      availableTopics: topics,
     };
   }
 
@@ -99,7 +95,12 @@ export default function Speakers({ loaderData }: { loaderData: SpeakersLoaderDat
           <Await resolve={speakers}>
             {speakers => (
               <>
-                <SpeakersFilters availableFilters={getAvailableFilters(speakers)} />
+                <SpeakersFilters
+                  availableFilters={{
+                    availableLanguages: languages,
+                    availableTopics: topics,
+                  }}
+                />
                 <SpeakersTableView speakers={applyFilters(speakers)} />
               </>
             )}
