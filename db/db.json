@@ -4,8 +4,15 @@
       "id": "speaker-001",
       "name": "Sarah Johnson",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=sarah",
-      "topics": ["React", "TypeScript", "Performance"],
-      "languages": ["English", "Spanish"],
+      "topics": [
+        "React",
+        "TypeScript",
+        "Performance"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ],
       "rating": 2,
       "socialLinks": [
         {
@@ -21,14 +28,22 @@
           "url": "https://github.com/sarahj"
         }
       ],
-      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
+      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001",
+      "bio": "123asdasqwdqasdsa"
     },
     {
       "id": "speaker-002",
       "name": "Michael Chen",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=michael",
-      "topics": ["Vue.js", "State Management", "Testing"],
-      "languages": ["English", "Mandarin"],
+      "topics": [
+        "Vue.js",
+        "State Management",
+        "Testing"
+      ],
+      "languages": [
+        "English",
+        "Mandarin"
+      ],
       "rating": 3,
       "socialLinks": [
         {
@@ -49,8 +64,16 @@
     {
       "name": "Emma Rodriguez",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=emma",
-      "topics": ["Angular", "RxJS", "Architecture"],
-      "languages": ["English", "Spanish", "French"],
+      "topics": [
+        "Angular",
+        "RxJS",
+        "Architecture"
+      ],
+      "languages": [
+        "English",
+        "Spanish",
+        "French"
+      ],
       "rating": 4,
       "socialLinks": [
         {
@@ -72,8 +95,16 @@
     {
       "name": "Raj Patel",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=raj",
-      "topics": ["Node.js", "Microservices", "API Design"],
-      "languages": ["English", "Hindi", "Gujarati"],
+      "topics": [
+        "Node.js",
+        "Microservices",
+        "API Design"
+      ],
+      "languages": [
+        "English",
+        "Hindi",
+        "Gujarati"
+      ],
       "rating": 5,
       "socialLinks": [
         {
@@ -95,8 +126,15 @@
     {
       "name": "Olivia Kim",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=olivia",
-      "topics": ["GraphQL", "Apollo", "Database Design"],
-      "languages": ["English", "Korean"],
+      "topics": [
+        "GraphQL",
+        "Apollo",
+        "Database Design"
+      ],
+      "languages": [
+        "English",
+        "Korean"
+      ],
       "rating": 5,
       "socialLinks": [
         {
@@ -118,8 +156,14 @@
     {
       "name": "Jackson Williams",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=jackson",
-      "topics": ["TensorFlow.js", "Machine Learning", "Data Visualization"],
-      "languages": ["English"],
+      "topics": [
+        "TensorFlow.js",
+        "Machine Learning",
+        "Data Visualization"
+      ],
+      "languages": [
+        "English"
+      ],
       "rating": 4.7,
       "socialLinks": [
         {
@@ -141,8 +185,15 @@
     {
       "name": "Anya Petrova",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=anya",
-      "topics": ["CSS Architecture", "Accessibility", "Design Systems"],
-      "languages": ["English", "Russian"],
+      "topics": [
+        "CSS Architecture",
+        "Accessibility",
+        "Design Systems"
+      ],
+      "languages": [
+        "English",
+        "Russian"
+      ],
       "rating": 4.6,
       "socialLinks": [
         {
@@ -164,8 +215,16 @@
     {
       "name": "Mateo Fernandez",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=mateo",
-      "topics": ["Progressive Web Apps", "Service Workers", "Offline First"],
-      "languages": ["English", "Spanish", "Portuguese"],
+      "topics": [
+        "Progressive Web Apps",
+        "Service Workers",
+        "Offline First"
+      ],
+      "languages": [
+        "English",
+        "Spanish",
+        "Portuguese"
+      ],
       "rating": 4.9,
       "socialLinks": [
         {
@@ -187,8 +246,16 @@
     {
       "name": "Zara Ahmed",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=zara",
-      "topics": ["Web Security", "Auth Patterns", "Encryption"],
-      "languages": ["English", "Arabic", "French"],
+      "topics": [
+        "Web Security",
+        "Auth Patterns",
+        "Encryption"
+      ],
+      "languages": [
+        "English",
+        "Arabic",
+        "French"
+      ],
       "rating": 4.8,
       "socialLinks": [
         {
@@ -210,8 +277,15 @@
     {
       "name": "Liam O'Connor",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=liam",
-      "topics": ["Serverless", "AWS", "Cloud Architecture"],
-      "languages": ["English", "Irish"],
+      "topics": [
+        "Serverless",
+        "AWS",
+        "Cloud Architecture"
+      ],
+      "languages": [
+        "English",
+        "Irish"
+      ],
       "rating": 4.7,
       "socialLinks": [
         {
@@ -232,8 +306,15 @@
     {
       "name": "Yuki Tanaka",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=yuki",
-      "topics": ["React Native", "Mobile UX", "Cross-platform Development"],
-      "languages": ["English", "Japanese"],
+      "topics": [
+        "React Native",
+        "Mobile UX",
+        "Cross-platform Development"
+      ],
+      "languages": [
+        "English",
+        "Japanese"
+      ],
       "rating": 4.9,
       "socialLinks": [
         {
@@ -274,8 +355,15 @@
     {
       "name": "David Müller",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=david",
-      "topics": ["WebAssembly", "Performance Optimization", "C++"],
-      "languages": ["English", "German"],
+      "topics": [
+        "WebAssembly",
+        "Performance Optimization",
+        "C++"
+      ],
+      "languages": [
+        "English",
+        "German"
+      ],
       "rating": 4.8,
       "socialLinks": [
         {
@@ -316,8 +404,15 @@
     {
       "name": "Sophia Lee",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=sophia",
-      "topics": ["Design Thinking", "UI/UX", "Product Design"],
-      "languages": ["English", "Cantonese"],
+      "topics": [
+        "Design Thinking",
+        "UI/UX",
+        "Product Design"
+      ],
+      "languages": [
+        "English",
+        "Cantonese"
+      ],
       "rating": 4.6,
       "socialLinks": [
         {
@@ -338,8 +433,15 @@
     {
       "name": "Omar Hassan",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=omar",
-      "topics": ["Docker", "Kubernetes", "DevOps"],
-      "languages": ["English", "Arabic"],
+      "topics": [
+        "Docker",
+        "Kubernetes",
+        "DevOps"
+      ],
+      "languages": [
+        "English",
+        "Arabic"
+      ],
       "rating": 4.9,
       "socialLinks": [
         {
@@ -360,8 +462,15 @@
     {
       "name": "Isabella Rossi",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=isabella",
-      "topics": ["WebGL", "Three.js", "Creative Coding"],
-      "languages": ["English", "Italian"],
+      "topics": [
+        "WebGL",
+        "Three.js",
+        "Creative Coding"
+      ],
+      "languages": [
+        "English",
+        "Italian"
+      ],
       "rating": 4.7,
       "socialLinks": [
         {
@@ -382,8 +491,15 @@
     {
       "name": "Andre Silva",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=andre",
-      "topics": ["Jest", "Testing Strategies", "TDD"],
-      "languages": ["English", "Portuguese"],
+      "topics": [
+        "Jest",
+        "Testing Strategies",
+        "TDD"
+      ],
+      "languages": [
+        "English",
+        "Portuguese"
+      ],
       "rating": 4.6,
       "socialLinks": [
         {
@@ -404,8 +520,16 @@
     {
       "name": "Priya Sharma",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=priya",
-      "topics": ["Next.js", "SSR", "Jamstack"],
-      "languages": ["English", "Hindi", "Bengali"],
+      "topics": [
+        "Next.js",
+        "SSR",
+        "Jamstack"
+      ],
+      "languages": [
+        "English",
+        "Hindi",
+        "Bengali"
+      ],
       "rating": 4.8,
       "socialLinks": [
         {
@@ -426,8 +550,16 @@
     {
       "name": "Lucas Nguyen",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=lucas",
-      "topics": ["Svelte", "Animation", "Web Components"],
-      "languages": ["English", "Vietnamese", "French"],
+      "topics": [
+        "Svelte",
+        "Animation",
+        "Web Components"
+      ],
+      "languages": [
+        "English",
+        "Vietnamese",
+        "French"
+      ],
       "rating": 2,
       "socialLinks": [
         {
@@ -448,8 +580,16 @@
     {
       "name": "Elena Popova",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=elena",
-      "topics": ["WebRTC", "Real-time Communication", "Video Streaming"],
-      "languages": ["English", "Russian", "Ukrainian"],
+      "topics": [
+        "WebRTC",
+        "Real-time Communication",
+        "Video Streaming"
+      ],
+      "languages": [
+        "English",
+        "Russian",
+        "Ukrainian"
+      ],
       "rating": 4.9,
       "socialLinks": [
         {
@@ -470,8 +610,15 @@
     {
       "name": "Kwame Osei",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=kwame",
-      "topics": ["Blockchain", "Web3", "Smart Contracts"],
-      "languages": ["English", "Twi"],
+      "topics": [
+        "Blockchain",
+        "Web3",
+        "Smart Contracts"
+      ],
+      "languages": [
+        "English",
+        "Twi"
+      ],
       "rating": 4.8,
       "socialLinks": [
         {
@@ -512,8 +659,15 @@
     {
       "name": "Gabriela Mendez",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=gabriela",
-      "topics": ["Ember.js", "Frontend Architecture", "SPA"],
-      "languages": ["English", "Spanish"],
+      "topics": [
+        "Ember.js",
+        "Frontend Architecture",
+        "SPA"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ],
       "rating": 4.7,
       "socialLinks": [
         {
@@ -534,8 +688,16 @@
     {
       "name": "Amir Khan",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=amir",
-      "topics": ["Gatsby", "Static Site Generation", "Headless CMS"],
-      "languages": ["English", "Urdu", "Persian"],
+      "topics": [
+        "Gatsby",
+        "Static Site Generation",
+        "Headless CMS"
+      ],
+      "languages": [
+        "English",
+        "Urdu",
+        "Persian"
+      ],
       "rating": 4.8,
       "socialLinks": [
         {
@@ -556,8 +718,16 @@
     {
       "name": "Nadia Wong",
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=nadia",
-      "topics": ["Tailwind CSS", "Responsive Design", "Design Systems"],
-      "languages": ["English", "Cantonese", "Mandarin"],
+      "topics": [
+        "Tailwind CSS",
+        "Responsive Design",
+        "Design Systems"
+      ],
+      "languages": [
+        "English",
+        "Cantonese",
+        "Mandarin"
+      ],
       "rating": 4.8,
       "socialLinks": [
         {
