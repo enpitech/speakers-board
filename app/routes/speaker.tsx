@@ -1,6 +1,16 @@
-import { Calendar, Clock, Globe, MapPin, MessageSquare, Star, Users } from 'lucide-react';
+import {
+  Calendar,
+  Clock,
+  FileWarningIcon,
+  Globe,
+  MapPin,
+  MessageSquare,
+  Star,
+  Users,
+} from 'lucide-react';
 import { Suspense } from 'react';
 import { Await, Link } from 'react-router';
+import { ComponentErrorBoundary } from '~/components/ComponentErrorBoundary';
 import { Spinner } from '~/components/Spinner';
 import { Badge } from '~/components/ui/badge';
 import { Button } from '~/components/ui/button';
@@ -296,29 +306,33 @@ const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
   const { bio, topics, languages } = speaker;
   return (
     <div className="md:col-span-1 space-y-6">
-      {bio && (
-        <Card>
-          <CardHeader>
-            <CardTitle>About</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-[#939393]">{bio}</p>
-          </CardContent>
-        </Card>
-      )}
+      <Card>
+        <CardHeader>
+          <CardTitle>About</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-[#939393]">{bio}</p>
+        </CardContent>
+      </Card>
 
       <Card>
         <CardHeader>
           <CardTitle>Expertise</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex flex-wrap gap-2">
-            {topics.map((topic, index) => (
-              <Badge key={index} className="bg-[#eefaff] text-[#006699] hover:bg-[#d0d8e8]">
-                {topic}
-              </Badge>
-            ))}
-          </div>
+          <ComponentErrorBoundary
+            onError={error => {
+              console.log('Error loading expertise', error);
+            }}
+            fallback={
+              <div className="flex flex-col items-center gap-2 bg-red-200 p-4 rounded-lg">
+                Error loading Expertise
+                <FileWarningIcon color="red" />
+              </div>
+            }
+          >
+            <Expertise topics={topics} />
+          </ComponentErrorBoundary>
         </CardContent>
       </Card>
 
@@ -341,6 +355,22 @@ const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
   );
 };
 
+const Expertise = ({ topics }: { topics: string[] }) => {
+  throw new Error('BLBLBLB');
+  return (
+    <div className="flex flex-wrap gap-2">
+      {topics.map((topic, index) => (
+        <Badge key={index} className="bg-[#eefaff] text-[#006699] hover:bg-[#d0d8e8]">
+          {topic}
+        </Badge>
+      ))}
+    </div>
+  );
+};
+
+const Languages = ({ languages }: { languages: string[] }) => {
+  return <div>Languages</div>;
+};
 const SpeakerUpcomingSessions = ({ sessions }: { sessions: Session[] }) => {
   return (
     <div className="space-y-4">

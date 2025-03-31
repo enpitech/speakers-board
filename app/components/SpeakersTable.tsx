@@ -57,6 +57,5 @@ type SuspendedSpeakersTableViewProps = {
 
 export function SuspendedSpeakersTableView({ speakers }: SuspendedSpeakersTableViewProps) {
   const speakersData = use(speakers);
-  console.log({ speakersData });
   return <SpeakersTableView speakers={speakersData} />;
 }
