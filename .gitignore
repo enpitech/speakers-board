@@ -6,3 +6,5 @@
 /build/
 .history/
 .vscode/
+
+.react-router/

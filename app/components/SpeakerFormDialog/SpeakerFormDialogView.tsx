@@ -4,7 +4,6 @@ import { TextInput } from '../ui/form/TextInput';
 import { SocialNetworkInput } from '../ui/form/SocialNetworkInput';
 import { FormError } from '../ui/form/FormError';
 import type { SpeakerFormData } from '~/lib/types';
-import { Textarea } from '../ui/textarea';
 import { TextareaInput } from '../ui/form/TextareaInput';
 import { ChipInput } from '../ui/ChipInput';
 type SpeakerFormDialogViewProps = {

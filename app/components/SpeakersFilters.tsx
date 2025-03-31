@@ -2,86 +2,40 @@ import { useEffect, useState } from 'react';
 import { Chip } from './ui/Chip';
 import { useSearchParams } from 'react-router';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
+import type { SpeakersDashboardFilters } from '~/lib/types';
+import { CheckIcon } from 'lucide-react';
 
 interface SpeakersFiltersProps {
-  AvailableFilters: {
+  availableFilters: {
     availableLanguages: string[];
     availableTopics: string[];
   };
 }
 
-export function SpeakersFilters({ AvailableFilters }: SpeakersFiltersProps) {
+export function SpeakersFilters({ availableFilters: AvailableFilters }: SpeakersFiltersProps) {
   const { availableLanguages, availableTopics } = AvailableFilters;
-  const [filters, setFilters] = useState<{
-    language: string[];
-    topic: string[];
-    rating: number | null;
-  }>({
-    language: [],
-    topic: [],
-    rating: null,
-  });
 
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  useEffect(() => {
-    const languagesFromUrl = searchParams.get('language')?.split(',') || [];
-    const topicsFromUrl = searchParams.get('topic')?.split(',') || [];
-    const ratingFromUrl = searchParams.get('rating');
-
-    setFilters({
-      language: languagesFromUrl.filter(Boolean),
-      topic: topicsFromUrl.filter(Boolean),
-      rating: ratingFromUrl ? parseInt(ratingFromUrl) : null,
-    });
-  }, [searchParams]);
-
-  const updateFiltersInUrl = (newFilters: {
-    language: string[];
-    topic: string[];
-    rating: number | null;
-  }) => {
-    const newSearchParams = new URLSearchParams();
-
-    if (newFilters.language.length > 0)
-      newSearchParams.set('language', newFilters.language.join(','));
-    if (newFilters.topic.length > 0) newSearchParams.set('topic', newFilters.topic.join(','));
-    if (newFilters.rating !== null) newSearchParams.set('rating', newFilters.rating.toString());
-
-    setSearchParams(newSearchParams);
-  };
+  const { setFilters, filters } = useSyncFiltersInUrl();
 
   const handleSelectChange = (value: string, type: 'language' | 'topic') => {
-    if (!value) return;
-
-    setFilters(prevFilters => {
-      const updatedValues = prevFilters[type].includes(value)
-        ? prevFilters[type]
-        : [...prevFilters[type], value];
-      const updatedFilters = { ...prevFilters, [type]: updatedValues };
-      updateFiltersInUrl(updatedFilters);
-      return updatedFilters;
-    });
+    const newFilters: SpeakersDashboardFilters = { ...filters };
+    newFilters[type].includes(value)
+      ? newFilters[type].filter((v: string) => v !== value)
+      : newFilters[type].push(value);
+    setFilters(newFilters);
   };
 
   const handleRemove = (type: 'language' | 'topic', value: string) => {
-    setFilters(prevFilters => {
-      const updatedValues = prevFilters[type].filter(v => v !== value);
-      const updatedFilters = { ...prevFilters, [type]: updatedValues };
-      updateFiltersInUrl(updatedFilters);
-      return updatedFilters;
-    });
+    debugger;
+    const newFilters: SpeakersDashboardFilters = { ...filters };
+    newFilters[type] = newFilters[type].filter((v: string) => v !== value);
+    setFilters(newFilters);
   };
 
   const handleRatingChange = (rating: string) => {
-    setFilters(prevFilters => {
-      const updatedFilters = {
-        ...prevFilters,
-        rating: rating === 'null' ? null : parseInt(rating),
-      };
-      updateFiltersInUrl(updatedFilters);
-      return updatedFilters;
-    });
+    const newFilters: SpeakersDashboardFilters = { ...filters };
+    newFilters.rating = rating === 'null' ? null : parseInt(rating);
+    setFilters(newFilters);
   };
 
   return (
@@ -94,7 +48,7 @@ export function SpeakersFilters({ AvailableFilters }: SpeakersFiltersProps) {
           <SelectContent>
             {availableLanguages.map(lang => (
               <SelectItem key={lang} value={lang}>
-                {lang}
+                {filters.language.includes(lang) ? <CheckIcon /> : null} {lang}
               </SelectItem>
             ))}
           </SelectContent>
@@ -115,13 +69,13 @@ export function SpeakersFilters({ AvailableFilters }: SpeakersFiltersProps) {
           <SelectContent>
             {availableTopics.map(topic => (
               <SelectItem key={topic} value={topic}>
-                {topic}
+                {filters.topic.includes(topic) ? <CheckIcon /> : null} {topic}
               </SelectItem>
             ))}
           </SelectContent>
         </Select>
         <div className="flex gap-2 mt-2 flex-wrap">
-          {filters.topic.map(topic => (
+          {filters.topic.lefilters.topic.filter(Boolean).map(topic => (
             <Chip key={topic} label={topic} onRemove={() => handleRemove('topic', topic)} />
           ))}
         </div>
@@ -150,3 +104,37 @@ export function SpeakersFilters({ AvailableFilters }: SpeakersFiltersProps) {
     </div>
   );
 }
+
+const useSyncFiltersInUrl = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const [filtersState, setFiltersState] = useState<SpeakersDashboardFilters>({
+    language: [],
+    topic: [],
+    rating: null,
+  });
+
+  const setFilters = (filters: SpeakersDashboardFilters) => {
+    const newSearchParams = new URLSearchParams();
+
+    if (filters.language.length > 0) newSearchParams.set('language', filters.language.join(','));
+    if (filters.topic.length > 0) newSearchParams.set('topic', filters.topic.join(','));
+    if (filters.rating !== null) newSearchParams.set('rating', filters.rating.toString());
+
+    setSearchParams(newSearchParams);
+    setFiltersState(filters);
+  };
+  useEffect(() => {
+    const languagesFromUrl = searchParams.get('language')?.split(',') || [];
+    const topicsFromUrl = searchParams.get('topic')?.split(',') || [];
+    const ratingFromUrl = searchParams.get('rating');
+
+    setFilters({
+      language: languagesFromUrl.filter(Boolean),
+      topic: topicsFromUrl.filter(Boolean),
+      rating: ratingFromUrl ? parseInt(ratingFromUrl) : null,
+    });
+  }, []);
+
+  return { setFilters, filters: filtersState };
+};
