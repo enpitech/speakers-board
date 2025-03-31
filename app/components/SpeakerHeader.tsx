@@ -1,7 +1,8 @@
-import { Clock, MapPin, Star } from 'lucide-react';
+import { Clock, MapPin, Star, Youtube } from 'lucide-react';
 import { Link } from 'react-router';
 import type { Speaker } from '~/lib/types';
 import { SocialLinks } from './SocialLinks';
+import { Text } from './Text';
 
 type SpeakerHeaderProps = {
   speaker: Speaker;
@@ -28,25 +29,30 @@ export function SpeakerHeader({ speaker }: SpeakerHeaderProps) {
 
         <div className="ml-44 flex flex-col md:flex-row md:items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-[#006699]">{speaker.name}</h1>
+            <Text variant="h1" size="lg" className="text-[#006699]">
+              {speaker.name}
+            </Text>
             <div className="flex items-center gap-2 text-[#939393] mt-1">
               {speaker.location && (
                 <div className="flex items-center gap-1">
                   <MapPin className="w-4 h-4" />
-                  <span>{speaker.location}</span>
+                  <Text variant="p" size="sm" className="text-[#939393]">
+                    {speaker.location}
+                  </Text>
                 </div>
               )}
               {speaker.experience && (
                 <div className="flex items-center gap-1 ml-4">
                   <Clock className="w-4 h-4" />
-                  <span>{speaker.experience}</span>
+                  <Text variant="p" size="sm" className="text-[#939393]">
+                    {speaker.experience}
+                  </Text>
                 </div>
               )}
             </div>
           </div>
 
           <div className="flex items-center gap-2 mt-4 md:mt-0">
-            {/* Rating */}
             <div className="flex items-center bg-white px-3 py-1 rounded-full shadow-sm">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star
@@ -60,28 +66,20 @@ export function SpeakerHeader({ speaker }: SpeakerHeaderProps) {
               ))}
             </div>
 
-            {/* Sessions Button */}
             {speaker.sessionsUrl && (
               <Link
                 to={speaker.sessionsUrl}
                 className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#006699] text-white hover:bg-[#005588] transition-colors"
               >
-                View All Sessions
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="#FF0000"
-                >
-                  <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
-                </svg>
+                <Text variant="p" size="sm" className="text-white">
+                  View All Sessions
+                </Text>
+                <Youtube />
               </Link>
             )}
           </div>
         </div>
 
-        {/* Social Links */}
         <div className="ml-44 flex items-center gap-3 mt-4">
           <SocialLinks socialLinks={speaker.socialLinks} />
         </div>

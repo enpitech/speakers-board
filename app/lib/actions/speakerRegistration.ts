@@ -1,18 +1,20 @@
 import type { ActionFunctionArgs } from 'react-router';
-import type { Speaker, SpeakerFormData } from '../types';
+import type { SpeakerFormData } from '../types';
 
-export async function speakerSignUp({ request }: ActionFunctionArgs) {
+export async function speakerRegistration({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
   const rawData = Object.fromEntries(formData);
 
   try {
     const speakerData: SpeakerFormData = {
-      fullName: rawData.fullName as string,
+      name: rawData.name as string,
       languages: JSON.parse(rawData.languages as string),
       topics: JSON.parse(rawData.topics as string),
       sessionsUrl: rawData.sessionsUrl as string,
       socialLinks: JSON.parse(rawData.socialLinks as string),
       avatar: rawData.avatar as string | undefined,
+      location: rawData.location as string | undefined,
+      experience: rawData.experience as string | undefined,
     };
 
     const errors: Record<string, string> = validateSpeakerData(speakerData);
@@ -51,7 +53,7 @@ export async function speakerSignUp({ request }: ActionFunctionArgs) {
 
 const validateSpeakerData = (speakerData: SpeakerFormData) => {
   const errors: Record<string, string> = {};
-  if (!speakerData.fullName) errors.fullName = 'Name is required';
+  if (!speakerData.name) errors.name = 'Name is required';
   if (speakerData.languages.length === 0) errors.languages = 'At least one language is required';
   if (speakerData.topics.length === 0) errors.topics = 'At least one topic is required';
   if (speakerData.socialLinks.length === 1 && speakerData.socialLinks[0].url === '') {

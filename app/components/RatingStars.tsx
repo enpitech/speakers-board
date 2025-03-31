@@ -1,11 +1,15 @@
 import { Star } from 'lucide-react';
-
+import { Text } from './Text';
 export const RatingStars = ({ rating, reviewsCount }: { rating: number; reviewsCount: number }) => {
   return (
     <div className="flex items-center justify-between">
-      <h2 className="text-2xl font-semibold text-[#006699]">Reviews</h2>
+      <Text variant="h2" size="lg">
+        Reviews
+      </Text>
       <div className="flex items-center gap-2">
-        <span className="font-bold text-lg text-[#10bc4c]">{rating}.0</span>
+        <Text variant="span" size="lg">
+          {rating}.0
+        </Text>
         <div className="flex">
           {Array.from({ length: rating }).map((_, i) => (
             <Star
@@ -14,7 +18,9 @@ export const RatingStars = ({ rating, reviewsCount }: { rating: number; reviewsC
             />
           ))}
         </div>
-        <span className="text-[#939393]">({reviewsCount} reviews)</span>
+        <Text variant="span" size="sm">
+          ({reviewsCount} reviews)
+        </Text>
       </div>
     </div>
   );

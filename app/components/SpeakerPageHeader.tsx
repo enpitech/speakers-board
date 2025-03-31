@@ -1,9 +1,8 @@
-import React from 'react';
 import { Link } from 'react-router';
 import { MapPin, Clock, Star } from 'lucide-react';
 import type { Speaker } from '~/lib/types';
 import { SocialIcon } from './SocialIcon';
-
+import { Text } from './Text';
 export const SpeakerPageHeader = ({ speaker }: { speaker: Speaker }) => {
   const { avatar, name, location, experience, rating, sessionsUrl, socialLinks } = speaker;
   return (
@@ -26,7 +25,9 @@ export const SpeakerPageHeader = ({ speaker }: { speaker: Speaker }) => {
 
         <div className="ml-44 flex flex-col md:flex-row md:items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-[#006699]">{name}</h1>
+            <Text variant="h1" className="text-primary">
+              {name}
+            </Text>
             <div className="flex items-center gap-2 text-[#939393] mt-1">
               {location && (
                 <div className="flex items-center gap-1">

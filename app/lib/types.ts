@@ -48,13 +48,15 @@ export type Review = {
 };
 
 export type SpeakerFormData = {
-  fullName: string;
+  name: string;
   languages: string[];
   topics: string[];
   sessionsUrl: string;
   socialLinks: SocialLink[];
   avatar?: string;
   bio?: string;
+  location?: string;
+  experience?: string;
 };
 
 export type SpeakersDashboardFilters = {

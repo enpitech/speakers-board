@@ -22,8 +22,7 @@ export function Button({
     'cursor-pointer inline-flex items-center justify-center rounded-full font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-blue-400)]';
 
   const variants = {
-    default:
-      'bg-[var(--color-blue-400)] text-[var(--color-background-0)] hover:bg-[var(--color-blue-600)]',
+    default: 'bg-[var(--color-blue-400)] text-background hover:bg-[var(--color-blue-600)]',
     outline:
       'border border-[var(--color-blue-400)] bg-[var(--color-background-0)] text-[var(--color-text-600)] hover:bg-[var(--color-blue-100)] hover:border-[var(--color-blue-600)] group',
     ghost: 'bg-transparent text-[var(--color-text-600)] hover:bg-[var(--color-blue-100)]',

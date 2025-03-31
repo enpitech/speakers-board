@@ -1,13 +1,16 @@
-import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
-
+import { Text } from './Text';
 export const SpeakerPageAboutSkeleton = () => {
   return (
     <div className="md:col-span-1 space-y-6">
       {/* About Card Skeleton */}
       <Card>
         <CardHeader>
-          <CardTitle>About</CardTitle>
+          <CardTitle>
+            <Text variant="h2" size="lg">
+              About
+            </Text>
+          </CardTitle>
         </CardHeader>
         <CardContent>
           {/* Bio skeleton with multiple lines */}
@@ -22,7 +25,11 @@ export const SpeakerPageAboutSkeleton = () => {
       {/* Expertise Card Skeleton */}
       <Card>
         <CardHeader>
-          <CardTitle>Expertise</CardTitle>
+          <CardTitle>
+            <Text variant="h2" size="lg">
+              Expertise
+            </Text>
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2">
@@ -37,7 +44,11 @@ export const SpeakerPageAboutSkeleton = () => {
       {/* Languages Card Skeleton */}
       <Card>
         <CardHeader>
-          <CardTitle>Languages</CardTitle>
+          <CardTitle>
+            <Text variant="h2" size="lg">
+              Languages
+            </Text>
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-2">

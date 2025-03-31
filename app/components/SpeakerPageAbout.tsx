@@ -7,16 +7,17 @@ import { TextareaInput } from '~/components/ui/form/TextareaInput';
 import { Button } from '~/components/ui/button';
 import { SpeakerExpertise } from './SpeakerExpertise';
 import type { Speaker } from '~/lib/types';
+import { Text } from './Text';
 
 export const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
   const { bio, topics, languages } = speaker;
   const [isEditing, setIsEditing] = useState(false);
   const [editedBio, setEditedBio] = useState(bio);
 
-  const [isPending, startTransition] = useTransition();
+  const [_isPending, startTransition] = useTransition();
   const [optimisticBio, setOptimisticBio] = useOptimistic(
     bio || '',
-    (state: string, newBio: string) => {
+    (_state: string, newBio: string) => {
       return newBio;
     },
   );
@@ -37,7 +38,11 @@ export const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
     <div className="md:col-span-1 space-y-6">
       <Card>
         <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle>About</CardTitle>
+          <CardTitle>
+            <Text variant="h2" size="lg">
+              About
+            </Text>
+          </CardTitle>
           <Button
             variant="ghost"
             size="sm"
@@ -82,14 +87,20 @@ export const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
               </div>
             </form>
           ) : (
-            <p className="text-[#939393]">{optimisticBio}</p>
+            <Text variant="p" size="sm">
+              {optimisticBio}
+            </Text>
           )}
         </CardContent>
       </Card>
 
       <Card>
         <CardHeader>
-          <CardTitle>Expertise</CardTitle>
+          <CardTitle>
+            <Text variant="h2" size="lg">
+              Expertise
+            </Text>
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <ComponentErrorBoundary
@@ -98,7 +109,9 @@ export const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
             }}
             fallback={
               <div className="flex flex-col items-center gap-2 bg-red-200 p-4 rounded-lg">
-                Error loading Expertise
+                <Text variant="p" size="sm">
+                  Error loading Expertise
+                </Text>
                 <FileWarningIcon color="red" />
               </div>
             }
@@ -110,14 +123,20 @@ export const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
 
       <Card>
         <CardHeader>
-          <CardTitle>Languages</CardTitle>
+          <CardTitle>
+            <Text variant="h2" size="lg">
+              Languages
+            </Text>
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-2">
             {languages.map((language, index) => (
               <div key={index} className="flex items-center gap-2">
                 <Globe className="w-4 h-4 text-[#006699]" />
-                <span>{language}</span>
+                <Text variant="p" size="sm">
+                  {language}
+                </Text>
               </div>
             ))}
           </div>

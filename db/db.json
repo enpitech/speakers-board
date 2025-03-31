@@ -14,6 +14,8 @@
         "Spanish"
       ],
       "rating": 2,
+      "location": "San Francisco, USA",
+      "experience": "5+ years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -29,7 +31,7 @@
         }
       ],
       "sessionsUrl": "https://frontendistim.com/sessions/speaker-001",
-      "bio": "123asd"
+      "bio": "123asdasdsadfsdsfsd"
     },
     {
       "id": "speaker-002",
@@ -45,6 +47,8 @@
         "Mandarin"
       ],
       "rating": 3,
+      "location": "Shanghai, China",
+      "experience": "7 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -75,6 +79,8 @@
         "French"
       ],
       "rating": 4,
+      "location": "Madrid, Spain",
+      "experience": "6 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -106,6 +112,8 @@
         "Gujarati"
       ],
       "rating": 5,
+      "location": "Bangalore, India",
+      "experience": "8+ years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -136,6 +144,8 @@
         "Korean"
       ],
       "rating": 5,
+      "location": "Seoul, South Korea",
+      "experience": "4 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -165,6 +175,8 @@
         "English"
       ],
       "rating": 4.7,
+      "location": "Boston, USA",
+      "experience": "9 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -195,6 +207,8 @@
         "Russian"
       ],
       "rating": 4.6,
+      "location": "Moscow, Russia",
+      "experience": "6 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -226,6 +240,8 @@
         "Portuguese"
       ],
       "rating": 4.9,
+      "location": "Barcelona, Spain",
+      "experience": "7+ years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -257,6 +273,8 @@
         "French"
       ],
       "rating": 4.8,
+      "location": "Dubai, UAE",
+      "experience": "10 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -287,6 +305,8 @@
         "Irish"
       ],
       "rating": 4.7,
+      "location": "Dublin, Ireland",
+      "experience": "5 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -316,6 +336,8 @@
         "Japanese"
       ],
       "rating": 4.9,
+      "location": "Tokyo, Japan",
+      "experience": "7 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -365,6 +387,8 @@
         "German"
       ],
       "rating": 4.8,
+      "location": "Berlin, Germany",
+      "experience": "12 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -414,6 +438,8 @@
         "Cantonese"
       ],
       "rating": 4.6,
+      "location": "Hong Kong",
+      "experience": "8 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -443,6 +469,8 @@
         "Arabic"
       ],
       "rating": 4.9,
+      "location": "Cairo, Egypt",
+      "experience": "9 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -472,6 +500,8 @@
         "Italian"
       ],
       "rating": 4.7,
+      "location": "Milan, Italy",
+      "experience": "6 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -501,6 +531,8 @@
         "Portuguese"
       ],
       "rating": 4.6,
+      "location": "Lisbon, Portugal",
+      "experience": "5 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -531,6 +563,8 @@
         "Bengali"
       ],
       "rating": 4.8,
+      "location": "Mumbai, India",
+      "experience": "6 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -561,6 +595,8 @@
         "French"
       ],
       "rating": 2,
+      "location": "Paris, France",
+      "experience": "3 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -591,6 +627,8 @@
         "Ukrainian"
       ],
       "rating": 4.9,
+      "location": "Kyiv, Ukraine",
+      "experience": "7 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -620,6 +658,8 @@
         "Twi"
       ],
       "rating": 4.8,
+      "location": "Accra, Ghana",
+      "experience": "5 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -669,6 +709,8 @@
         "Spanish"
       ],
       "rating": 4.7,
+      "location": "Mexico City, Mexico",
+      "experience": "8 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -699,6 +741,8 @@
         "Persian"
       ],
       "rating": 4.8,
+      "location": "Lahore, Pakistan",
+      "experience": "6 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -729,6 +773,8 @@
         "Mandarin"
       ],
       "rating": 4.8,
+      "location": "Singapore",
+      "experience": "7 years",
       "socialLinks": [
         {
           "platform": "twitter",
@@ -764,6 +810,58 @@
         }
       ],
       "id": "fc3b"
+    },
+    {
+      "id": "e0be",
+      "name": "qwdq",
+      "languages": [
+        "qwdq"
+      ],
+      "topics": [
+        "qdqw"
+      ],
+      "sessionsUrl": "https://youtube.com/asdsa",
+      "socialLinks": [
+        {
+          "platform": "twitter",
+          "url": "qwd"
+        }
+      ]
+    },
+    {
+      "id": "f93f",
+      "name": "RotemThePro",
+      "languages": [
+        "qwdqw"
+      ],
+      "topics": [
+        "qdqwq"
+      ],
+      "sessionsUrl": "https://lpcac.com",
+      "socialLinks": [
+        {
+          "platform": "twitter",
+          "url": "qwdqw"
+        }
+      ],
+      "avatar": "data:image/png;base64,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"
+    },
+    {
+      "id": "85d0",
+      "name": "COOOLL",
+      "languages": [
+        "sada"
+      ],
+      "topics": [
+        "asdas"
+      ],
+      "sessionsUrl": "https://youtube.com/...",
+      "socialLinks": [
+        {
+          "platform": "twitter",
+          "url": "asdas"
+        }
+      ]
     }
   ],
   "reviews": [

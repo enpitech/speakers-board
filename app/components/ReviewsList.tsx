@@ -2,7 +2,7 @@ import { MessageSquare, Star } from 'lucide-react';
 import { Button } from '~/components/ui/button';
 import { Card, CardContent } from '~/components/ui/card';
 import type { Review } from '~/lib/types';
-
+import { Text } from './Text';
 type ReviewsListProps = {
   reviews?: Review[];
   rating: number;
@@ -12,9 +12,9 @@ export function ReviewsList({ reviews = [], rating }: ReviewsListProps) {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-semibold text-[#006699]">Reviews</h2>
+        <Text variant="h2">Reviews</Text>
         <div className="flex items-center gap-2">
-          <span className="font-bold text-lg text-[#10bc4c]">{rating}.0</span>
+          <Text variant="span">{rating}.0</Text>
           <div className="flex">
             {Array.from({ length: 5 }).map((_, i) => (
               <Star
@@ -25,7 +25,7 @@ export function ReviewsList({ reviews = [], rating }: ReviewsListProps) {
               />
             ))}
           </div>
-          <span className="text-[#939393]">({reviews.length} reviews)</span>
+          <Text variant="span">({reviews.length} reviews)</Text>
         </div>
       </div>
 
@@ -53,8 +53,8 @@ export function ReviewsList({ reviews = [], rating }: ReviewsListProps) {
 
                   <div className="flex-1">
                     <div className="flex items-center justify-between">
-                      <h3 className="font-semibold">{review.author}</h3>
-                      <span className="text-sm text-[#939393]">{review.date}</span>
+                      <Text variant="h3">{review.author}</Text>
+                      <Text variant="span">{review.date}</Text>
                     </div>
 
                     <div className="flex my-1">
@@ -70,7 +70,7 @@ export function ReviewsList({ reviews = [], rating }: ReviewsListProps) {
                       ))}
                     </div>
 
-                    <p className="text-[#939393] mt-2">{review.text}</p>
+                    <Text variant="p">{review.text}</Text>
                   </div>
                 </div>
               </CardContent>
@@ -84,7 +84,7 @@ export function ReviewsList({ reviews = [], rating }: ReviewsListProps) {
       <div className="flex justify-center mt-8">
         <Button className="bg-[#006699] hover:bg-[#005588]">
           <MessageSquare className="w-4 h-4 mr-2" />
-          Write a Review
+          <Text variant="span">Write a Review</Text>
         </Button>
       </div>
     </div>

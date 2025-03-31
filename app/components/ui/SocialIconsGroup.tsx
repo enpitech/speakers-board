@@ -1,33 +1,35 @@
-import { SocialIcon } from "./SocialIcon"
+import { SocialIcon } from '~/components/SocialIcon';
+import { Text } from '~/components/Text';
+import { TooltipContent, TooltipProvider, TooltipTrigger } from './tooltip';
+import { Tooltip } from './tooltip';
 
 type SocialPlatform =
-  | "linkedin"
-  | "twitter"
-  | "facebook"
-  | "instagram"
-  | "youtube"
-  | "github"
-  | "tiktok"
-  | "spotify"
-  | "discord"
+  | 'linkedin'
+  | 'twitter'
+  | 'facebook'
+  | 'instagram'
+  | 'youtube'
+  | 'github'
+  | 'tiktok'
+  | 'spotify'
+  | 'discord';
 
 export interface SocialLink {
-  platform: SocialPlatform
-  url: string
+  platform: SocialPlatform;
+  url: string;
 }
 
 interface SocialIconsGroupProps {
-  links: SocialLink[] | Record<SocialPlatform, string>
-  className?: string
-  iconSize?: "sm" | "md" | "lg"
-  maxIcons?: number
-  showCount?: boolean
+  links: SocialLink[] | Record<SocialPlatform, string>;
+  className?: string;
+  iconSize?: 'sm' | 'md' | 'lg';
+  maxIcons?: number;
+  showCount?: boolean;
 }
 
 export function SocialIconsGroup({
   links = [],
-  className = "",
-  iconSize = "md",
+  className = '',
   maxIcons,
   showCount = false,
 }: SocialIconsGroupProps) {
@@ -37,39 +39,49 @@ export function SocialIconsGroup({
     : Object.entries(links).map(([platform, url]) => ({
         platform: platform as SocialPlatform,
         url,
-      }))
+      }));
 
-  // Determine which links to display
-  const displayLinks = maxIcons ? linksArray.slice(0, maxIcons) : linksArray
-  const remainingCount = maxIcons && linksArray.length > maxIcons ? linksArray.length - maxIcons : 0
-
-  // Size classes for the icons
-  const sizeClasses = {
-    sm: "h-6 w-6",
-    md: "h-8 w-8",
-    lg: "h-10 w-10",
-  }
+  const displayLinks = linksArray.slice(0, maxIcons);
+  const remainingIcons = linksArray.slice(maxIcons);
+  const remainingCount = remainingIcons.length;
 
   return (
     <div className={`flex flex-wrap items-center gap-2 ${className}`}>
       {displayLinks.map((link, index) => (
-        <a
-          key={index}
-          href={link.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="transition-opacity hover:opacity-90"
-          aria-label={`${link.platform} profile`}
-        >
-          <SocialIcon platform={link.platform} className={sizeClasses[iconSize]} />
-        </a>
+        <SocialIconLink key={index} link={link} />
       ))}
 
       {showCount && remainingCount > 0 && (
-        <div className="flex h-8 w-8 items-center justify-center rounded-md bg-background-1/10 text-sm font-medium text-text-1">
-          +{remainingCount}
-        </div>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-background-1/10 text-sm font-medium text-text-1">
+                <Text variant="span">+{remainingCount}</Text>
+              </div>
+            </TooltipTrigger>
+            <TooltipContent className="p-2 bg-background-1 rounded-md shadow-md">
+              <div className="flex flex-wrap gap-2">
+                {remainingIcons.map((link, index) => (
+                  <SocialIconLink key={index} link={link} />
+                ))}
+              </div>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       )}
     </div>
-  )
+  );
 }
+const SocialIconLink = ({ link }: { link: SocialLink }) => {
+  return (
+    <a
+      href={link.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="transition-opacity hover:opacity-90"
+      aria-label={`${link.platform} profile`}
+    >
+      <SocialIcon platform={link.platform} />
+    </a>
+  );
+};

@@ -1,9 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SpeakerFormDialogView } from './SpeakerFormDialogView';
 import { useNavigation, useActionData } from 'react-router';
-import React from 'react';
 import type { SpeakerFormData } from '~/lib/types';
-import { Dialog } from './ui/Dialog/Dialog';
+import { Dialog } from '~/components/Dialog';
 
 interface SpeakerFormDialogContainerProps {
   isOpen: boolean;
@@ -12,7 +11,7 @@ interface SpeakerFormDialogContainerProps {
 
 export function SpeakerFormDialogContainer({ isOpen, onClose }: SpeakerFormDialogContainerProps) {
   const [formData, setFormData] = useState<SpeakerFormData>({
-    fullName: '',
+    name: '',
     languages: [],
     topics: [],
     sessionsUrl: '',
@@ -27,13 +26,13 @@ export function SpeakerFormDialogContainer({ isOpen, onClose }: SpeakerFormDialo
   const isSubmitting = navigation.state === 'submitting';
 
   // Close dialog on successful submission
-  React.useEffect(() => {
+  useEffect(() => {
     if (actionData?.success) {
       onClose();
     }
   }, [actionData?.success, onClose]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setErrors({ ...actionData?.errors });
   }, [actionData?.errors]);
 
@@ -63,7 +62,7 @@ export function SpeakerFormDialogContainer({ isOpen, onClose }: SpeakerFormDialo
   };
 
   return (
-    <Dialog isOpen={isOpen} onClose={onClose} title="Sign up as a Speaker">
+    <Dialog isOpen={isOpen} onClose={onClose} title="Register as a Speaker">
       <SpeakerFormDialogView
         formData={formData}
         onChange={handleChange}

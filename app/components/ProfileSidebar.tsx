@@ -2,6 +2,7 @@ import { Globe } from 'lucide-react';
 import { Badge } from '~/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
 import type { Speaker } from '~/lib/types';
+import { Text } from './Text';
 
 type ProfileSidebarProps = {
   speaker: Speaker;
@@ -10,19 +11,19 @@ type ProfileSidebarProps = {
 export function ProfileSidebar({ speaker }: ProfileSidebarProps) {
   return (
     <div className="space-y-6">
-      {/* About */}
       {speaker.bio && (
         <Card>
           <CardHeader>
             <CardTitle>About</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-[#939393]">{speaker.bio}</p>
+            <Text variant="p" size="sm">
+              {speaker.bio}
+            </Text>
           </CardContent>
         </Card>
       )}
 
-      {/* Topics */}
       <Card>
         <CardHeader>
           <CardTitle>Expertise</CardTitle>
@@ -38,7 +39,6 @@ export function ProfileSidebar({ speaker }: ProfileSidebarProps) {
         </CardContent>
       </Card>
 
-      {/* Languages */}
       <Card>
         <CardHeader>
           <CardTitle>Languages</CardTitle>
@@ -48,7 +48,9 @@ export function ProfileSidebar({ speaker }: ProfileSidebarProps) {
             {speaker.languages.map((language, index) => (
               <div key={index} className="flex items-center gap-2">
                 <Globe className="w-4 h-4 text-[#006699]" />
-                <span>{language}</span>
+                <Text variant="span" size="sm">
+                  {language}
+                </Text>
               </div>
             ))}
           </div>

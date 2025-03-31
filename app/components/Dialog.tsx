@@ -1,11 +1,12 @@
 import { X } from 'lucide-react';
+import { Text } from './Text';
 
-interface DialogProps {
+type DialogProps = {
   isOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
   title?: string;
-}
+};
 
 export function Dialog({ isOpen, onClose, children, title }: DialogProps) {
   if (!isOpen) return null;
@@ -22,7 +23,11 @@ export function Dialog({ isOpen, onClose, children, title }: DialogProps) {
           <X size={20} />
         </button>
 
-        {title && <h2 className="mb-4 text-xl font-semibold text-text-2">{title}</h2>}
+        {title && (
+          <Text variant="h2" size="lg" className="mb-4 text-text-2">
+            {title}
+          </Text>
+        )}
 
         {children}
       </div>

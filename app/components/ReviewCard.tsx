@@ -1,7 +1,7 @@
 import type { Review } from '~/lib/types';
 import { Card, CardContent } from './ui/card';
 import { Star } from 'lucide-react';
-
+import { Text } from './Text';
 export const ReviewCard = ({ review }: { review: Review }) => {
   return (
     <Card key={review.id}>
@@ -25,20 +25,26 @@ export const ReviewCard = ({ review }: { review: Review }) => {
 
           <div className="flex-1">
             <div className="flex items-center justify-between">
-              <h3 className="font-semibold">{review.author}</h3>
-              <span className="text-sm text-[#939393]">{review.date}</span>
+              <Text variant="h3" size="md">
+                {review.author}
+              </Text>
+              <Text variant="span" size="sm">
+                {review.date}
+              </Text>
             </div>
 
             <div className="flex my-1">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star
                   key={i}
-                  className={`w-4 h-4 ${i < review.rating ? 'fill-[#10bc4c] text-[#10bc4c]' : 'fill-[#d0d8e8] text-[#d0d8e8]'}`}
+                  className={`w-4 h-4 ${i < review.rating ? 'fill-primary  text-secondary' : 'fill-gray-300 text-gray-300'}`}
                 />
               ))}
             </div>
 
-            <p className="text-[#939393] mt-2">{review.text}</p>
+            <Text variant="p" size="sm">
+              {review.text}
+            </Text>
           </div>
         </div>
       </CardContent>

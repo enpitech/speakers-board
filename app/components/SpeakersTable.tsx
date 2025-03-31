@@ -2,7 +2,8 @@ import type { Speaker } from '~/lib/types';
 import { use } from 'react';
 import { TableCell } from './ui/table/TableCell';
 import { Table } from './ui/table/Table';
-import { SpeakerRow } from './ui/table/SpeakersRow';
+import { SpeakerRow } from './SpeakersRow';
+import { Text } from './Text';
 
 const columnWidths = {
   name: '20%',
@@ -16,23 +17,33 @@ interface SpeakersTableViewProps {
   speakers: Speaker[];
 }
 
-export function SpeakersTableView({ speakers }: SpeakersTableViewProps) {
+export function SpeakersTable({ speakers }: SpeakersTableViewProps) {
   const tableHeaders = (
     <div className="flex w-full items-center">
       <TableCell width={columnWidths.name}>
-        <span className="text-sm font-medium text-[var(--color-text-600)]">Name</span>
+        <Text variant="span" className="truncate">
+          Name
+        </Text>
       </TableCell>
       <TableCell width={columnWidths.topics}>
-        <span className="text-sm font-medium text-[var(--color-text-600)]">Topics</span>
+        <Text variant="span" className="truncate">
+          Topics
+        </Text>
       </TableCell>
       <TableCell width={columnWidths.languages}>
-        <span className="text-sm font-medium text-[var(--color-text-600)]">Languages</span>
+        <Text variant="span" className="truncate">
+          Languages
+        </Text>
       </TableCell>
       <TableCell width={columnWidths.social}>
-        <span className="text-sm font-medium text-[var(--color-text-600)]">Social</span>
+        <Text variant="span" className="truncate">
+          Social
+        </Text>
       </TableCell>
       <TableCell width={columnWidths.information}>
-        <span className="text-sm font-medium text-[var(--color-text-600)]">Information</span>
+        <Text variant="span" className="truncate">
+          Information
+        </Text>
       </TableCell>
     </div>
   );
@@ -57,5 +68,5 @@ type SuspendedSpeakersTableViewProps = {
 
 export function SuspendedSpeakersTableView({ speakers }: SuspendedSpeakersTableViewProps) {
   const speakersData = use(speakers);
-  return <SpeakersTableView speakers={speakersData} />;
+  return <SpeakersTable speakers={speakersData} />;
 }

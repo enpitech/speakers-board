@@ -1,7 +1,7 @@
-import { NutOffIcon, Table } from 'lucide-react';
+import { Table } from 'lucide-react';
 import { cn } from '~/lib/utils';
 import { Button } from '../button';
-
+import { Text } from '~/components/Text';
 export function TableEmptyView({
   emptyMessage,
   className,
@@ -22,7 +22,12 @@ export function TableEmptyView({
       )}
     >
       <Table className="w-10 h-10 text-text-2" />
-      <p className="text-[var(--color-text-600)] text-lg font-medium mt-4 mb-2 ">{emptyMessage}</p>
+      <Text
+        variant="p"
+        className="text-[var(--color-text-600)] text-lg font-medium mt-4 mb-2 text-center"
+      >
+        {emptyMessage}
+      </Text>
 
       {onReload && (
         <Button onClick={onReload} variant="outline" size="sm" className="mt-4">

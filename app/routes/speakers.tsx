@@ -3,9 +3,9 @@ import { useLocation, type ActionFunctionArgs } from 'react-router';
 import { SuspendedSpeakersTableView } from '~/components/SpeakersTable';
 import { SuspendedSpeakersFilters } from '~/components/SpeakersFilters';
 import { Spinner } from '~/components/Spinner';
-import type { Speaker, SpeakersLoaderData } from '~/lib/types';
+import type { SpeakersLoaderData } from '~/lib/types';
 
-import { speakerSignUp } from '~/lib/actions/speaker-sign-up';
+import { speakerRegistration } from '~/lib/actions/speakerRegistration';
 import type { Route } from '../+types/root';
 import { GeneralError } from '~/components/GeneralErrorBoundary';
 import { NetworkError } from '~/components/NetworkErrorBoundary';
@@ -14,7 +14,7 @@ import { SpeakersTableSkeleton } from '~/components/SpeakersTableSkeleton';
 import { speakersPageLoader } from '~/lib/loaders/speakers.loader';
 
 export async function action(args: ActionFunctionArgs) {
-  return speakerSignUp(args);
+  return await speakerRegistration(args);
 }
 
 export const loader = speakersPageLoader;

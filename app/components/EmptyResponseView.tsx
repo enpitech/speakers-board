@@ -1,8 +1,26 @@
-export const EmptyResponseView = ({ message }: { message: string }) => {
+import { Text } from '~/components/Text';
+import { PhoneMissedIcon } from 'lucide-react';
+
+export const EmptyResponseView = ({
+  message,
+  cta,
+  icon = <PhoneMissedIcon className="size-4" />,
+}: {
+  message: string;
+  cta?: React.ReactNode;
+  icon?: React.ReactNode;
+}) => {
   return (
-    <div className="text-center py-8 text-[#939393] font-bold bg-secondary p-4 rounded-lg">
-      <div className="text-4xl">404</div>
-      <div className="text-2xl">{message}</div>
+    <div className="text-center bg-secondary p-4 rounded-lg flex flex-col items-center gap-4">
+      <div className="text-4xl">
+        <Text variant="h3" className="text-primary">
+          {icon}
+        </Text>
+      </div>
+      <Text variant="p" size="lg">
+        {message}
+      </Text>
+      {cta && cta}
     </div>
   );
 };

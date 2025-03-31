@@ -157,5 +157,6 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    color: var(--foreground);
   }
 }

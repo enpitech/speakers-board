@@ -3,7 +3,7 @@ import { Calendar, Users } from 'lucide-react';
 import { SocialIcon } from './ui/SocialIcon';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import type { Session } from '~/lib/types';
-
+import { Text } from './Text';
 export const SessionCard = ({ session }: { session: Session }) => {
   const { id, title, date, attendees, videoUrl } = session;
   return (
@@ -15,11 +15,15 @@ export const SessionCard = ({ session }: { session: Session }) => {
             <div className="flex flex-wrap gap-2 mt-2">
               <div className="flex items-center gap-1">
                 <Calendar className="w-4 h-4 text-[#939393]" />
-                <span>{date}</span>
+                <Text variant="span" size="sm">
+                  {date}
+                </Text>
               </div>
               <div className="flex items-center gap-1">
                 <Users className="w-4 h-4 text-[#939393]" />
-                <span>{attendees} attendees</span>
+                <Text variant="span" size="sm">
+                  {attendees} attendees
+                </Text>
               </div>
             </div>
           </CardDescription>
@@ -28,7 +32,9 @@ export const SessionCard = ({ session }: { session: Session }) => {
           {videoUrl && (
             <Button variant="outline" color="secondary">
               <SocialIcon platform="youtube" />
-              <span className="ml-2">Watch Recording</span>
+              <Text variant="span" size="sm">
+                Watch Recording
+              </Text>
             </Button>
           )}
         </CardContent>

@@ -1,12 +1,13 @@
-import { Avatar } from '../../Avatar';
-import { StarRating } from '../../StarRating';
+import { Avatar } from './Avatar';
+import { StarRating } from './StarRating';
 import { Youtube } from 'lucide-react';
-import { Row } from './Row';
-import { TableCell } from './TableCell';
-import { Button } from '../button';
-import { SocialIconsGroup } from '../SocialIconsGroup';
+import { Row } from './ui/table/Row';
+import { TableCell } from './ui/table/TableCell';
+import { Button } from './ui/button';
+import { SocialIconsGroup } from './ui/SocialIconsGroup';
 import type { Speaker } from '~/lib/types';
 import { useNavigate } from 'react-router';
+import { Text } from '~/components/Text';
 
 interface SpeakerRowProps {
   speaker: Speaker;
@@ -26,22 +27,22 @@ export function SpeakerRow({ speaker, columnWidths }: SpeakerRowProps) {
       <TableCell width={columnWidths.name}>
         <div className="flex items-center gap-3 min-w-0">
           <Avatar src={speaker.avatar} alt={speaker.name} size="sm" fallback={speaker.name} />
-          <span className="font-medium text-[var(--color-text-900)] truncate text-sm">
+          <Text variant="p" className=" truncate ">
             {speaker.name}
-          </span>
+          </Text>
         </div>
       </TableCell>
 
       <TableCell width={columnWidths.topics}>
-        <span className="text-sm text-[var(--color-mint-500)] break-words line-clamp-2">
+        <Text variant="p" className="text-sm text-[var(--color-mint-500)] break-words line-clamp-2">
           {speaker.topics.join(', ')}
-        </span>
+        </Text>
       </TableCell>
 
       <TableCell width={columnWidths.languages}>
-        <span className="text-sm text-[var(--color-text-400)] break-words line-clamp-2">
+        <Text variant="p" className="text-sm text-[var(--color-text-400)] break-words line-clamp-2">
           {speaker.languages.join(', ')}
-        </span>
+        </Text>
       </TableCell>
 
       <TableCell width={columnWidths.social}>
@@ -57,7 +58,9 @@ export function SpeakerRow({ speaker, columnWidths }: SpeakerRowProps) {
               size="sm"
             >
               <Youtube className="h-3.5 w-3.5 text-[#FF0000]" />
-              <span className="truncate">Sessions</span>
+              <Text variant="p" className="truncate">
+                Sessions
+              </Text>
             </Button>
           )}
 
