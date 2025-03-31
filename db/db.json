@@ -601,7 +601,7 @@
       "id": "r1",
       "speakerId": "speaker-001",
       "author": "Michael Chen",
-      "avatar": "/placeholder.svg?height=50&width=50",
+      "avatar": "/avatars/reviewers/reviewer-001.svg",
       "rating": 5,
       "text": "Dana's React workshop was incredibly insightful. She has a talent for explaining complex concepts in a way that's easy to understand.",
       "date": "March 15, 2023"
@@ -609,8 +609,8 @@
     {
       "id": "r2",
       "speakerId": "speaker-001",
-      "author": "Michael Chen",
-      "avatar": "/placeholder.svg?height=50&width=50",
+      "author": "Sarah Johnson",
+      "avatar": "/avatars/reviewers/reviewer-002.svg",
       "rating": 5,
       "text": "Dana's React workshop was incredibly insightful. She has a talent for explaining complex concepts in a way that's easy to understand.",
       "date": "March 15, 2023"
@@ -618,8 +618,8 @@
     {
       "id": "r3",
       "speakerId": "speaker-001",
-      "author": "Michael Chen",
-      "avatar": "/placeholder.svg?height=50&width=50",
+      "author": "David Wilson",
+      "avatar": "/avatars/reviewers/reviewer-003.svg",
       "rating": 5,
       "text": "Dana's React workshop was incredibly insightful. She has a talent for explaining complex concepts in a way that's easy to understand.",
       "date": "March 15, 2023"
@@ -627,8 +627,8 @@
     {
       "id": "r4",
       "speakerId": "speaker-001",
-      "author": "Michael Chen",
-      "avatar": "/placeholder.svg?height=50&width=50",
+      "author": "Emma Davis",
+      "avatar": "/avatars/reviewers/reviewer-004.svg",
       "rating": 5,
       "text": "Dana's React workshop was incredibly insightful. She has a talent for explaining complex concepts in a way that's easy to understand.",
       "date": "March 15, 2023"
@@ -980,6 +980,88 @@
     {
       "id": "c",
       "name": "C"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "s1",
+      "title": "Modern React Patterns for 2023",
+      "date": "April 15, 2023",
+      "time": "14:00 - 16:00",
+      "location": "TechHub Berlin",
+      "attendees": 45,
+      "videoUrl": "#",
+      "speakerId": "speaker-001"
+    },
+    {
+      "id": "s2",
+      "title": "TypeScript Deep Dive Workshop",
+      "date": "May 3, 2023",
+      "time": "10:00 - 17:00",
+      "location": "Online",
+      "attendees": 120,
+      "videoUrl": "#",
+      "speakerId": "speaker-001"
+    },
+    {
+      "id": "s3",
+      "title": "Modern React Patterns for 2023",
+      "date": "April 15, 2023",
+      "time": "14:00 - 16:00",
+      "location": "TechHub Berlin",
+      "attendees": 45,
+      "videoUrl": "#",
+      "speakerId": "speaker-002"
+    },
+    {
+      "id": "s4",
+      "title": "Modern React Patterns for 2023",
+      "date": "April 15, 2023",
+      "time": "14:00 - 16:00",
+      "location": "TechHub Berlin",
+      "attendees": 45,
+      "videoUrl": "#",
+      "speakerId": "speaker-002"
+    },
+    {
+      "id": "s5",
+      "title": "Modern React Patterns for 2023",
+      "date": "April 15, 2023",
+      "time": "14:00 - 16:00",
+      "location": "TechHub Berlin",
+      "attendees": 45,
+      "videoUrl": "#",
+      "speakerId": "speaker-002"
+    },
+    {
+      "id": "s6",
+      "title": "Modern React Patterns for 2023",
+      "date": "April 15, 2023",
+      "time": "14:00 - 16:00",
+      "location": "TechHub Berlin",
+      "attendees": 45,
+      "videoUrl": "#",
+      "speakerId": "speaker-002"
+    },
+    {
+      "id": "s7",
+      "title": "Modern React Patterns for 2023",
+      "date": "April 15, 2023",
+      "time": "14:00 - 16:00",
+      "location": "TechHub Berlin",
+      "attendees": 45,
+      "videoUrl": "#",
+      "speakerId": "speaker-002"
+    },
+    {
+      "id": "s8",
+      "title": "Modern React Patterns for 2023",
+      "date": "April 15, 2023",
+      "time": "14:00 - 16:00",
+      "location": "TechHub Berlin",
+      "attendees": 45,
+      "videoUrl": "#",
+      "speakerId": "speaker-002"
     }
   ]
 }

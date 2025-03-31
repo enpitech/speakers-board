@@ -62,3 +62,9 @@ export type SpeakersDashboardFilters = {
   topic: string[];
   rating: number | null;
 };
+
+export type SpeakerPageLoaderData = {
+  speaker: Speaker;
+  sessions: Session[];
+  reviews: Review[];
+};
