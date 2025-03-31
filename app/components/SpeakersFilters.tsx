@@ -12,31 +12,11 @@ interface SpeakersFiltersProps {
   };
 }
 
-export function SpeakersFilters({ availableFilters: AvailableFilters }: SpeakersFiltersProps) {
-  const { availableLanguages, availableTopics } = AvailableFilters;
+export function SpeakersFilters({ availableFilters }: SpeakersFiltersProps) {
+  const { availableLanguages, availableTopics } = availableFilters;
 
-  const { setFilters, filters } = useSyncFiltersInUrl();
-
-  const handleSelectChange = (value: string, type: 'language' | 'topic') => {
-    const newFilters: SpeakersDashboardFilters = { ...filters };
-    newFilters[type].includes(value)
-      ? newFilters[type].filter((v: string) => v !== value)
-      : newFilters[type].push(value);
-    setFilters(newFilters);
-  };
-
-  const handleRemove = (type: 'language' | 'topic', value: string) => {
-    debugger;
-    const newFilters: SpeakersDashboardFilters = { ...filters };
-    newFilters[type] = newFilters[type].filter((v: string) => v !== value);
-    setFilters(newFilters);
-  };
-
-  const handleRatingChange = (rating: string) => {
-    const newFilters: SpeakersDashboardFilters = { ...filters };
-    newFilters.rating = rating === 'null' ? null : parseInt(rating);
-    setFilters(newFilters);
-  };
+  const { setFilters, filters, handleSelectChange, handleRemove, handleRatingChange } =
+    useSpeakersFilters();
 
   return (
     <div className="flex gap-4 mb-4 w-full border border-primary rounded-md p-4">
@@ -75,7 +55,7 @@ export function SpeakersFilters({ availableFilters: AvailableFilters }: Speakers
           </SelectContent>
         </Select>
         <div className="flex gap-2 mt-2 flex-wrap">
-          {filters.topic.lefilters.topic.filter(Boolean).map(topic => (
+          {filters.topic.filter(Boolean).map(topic => (
             <Chip key={topic} label={topic} onRemove={() => handleRemove('topic', topic)} />
           ))}
         </div>
@@ -105,7 +85,7 @@ export function SpeakersFilters({ availableFilters: AvailableFilters }: Speakers
   );
 }
 
-const useSyncFiltersInUrl = () => {
+const useSpeakersFilters = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [filtersState, setFiltersState] = useState<SpeakersDashboardFilters>({
@@ -114,6 +94,25 @@ const useSyncFiltersInUrl = () => {
     rating: null,
   });
 
+  const handleSelectChange = (value: string, type: 'language' | 'topic') => {
+    const newFilters: SpeakersDashboardFilters = { ...filtersState };
+    newFilters[type].includes(value)
+      ? newFilters[type].filter((v: string) => v !== value)
+      : newFilters[type].push(value);
+    setFiltersState(newFilters);
+  };
+
+  const handleRemove = (type: 'language' | 'topic', value: string) => {
+    const newFilters: SpeakersDashboardFilters = { ...filtersState };
+    newFilters[type] = newFilters[type].filter((v: string) => v !== value);
+    setFiltersState(newFilters);
+  };
+
+  const handleRatingChange = (rating: string) => {
+    const newFilters: SpeakersDashboardFilters = { ...filtersState };
+    newFilters.rating = rating === 'null' ? null : parseInt(rating);
+    setFiltersState(newFilters);
+  };
   const setFilters = (filters: SpeakersDashboardFilters) => {
     const newSearchParams = new URLSearchParams();
 
@@ -136,5 +135,11 @@ const useSyncFiltersInUrl = () => {
     });
   }, []);
 
-  return { setFilters, filters: filtersState };
+  return {
+    setFilters,
+    filters: filtersState,
+    handleSelectChange,
+    handleRemove,
+    handleRatingChange,
+  };
 };

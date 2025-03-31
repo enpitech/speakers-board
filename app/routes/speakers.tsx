@@ -120,8 +120,6 @@ export default function Speakers({ loaderData }: { loaderData: SpeakersLoaderDat
 }
 
 export function ErrorBoundary({ error, params }: Route.ErrorBoundaryProps) {
-  console.log('error', error);
-  console.log('params', params);
   if (error instanceof Error) {
     return <GeneralError error={error} params={params} />;
   }

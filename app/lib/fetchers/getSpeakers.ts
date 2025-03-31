@@ -9,7 +9,6 @@ export const getSpeakers = async ({
   topics?: string[] | null;
   rating?: number | null;
 }) => {
-  console.log({ rating });
   const response = await fetch(
     `http://localhost:3001/speakers?${rating ? `rating=${rating}` : ''}`,
     {
@@ -26,7 +25,6 @@ export const getSpeakers = async ({
 
   if (speakers.length === 0) return [];
 
-  console.log({ speakers: speakers.length });
   if (languages) {
     speakers = speakers.filter((speaker: Speaker) => {
       const stringifiedLanguages = speaker.languages.join(',').toLowerCase();
