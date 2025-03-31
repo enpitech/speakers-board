@@ -56,3 +56,9 @@ export type SpeakerFormData = {
   avatar?: string;
   bio?: string;
 };
+
+export type SpeakersDashboardFilters = {
+  language: string[];
+  topic: string[];
+  rating: number | null;
+};

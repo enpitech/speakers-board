@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Dialog } from '../ui/Dialog/Dialog';
 import { SpeakerFormDialogView } from './SpeakerFormDialogView';
-import type { SpeakerFormData } from './SpeakerFormDialogView';
 import { useNavigation, useActionData } from 'react-router';
 import React from 'react';
+import type { SpeakerFormData } from '~/lib/types';
 
 interface SpeakerFormDialogContainerProps {
   isOpen: boolean;
@@ -39,7 +39,6 @@ export function SpeakerFormDialogContainer({ isOpen, onClose }: SpeakerFormDialo
 
   const handleChange = (data: Partial<SpeakerFormData>) => {
     setFormData(prev => ({ ...prev, ...data }));
-    // Clear errors when user makes changes
     setErrors(prev => {
       const newErrors = { ...prev };
       Object.keys(data).forEach(key => {

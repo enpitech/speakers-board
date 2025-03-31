@@ -1,105 +1,105 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { SpeakersTableView } from "./SpeakersTableView";
-import type { Speaker } from "./SpeakersRow";
+import { useState, useEffect } from 'react';
+import { SpeakersTableView } from './SpeakersTableView';
+import type { Speaker } from '~/lib/types';
 
 // This would typically come from an API
 const mockSpeakers: Speaker[] = [
   {
-    id: "1",
-    name: "Dana Harari",
-    avatar: "/placeholder.svg?height=100&width=100",
-    topics: ["React", "TypeScript", "Tailwind"],
-    languages: ["English", "Hebrew", "German"],
+    id: '1',
+    name: 'Dana Harari',
+    avatar: '/placeholder.svg?height=100&width=100',
+    topics: ['React', 'TypeScript', 'Tailwind'],
+    languages: ['English', 'Hebrew', 'German'],
     socialLinks: [
-      { platform: "linkedin", url: "#" },
-      { platform: "spotify", url: "#" },
-      { platform: "instagram", url: "#" },
+      { platform: 'linkedin', url: '#' },
+      { platform: 'spotify', url: '#' },
+      { platform: 'instagram', url: '#' },
     ],
     rating: 5,
-    sessionsUrl: "#",
+    sessionsUrl: '#',
   },
   {
-    id: "2",
-    name: "Shalev Amari",
-    avatar: "/placeholder.svg?height=100&width=100",
-    topics: ["React"],
-    languages: ["English", "Hebrew"],
+    id: '2',
+    name: 'Shalev Amari',
+    avatar: '/placeholder.svg?height=100&width=100',
+    topics: ['React'],
+    languages: ['English', 'Hebrew'],
     socialLinks: [
-      { platform: "twitter", url: "#" },
-      { platform: "tiktok", url: "#" },
-      { platform: "facebook", url: "#" },
-      { platform: "linkedin", url: "#" },
-      { platform: "instagram", url: "#" },
+      { platform: 'twitter', url: '#' },
+      { platform: 'tiktok', url: '#' },
+      { platform: 'facebook', url: '#' },
+      { platform: 'linkedin', url: '#' },
+      { platform: 'instagram', url: '#' },
     ],
     rating: 4,
-    sessionsUrl: "#",
+    sessionsUrl: '#',
   },
   {
-    id: "3",
-    name: "Lana Kochovski",
-    avatar: "/placeholder.svg?height=100&width=100",
-    topics: ["TypeScript", "Tailwind"],
-    languages: ["Hebrew", "Russian"],
+    id: '3',
+    name: 'Lana Kochovski',
+    avatar: '/placeholder.svg?height=100&width=100',
+    topics: ['TypeScript', 'Tailwind'],
+    languages: ['Hebrew', 'Russian'],
     socialLinks: [
-      { platform: "facebook", url: "#" },
-      { platform: "linkedin", url: "#" },
-      { platform: "instagram", url: "#" },
-      { platform: "discord", url: "#" },
-      { platform: "github", url: "#" },
+      { platform: 'facebook', url: '#' },
+      { platform: 'linkedin', url: '#' },
+      { platform: 'instagram', url: '#' },
+      { platform: 'discord', url: '#' },
+      { platform: 'github', url: '#' },
     ],
     rating: 3,
-    sessionsUrl: "#",
+    sessionsUrl: '#',
   },
   {
-    id: "4",
-    name: "Mor Desa",
-    avatar: "/placeholder.svg?height=100&width=100",
-    topics: ["React", "Tailwind"],
-    languages: ["English", "Hebrew", "Amharic"],
+    id: '4',
+    name: 'Mor Desa',
+    avatar: '/placeholder.svg?height=100&width=100',
+    topics: ['React', 'Tailwind'],
+    languages: ['English', 'Hebrew', 'Amharic'],
     socialLinks: [
-      { platform: "tiktok", url: "#" },
-      { platform: "facebook", url: "#" },
-      { platform: "linkedin", url: "#" },
-      { platform: "instagram", url: "#" },
+      { platform: 'tiktok', url: '#' },
+      { platform: 'facebook', url: '#' },
+      { platform: 'linkedin', url: '#' },
+      { platform: 'instagram', url: '#' },
     ],
     rating: 5,
-    sessionsUrl: "#",
+    sessionsUrl: '#',
   },
   {
-    id: "5",
-    name: "Sharon Amsalem",
-    avatar: "/placeholder.svg?height=100&width=100",
-    topics: ["React", "TypeScript"],
-    languages: ["English", "Hebrew", "Spanish"],
+    id: '5',
+    name: 'Sharon Amsalem',
+    avatar: '/placeholder.svg?height=100&width=100',
+    topics: ['React', 'TypeScript'],
+    languages: ['English', 'Hebrew', 'Spanish'],
     socialLinks: [
-      { platform: "twitter", url: "#" },
-      { platform: "tiktok", url: "#" },
-      { platform: "facebook", url: "#" },
-      { platform: "linkedin", url: "#" },
-      { platform: "spotify", url: "#" },
-      { platform: "instagram", url: "#" },
-      { platform: "discord", url: "#" },
-      { platform: "github", url: "#" },
+      { platform: 'twitter', url: '#' },
+      { platform: 'tiktok', url: '#' },
+      { platform: 'facebook', url: '#' },
+      { platform: 'linkedin', url: '#' },
+      { platform: 'spotify', url: '#' },
+      { platform: 'instagram', url: '#' },
+      { platform: 'discord', url: '#' },
+      { platform: 'github', url: '#' },
     ],
     rating: 4,
-    sessionsUrl: "#",
+    sessionsUrl: '#',
   },
   {
-    id: "6",
-    name: "Yogel Nahalal",
-    avatar: "/placeholder.svg?height=100&width=100",
-    topics: ["React", "TypeScript", "Tailwind"],
-    languages: ["English", "Hebrew", "Czech"],
+    id: '6',
+    name: 'Yogel Nahalal',
+    avatar: '/placeholder.svg?height=100&width=100',
+    topics: ['React', 'TypeScript', 'Tailwind'],
+    languages: ['English', 'Hebrew', 'Czech'],
     socialLinks: [
-      { platform: "tiktok", url: "#" },
-      { platform: "facebook", url: "#" },
-      { platform: "linkedin", url: "#" },
-      { platform: "instagram", url: "#" },
+      { platform: 'tiktok', url: '#' },
+      { platform: 'facebook', url: '#' },
+      { platform: 'linkedin', url: '#' },
+      { platform: 'instagram', url: '#' },
     ],
     rating: 5,
-    sessionsUrl: "#",
+    sessionsUrl: '#',
   },
 ];
 
@@ -123,7 +123,7 @@ export function SpeakersTable({}: SpeakersTableProps) {
           setLoading(false);
         }, 500);
       } catch (error) {
-        console.error("Error fetching speakers:", error);
+        console.error('Error fetching speakers:', error);
         setLoading(false);
       }
     };
