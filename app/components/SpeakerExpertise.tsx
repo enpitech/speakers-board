@@ -1,7 +1,6 @@
-import React from 'react';
 import { Badge } from '~/components/ui/badge';
 
-export const Expertise = ({ topics }: { topics: string[] }) => {
+export const SpeakerExpertise = ({ topics }: { topics: string[] }) => {
   throw new Error('BLBLBLB');
   return (
     <div className="flex flex-wrap gap-2">

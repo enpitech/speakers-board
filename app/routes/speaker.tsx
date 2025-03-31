@@ -4,12 +4,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/components/ui/tabs';
 import { Spinner } from '~/components/Spinner';
 import { speakerPageLoader } from '~/lib/loaders/speaker.loader';
 import type { SpeakerPageLoaderData } from '~/lib/types';
-import { SpeakerPageHeader } from '~/components/SpeakerProfile/SpeakerPageHeader';
-import { SpeakerPageHeaderSkeleton } from '~/components/SpeakerProfile/SpeakerPageHeaderSkeleton';
-import { SpeakerPageAbout } from '~/components/SpeakerProfile/SpeakerPageAbout';
-import { SpeakerPageAboutSkeleton } from '~/components/SpeakerProfile/SpeakerPageAboutSkeleton';
-import { SpeakerUpcomingSessions } from '~/components/SpeakerProfile/SpeakerUpcomingSessions';
-import { SpeakerPastSessions } from '~/components/SpeakerProfile/SpeakerPastSessions';
+import { SpeakerPageHeader } from '~/components/SpeakerPageHeader';
+import { SpeakerPageHeaderSkeleton } from '~/components/SpeakerPageHeaderSkeleton';
+import { SpeakerPageAbout } from '~/components/SpeakerPageAbout';
+import { SpeakerPageAboutSkeleton } from '~/components/SpeakerPageAboutSkeleton';
+import { SpeakerUpcomingSessions } from '~/components/SpeakerUpcomingSessions';
+import { SpeakerPastSessions } from '~/components/SpeakerPastSessions';
 import ReviewsFeed from './reviews-feed';
 
 export const loader = speakerPageLoader;

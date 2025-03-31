@@ -5,7 +5,7 @@ import { ComponentErrorBoundary } from '~/components/ComponentErrorBoundary';
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
 import { TextareaInput } from '~/components/ui/form/TextareaInput';
 import { Button } from '~/components/ui/button';
-import { Expertise } from './Expertise';
+import { SpeakerExpertise } from './SpeakerExpertise';
 import type { Speaker } from '~/lib/types';
 
 export const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
@@ -103,7 +103,7 @@ export const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
               </div>
             }
           >
-            <Expertise topics={topics} />
+            <SpeakerExpertise topics={topics} />
           </ComponentErrorBoundary>
         </CardContent>
       </Card>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, Outlet } from 'react-router';
-import { RegisterSpeakerButton } from '~/components/SpeakerFormDialog/RegisterSpeakerButton';
-import { SpeakerFormDialogContainer } from '~/components/SpeakerFormDialog/SpeakerFormDialogContainer';
+import { RegisterSpeakerButton } from '~/components/RegisterSpeakerButton';
+import { SpeakerFormDialogContainer } from '~/components/SpeakerFormDialogContainer';
 
 export default function Layout() {
   const [registerSpeakerDialogOpen, setRegisterSpeakerDialogOpen] = useState(false);
