@@ -44,7 +44,6 @@ export async function loader({ request }: Route.LoaderArgs): Promise<SpeakersLoa
 export default function Speakers({ loaderData }: { loaderData: SpeakersLoaderData }) {
   const { speakers, languages, topics } = loaderData;
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  console.log({ speakers });
 
   return (
     <>
