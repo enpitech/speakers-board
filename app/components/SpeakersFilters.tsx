@@ -15,8 +15,7 @@ interface SpeakersFiltersProps {
 export function SpeakersFilters({ availableFilters }: SpeakersFiltersProps) {
   const { availableLanguages, availableTopics } = availableFilters;
 
-  const { setFilters, filters, handleSelectChange, handleRemove, handleRatingChange } =
-    useSpeakersFilters();
+  const { filters, handleSelectChange, handleRemove, handleRatingChange } = useSpeakersFilters();
 
   return (
     <div className="flex gap-4 mb-4 w-full border border-primary rounded-md p-4">
@@ -135,6 +134,14 @@ const useSpeakersFilters = () => {
     });
   }, []);
 
+  useEffect(() => {
+    const searchParams = new URLSearchParams();
+    if (filtersState.language.length > 0)
+      searchParams.set('language', filtersState.language.join(','));
+    if (filtersState.topic.length > 0) searchParams.set('topic', filtersState.topic.join(','));
+    if (filtersState.rating !== null) searchParams.set('rating', filtersState.rating.toString());
+    setSearchParams(searchParams);
+  }, [filtersState]);
   return {
     setFilters,
     filters: filtersState,

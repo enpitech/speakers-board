@@ -3,5 +3,6 @@ export const getLanguages = async (language?: string | null) => {
     `http://localhost:3001/languages${language ? `?language=${language}` : ''}`,
   );
   const languages = await response.json();
+  console.log({ languages });
   return languages;
 };
