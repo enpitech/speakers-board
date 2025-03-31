@@ -1,8 +1,5 @@
-export const getLanguages = async (language?: string | null) => {
-  const response = await fetch(
-    `http://localhost:3001/languages${language ? `?language=${language}` : ''}`,
-  );
+export const getLanguages = async () => {
+  const response = await fetch(`http://localhost:3001/languages`);
   const languages = await response.json();
-  console.log({ languages });
-  return languages;
+  return languages.map((language: { id: string; name: string }) => language.name);
 };

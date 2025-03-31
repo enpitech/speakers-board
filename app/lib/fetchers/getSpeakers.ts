@@ -1,4 +1,5 @@
 import type { Speaker } from '../types';
+import { sleep } from '../utils';
 
 export const getSpeakers = async ({
   languages,
@@ -9,6 +10,7 @@ export const getSpeakers = async ({
   topics?: string[] | null;
   rating?: number | null;
 }) => {
+  await sleep(2000);
   const response = await fetch(
     `http://localhost:3001/speakers?${rating ? `rating=${rating}` : ''}`,
     {
@@ -27,9 +29,10 @@ export const getSpeakers = async ({
 
   if (languages) {
     speakers = speakers.filter((speaker: Speaker) => {
-      const stringifiedLanguages = speaker.languages.join(',').toLowerCase();
+      const speakerStringifiedLanguages = speaker.languages.join(',').toLowerCase();
+
       for (const language of languages) {
-        if (stringifiedLanguages.includes(language.toLowerCase())) {
+        if (speakerStringifiedLanguages.includes(language.toLowerCase())) {
           return true;
         }
       }
