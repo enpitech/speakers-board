@@ -10,7 +10,6 @@ export const getSpeakers = async ({
   topics?: string[] | null;
   rating?: number | null;
 }) => {
-  await sleep(2000);
   const response = await fetch(
     `http://localhost:3001/speakers?${rating ? `rating=${rating}` : ''}`,
     {

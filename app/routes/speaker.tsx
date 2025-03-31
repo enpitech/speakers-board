@@ -1,106 +1,19 @@
-import {
-  Calendar,
-  Clock,
-  FileWarningIcon,
-  Globe,
-  MapPin,
-  MessageSquare,
-  Star,
-  Users,
-} from 'lucide-react';
+import { Clock, FileWarningIcon, Globe, MapPin, MessageSquare, Star } from 'lucide-react';
 import { Suspense } from 'react';
 import { Await, Link } from 'react-router';
 import { ComponentErrorBoundary } from '~/components/ComponentErrorBoundary';
+import { SessionCard } from '~/components/SessionCard';
 import { Spinner } from '~/components/Spinner';
 import { Badge } from '~/components/ui/badge';
-import { Button } from '~/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/components/ui/tabs';
+import { speakerPageLoader } from '~/lib/loaders/speaker.loader';
 
-import type { Speaker, Session, Review, SocialNetwork } from '~/lib/types';
+import type { Speaker, Session, Review, SocialNetwork, SpeakerPageLoaderData } from '~/lib/types';
+import { EmptyResponseView } from '../components/EmptyResponseView';
+import ReviewsFeed from './reviews-feed';
 
-type LoaderData = {
-  speaker: Promise<Speaker>;
-  upcomingSessions: Promise<Session[]>;
-  pastSessions: Promise<Session[]>;
-  reviews: Promise<Review[]>;
-};
-
-export async function loader({ params }: { params: { speakerId: string } }): Promise<LoaderData> {
-  const reviewsPromise = await fetch(
-    `${process.env.API_BASE_URL}/reviews?speakerId=${params.speakerId}`,
-  );
-  const upcomingSessions: Promise<Session[]> = new Promise(resolve => {
-    setTimeout(() => {
-      resolve([
-        {
-          id: 's1',
-          title: 'Modern React Patterns for 2023',
-          date: 'April 15, 2023',
-          time: '14:00 - 16:00',
-          location: 'TechHub Berlin',
-          attendees: 45,
-          videoUrl: '#',
-        },
-        {
-          id: 's2',
-          title: 'TypeScript Deep Dive Workshop',
-          date: 'May 3, 2023',
-          time: '10:00 - 17:00',
-          location: 'Online',
-          attendees: 120,
-          videoUrl: '#',
-        },
-      ]);
-    }, 1500);
-  });
-  const reviews: Promise<Review[]> = new Promise(resolve => {
-    setTimeout(async () => {
-      resolve(await reviewsPromise.json());
-    }, 2500);
-  });
-  const pastSessions: Promise<Session[]> = new Promise(resolve => {
-    setTimeout(() => {
-      resolve([
-        {
-          id: 'ps1',
-          title: 'Building Accessible Web Applications',
-          date: 'February 10, 2023',
-          time: '10:00 - 17:00',
-          location: 'Online',
-          videoUrl: '#',
-          attendees: 78,
-        },
-        {
-          id: 'ps2',
-          title: 'Tailwind CSS: From Zero to Hero',
-          date: 'January 22, 2023',
-          time: '10:00 - 17:00',
-          location: 'Online',
-          videoUrl: '#',
-          attendees: 92,
-        },
-        {
-          id: 'ps3',
-          title: 'React Performance Optimization',
-          date: 'December 5, 2022',
-          time: '10:00 - 17:00',
-          location: 'Online',
-          videoUrl: '#',
-          attendees: 65,
-        },
-      ]);
-    }, 3000);
-  });
-  const speaker: Promise<Speaker> = new Promise(resolve => {
-    setTimeout(async () => {
-      await fetch(`${process.env.API_BASE_URL}/speakers/${params.speakerId}`)
-        .then(res => res.json())
-        .then(resolve);
-    }, 1000);
-  });
-  return { speaker, upcomingSessions, pastSessions, reviews };
-}
+export const loader = speakerPageLoader;
 
 const SocialIcon = ({ platform }: { platform: SocialNetwork }) => {
   switch (platform) {
@@ -169,16 +82,16 @@ const SocialIcon = ({ platform }: { platform: SocialNetwork }) => {
   }
 };
 
-export default function SpeakerProfilePage({ loaderData }: { loaderData: LoaderData }) {
-  const { speaker, upcomingSessions, pastSessions, reviews } = loaderData;
+export default function SpeakerProfilePage({ loaderData }: { loaderData: SpeakerPageLoaderData }) {
+  const { speaker, sessions, reviews } = loaderData;
   return (
     <div className="mx-auto">
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<SpeakerPageHeaderSkeleton />}>
         <Await resolve={speaker}>{speaker => <SpeakerPageHeader speaker={speaker} />}</Await>
       </Suspense>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<SpeakerPageAboutSkeleton />}>
           <Await resolve={speaker}>{speaker => <SpeakerPageAbout speaker={speaker} />}</Await>
         </Suspense>
 
@@ -192,7 +105,7 @@ export default function SpeakerProfilePage({ loaderData }: { loaderData: LoaderD
 
             <TabsContent value="upcoming">
               <Suspense fallback={<Spinner />}>
-                <Await resolve={upcomingSessions}>
+                <Await resolve={sessions}>
                   {sessions => <SpeakerUpcomingSessions sessions={sessions} />}
                 </Await>
               </Suspense>
@@ -200,7 +113,7 @@ export default function SpeakerProfilePage({ loaderData }: { loaderData: LoaderD
 
             <TabsContent value="past">
               <Suspense fallback={<Spinner />}>
-                <Await resolve={pastSessions}>
+                <Await resolve={sessions}>
                   {sessions => <SpeakerPastSessions sessions={sessions} />}
                 </Await>
               </Suspense>
@@ -210,7 +123,13 @@ export default function SpeakerProfilePage({ loaderData }: { loaderData: LoaderD
               <Suspense fallback={<Spinner />}>
                 <Await resolve={reviews}>
                   {reviews => (
-                    <SpeakerReviews reviews={reviews} rating={5} reviewsCount={reviews.length} />
+                    <ReviewsFeed
+                      speakerId={speaker.id}
+                      reviews={reviews}
+                      rating={5}
+                      reviewsCount={reviews.length}
+                      maxHeight="600px"
+                    />
                   )}
                 </Await>
               </Suspense>
@@ -301,7 +220,57 @@ const SpeakerPageHeader = ({ speaker }: { speaker: Speaker }) => {
     </div>
   );
 };
+const SpeakerPageHeaderSkeleton = () => {
+  return (
+    <div className="bg-[#eefaff] rounded-lg overflow-hidden mb-8">
+      {/* Banner skeleton */}
+      <div className="h-48 bg-gradient-to-r from-gray-200 to-gray-300 animate-pulse"></div>
 
+      <div className="bg-white p-6 relative">
+        {/* Avatar skeleton */}
+        <div className="absolute -top-16 left-8 w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-md">
+          <div className="w-full h-full bg-gray-200 animate-pulse"></div>
+        </div>
+
+        <div className="ml-44 flex flex-col md:flex-row md:items-center justify-between">
+          <div>
+            {/* Name skeleton */}
+            <div className="h-9 w-48 bg-gray-200 rounded animate-pulse mb-2"></div>
+
+            {/* Location and experience skeleton */}
+            <div className="flex items-center gap-2 mt-1">
+              <div className="flex items-center gap-1">
+                <div className="w-24 h-5 bg-gray-200 rounded animate-pulse"></div>
+              </div>
+              <div className="flex items-center gap-1 ml-4">
+                <div className="w-24 h-5 bg-gray-200 rounded animate-pulse"></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 mt-4 md:mt-0">
+            {/* Rating skeleton */}
+            <div className="flex items-center gap-1 bg-white px-3 py-1 rounded-full shadow-sm">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div key={i} className="w-5 h-5 bg-gray-200 rounded animate-pulse"></div>
+              ))}
+            </div>
+
+            {/* Button skeleton */}
+            <div className="w-40 h-10 bg-gray-200 rounded-full animate-pulse"></div>
+          </div>
+        </div>
+
+        {/* Social links skeleton */}
+        <div className="ml-44 flex items-center gap-3 mt-4">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="w-6 h-6 bg-gray-200 rounded-full animate-pulse"></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
   const { bio, topics, languages } = speaker;
   return (
@@ -355,6 +324,59 @@ const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
   );
 };
 
+const SpeakerPageAboutSkeleton = () => {
+  return (
+    <div className="md:col-span-1 space-y-6">
+      {/* About Card Skeleton */}
+      <Card>
+        <CardHeader>
+          <CardTitle>About</CardTitle>
+        </CardHeader>
+        <CardContent>
+          {/* Bio skeleton with multiple lines */}
+          <div className="space-y-2">
+            <div className="h-4 bg-gray-200 rounded animate-pulse w-full"></div>
+            <div className="h-4 bg-gray-200 rounded animate-pulse w-3/4"></div>
+            <div className="h-4 bg-gray-200 rounded animate-pulse w-5/6"></div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Expertise Card Skeleton */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Expertise</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap gap-2">
+            {/* Multiple badge skeletons */}
+            {Array.from({ length: 5 }).map((_, i) => (
+              <div key={i} className="h-6 w-20 bg-gray-200 rounded-full animate-pulse"></div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Languages Card Skeleton */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Languages</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-2">
+            {/* Language item skeletons */}
+            {Array.from({ length: 3 }).map((_, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <div className="w-4 h-4 bg-gray-200 rounded animate-pulse"></div>
+                <div className="w-24 h-4 bg-gray-200 rounded animate-pulse"></div>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
 const Expertise = ({ topics }: { topics: string[] }) => {
   throw new Error('BLBLBLB');
   return (
@@ -368,179 +390,34 @@ const Expertise = ({ topics }: { topics: string[] }) => {
   );
 };
 
-const Languages = ({ languages }: { languages: string[] }) => {
-  return <div>Languages</div>;
-};
 const SpeakerUpcomingSessions = ({ sessions }: { sessions: Session[] }) => {
+  const upcomingSessions = sessions.filter(session => new Date(session.date) > new Date());
   return (
     <div className="space-y-4">
       <h2 className="text-2xl font-semibold text-[#006699]">Upcoming Sessions</h2>
-
-      {sessions.map(({ id, title, date, time, location, attendees }) => (
-        <Card key={id} className="overflow-hidden">
-          <div className="border-l-4 border-primary">
-            <CardHeader>
-              <CardTitle>{title}</CardTitle>
-              <CardDescription>
-                <div className="flex flex-wrap gap-4 mt-2">
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-4 h-4 text-[#939393]" />
-                    <span>{date}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-4 h-4 text-[#939393]" />
-                    <span>{time}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <MapPin className="w-4 h-4 text-[#939393]" />
-                    <span>{location}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Users className="w-4 h-4 text-[#939393]" />
-                    <span>{attendees} attendees</span>
-                  </div>
-                </div>
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="flex justify-end">
-              <Button>Register Now</Button>
-            </CardContent>
-          </div>
-        </Card>
+      {upcomingSessions.map(session => (
+        <SessionCard key={session.id} session={session} />
       ))}
-
-      {(!sessions || sessions.length === 0) && (
-        <div className="text-center py-8 text-[#939393]">No upcoming sessions at the moment.</div>
+      {!upcomingSessions.length && (
+        <EmptyResponseView message="No upcoming sessions at the moment." />
       )}
     </div>
   );
 };
 
 const SpeakerPastSessions = ({ sessions }: { sessions: Session[] }) => {
+  const pastSessions = sessions.filter(session => new Date(session.date) < new Date());
   return (
     <div className="space-y-4">
       <h2 className="text-2xl font-semibold text-[#006699]">Past Sessions</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {sessions.map(({ id, title, date, attendees, videoUrl }) => (
-          <Card key={id} className="overflow-hidden">
-            <div className="border-l-4 border-primary">
-              <CardHeader>
-                <CardTitle className="text-lg">{title}</CardTitle>
-                <CardDescription>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4 text-[#939393]" />
-                      <span>{date}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Users className="w-4 h-4 text-[#939393]" />
-                      <span>{attendees} attendees</span>
-                    </div>
-                  </div>
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="flex justify-end">
-                {videoUrl && (
-                  <Button variant="outline" color="secondary">
-                    <SocialIcon platform="youtube" />
-                    <span className="ml-2">Watch Recording</span>
-                  </Button>
-                )}
-              </CardContent>
-            </div>
-          </Card>
+        {pastSessions.map(session => (
+          <SessionCard key={session.id} session={session} />
         ))}
       </div>
 
-      {(!sessions || sessions.length === 0) && (
-        <div className="text-center py-8 text-[#939393]">No past sessions available.</div>
-      )}
-    </div>
-  );
-};
-
-const SpeakerReviews = ({
-  reviews,
-  rating,
-  reviewsCount,
-}: {
-  reviews: Review[];
-  rating: number;
-  reviewsCount: number;
-}) => {
-  return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-semibold text-[#006699]">Reviews</h2>
-        <div className="flex items-center gap-2">
-          <span className="font-bold text-lg text-[#10bc4c]">{rating}.0</span>
-          <div className="flex">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star
-                key={i}
-                className={`w-5 h-5 ${i < rating ? 'fill-[#10bc4c] text-[#10bc4c]' : 'fill-[#d0d8e8] text-[#d0d8e8]'}`}
-              />
-            ))}
-          </div>
-          <span className="text-[#939393]">({reviewsCount} reviews)</span>
-        </div>
-      </div>
-
-      <div className="space-y-4">
-        {reviews.map(review => (
-          <Card key={review.id}>
-            <CardContent className="pt-6">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
-                  {review.avatar ? (
-                    <img
-                      src={review.avatar || '/placeholder.svg'}
-                      alt={review.author}
-                      width={40}
-                      height={40}
-                      className="object-cover"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-[#eefaff] flex items-center justify-center text-[#006699] text-sm font-bold">
-                      {review.author.charAt(0)}
-                    </div>
-                  )}
-                </div>
-
-                <div className="flex-1">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-semibold">{review.author}</h3>
-                    <span className="text-sm text-[#939393]">{review.date}</span>
-                  </div>
-
-                  <div className="flex my-1">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`w-4 h-4 ${i < review.rating ? 'fill-[#10bc4c] text-[#10bc4c]' : 'fill-[#d0d8e8] text-[#d0d8e8]'}`}
-                      />
-                    ))}
-                  </div>
-
-                  <p className="text-[#939393] mt-2">{review.text}</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-
-      {(!reviews || reviews.length === 0) && (
-        <div className="text-center py-8 text-[#939393]">No reviews available yet.</div>
-      )}
-
-      <div className="flex justify-center mt-8">
-        <Button>
-          <MessageSquare className="w-4 h-4 mr-2" />
-          Write a Review
-        </Button>
-      </div>
+      {!pastSessions.length && <EmptyResponseView message="No past sessions available." />}
     </div>
   );
 };

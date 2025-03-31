@@ -19,7 +19,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center justify-center rounded-full font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-blue-400)]';
+    'cursor-pointer inline-flex items-center justify-center rounded-full font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-blue-400)]';
 
   const variants = {
     default:
@@ -50,7 +50,7 @@ export function Button({
         !disabled && !isLoading && states.active,
         (disabled || isLoading) && states.disabled,
         isLoading && states.loading,
-        className
+        className,
       )}
       disabled={disabled || isLoading}
       {...props}

@@ -19,7 +19,7 @@ export function SpeakersFilters({ availableFilters }: SpeakersFiltersProps) {
   const { filters, handleSelectChange, handleRemove, handleRatingChange } = useSpeakersFilters();
 
   return (
-    <div className="flex gap-4 mb-4 w-full border border-primary rounded-md p-4">
+    <div className="flex gap-4 mb-4 w-full border border-primary rounded-md p-4 bg-card">
       <div className="flex-1">
         <Select value="" onValueChange={value => handleSelectChange(value, 'language')}>
           <SelectTrigger className="w-full">
