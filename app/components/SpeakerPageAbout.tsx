@@ -1,5 +1,6 @@
 import React, { useState, useTransition, useOptimistic } from 'react';
 import { useSubmit } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import { Globe, Pencil, FileWarningIcon } from 'lucide-react';
 import { ComponentErrorBoundary } from '~/components/ComponentErrorBoundary';
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
@@ -10,6 +11,7 @@ import type { Speaker } from '~/lib/types';
 import { Text } from './Text';
 
 export const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
+  const { t } = useTranslation();
   const { bio, topics, languages } = speaker;
   const [isEditing, setIsEditing] = useState(false);
   const [editedBio, setEditedBio] = useState(bio);
@@ -40,7 +42,7 @@ export const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
         <CardHeader className="flex flex-row items-center justify-between">
           <CardTitle>
             <Text variant="h2" size="lg">
-              About
+              {t('speaker.about')}
             </Text>
           </CardTitle>
           <Button
@@ -59,7 +61,7 @@ export const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
                 name="bio"
                 value={editedBio}
                 onChange={e => setEditedBio(e.target.value)}
-                placeholder="Tell us about yourself..."
+                placeholder={t('speaker.bio.placeholder')}
                 className="min-h-[100px]"
               />
               <div className="flex justify-end gap-2">
@@ -72,7 +74,7 @@ export const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
                     setEditedBio(bio);
                   }}
                 >
-                  Cancel
+                  {t('speaker.form.cancel')}
                 </Button>
                 <Button
                   type="submit"
@@ -82,7 +84,7 @@ export const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
                     handleSubmit(editedBio || '');
                   }}
                 >
-                  Save
+                  {t('speaker.form.save')}
                 </Button>
               </div>
             </form>
@@ -98,7 +100,7 @@ export const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
         <CardHeader>
           <CardTitle>
             <Text variant="h2" size="lg">
-              Expertise
+              {t('speaker.expertise')}
             </Text>
           </CardTitle>
         </CardHeader>
@@ -110,7 +112,7 @@ export const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
             fallback={
               <div className="flex flex-col items-center gap-2 bg-red-200 p-4 rounded-lg">
                 <Text variant="p" size="sm">
-                  Error loading Expertise
+                  {t('error.loading.expertise')}
                 </Text>
                 <FileWarningIcon color="red" />
               </div>
@@ -125,7 +127,7 @@ export const SpeakerPageAbout = ({ speaker }: { speaker: Speaker }) => {
         <CardHeader>
           <CardTitle>
             <Text variant="h2" size="lg">
-              Languages
+              {t('speaker.languages')}
             </Text>
           </CardTitle>
         </CardHeader>

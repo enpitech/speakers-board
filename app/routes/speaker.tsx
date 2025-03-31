@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { Await } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/components/ui/tabs';
 import { Spinner } from '~/components/Spinner';
 import { speakerPageLoader } from '~/lib/loaders/speaker.loader';
@@ -53,6 +54,8 @@ export async function action({
 
 export default function SpeakerProfilePage({ loaderData }: { loaderData: SpeakerPageLoaderData }) {
   const { speaker, sessions, reviews } = loaderData;
+  const { t } = useTranslation();
+  
   return (
     <div className="mx-auto">
       <Suspense fallback={<SpeakerPageHeaderSkeleton />}>
@@ -67,9 +70,9 @@ export default function SpeakerProfilePage({ loaderData }: { loaderData: Speaker
         <div className="md:col-span-2">
           <Tabs defaultValue="upcoming">
             <TabsList className="grid grid-cols-3 mb-6">
-              <TabsTrigger value="upcoming">Upcoming Sessions</TabsTrigger>
-              <TabsTrigger value="past">Past Sessions</TabsTrigger>
-              <TabsTrigger value="reviews">Reviews</TabsTrigger>
+              <TabsTrigger value="upcoming">{t('tab.upcoming')}</TabsTrigger>
+              <TabsTrigger value="past">{t('tab.past')}</TabsTrigger>
+              <TabsTrigger value="reviews">{t('tab.reviews')}</TabsTrigger>
             </TabsList>
 
             <TabsContent value="upcoming">

@@ -3,7 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import { resources } from './translations';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-export const AVAILABLE_LANGUAGES = ['he', 'en'] as const;
+export const AVAILABLE_LANGUAGES = ['en', 'he'] as const;
 export type AvailableLanguage = (typeof AVAILABLE_LANGUAGES)[number];
 
 // Factory function to create and initialize i18n instance

@@ -1,5 +1,6 @@
 import { User, Youtube } from 'lucide-react';
 import { Form } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import { TextInput } from '~/components/ui/form/TextInput';
 import { SocialNetworkInput } from '~/components/ui/form/SocialNetworkInput';
 import { FormError } from '~/components/ui/form/FormError';
@@ -27,6 +28,8 @@ export function SpeakerFormDialogView({
   errors,
   isSubmitting,
 }: SpeakerFormDialogViewProps) {
+  const { t } = useTranslation();
+
   return (
     <Form method="post" action="/speakers" className="space-y-6">
       {/* Show generic form error if it exists */}
@@ -53,33 +56,33 @@ export function SpeakerFormDialogView({
       </div>
 
       <TextInput
-        label="Full Name"
+        label={t('speaker.form.name')}
         value={formData.name}
         onChange={e => onChange({ name: e.target.value })}
-        placeholder="Enter your full name"
+        placeholder={t('speaker.form.name.placeholder')}
         error={errors.name}
       />
 
       <ChipInput
-        label="Languages"
+        label={t('speaker.languages')}
         limit={8}
         values={formData.languages}
         onChange={languages => onChange({ languages })}
-        placeholder="Type language and press Enter"
+        placeholder={t('speaker.form.languages.placeholder')}
         error={errors.languages}
       />
 
       <ChipInput
-        label="Topics"
+        label={t('speaker.expertise')}
         limit={10}
         values={formData.topics}
         onChange={topics => onChange({ topics })}
-        placeholder="Type topic and press Enter"
+        placeholder={t('speaker.form.topics.placeholder')}
         error={errors.topics}
       />
 
       <TextInput
-        label="Link to your previous talks"
+        label={t('speaker.form.sessions.link')}
         value={formData.sessionsUrl}
         onChange={e => onChange({ sessionsUrl: e.target.value })}
         placeholder="https://youtube.com/..."
@@ -94,20 +97,20 @@ export function SpeakerFormDialogView({
       />
 
       <TextareaInput
-        label="Bio (optional)"
+        label={t('speaker.form.bio')}
         value={formData.bio}
         onChange={e => onChange({ bio: e.target.value })}
-        placeholder="Tell us about yourself, your experience, and your expertise and why you'd be a great speaker"
+        placeholder={t('speaker.bio.placeholder')}
         error={errors.bio}
         icon={<User size={18} className="text-[#FF0000]" />}
       />
       <div className="space-y-4">
         <div className="flex flex-col">
           <Text variant="h3" size="sm" className="text-text-2">
-            Social network
+            {t('speaker.form.social.networks')}
           </Text>
           <Text variant="p" size="sm" className="text-text-1">
-            Indicate the desired communication method
+            {t('speaker.form.social.description')}
           </Text>
         </div>
 
@@ -129,7 +132,7 @@ export function SpeakerFormDialogView({
                 size="sm"
               >
                 <Text variant="span" size="sm">
-                  Remove
+                  {t('speaker.form.remove')}
                 </Text>
               </Button>
             )}
@@ -140,13 +143,13 @@ export function SpeakerFormDialogView({
 
         <Button type="button" onClick={onAddSocialNetwork} size="sm" variant="outline">
           <Text variant="span" size="sm">
-            + Add More
+            {t('speaker.form.add.more')}
           </Text>
         </Button>
       </div>
 
       <Button type="submit" disabled={isSubmitting} size="lg" className="w-full">
-        {isSubmitting ? 'Signing up...' : 'Sign up'}
+        {isSubmitting ? t('speaker.form.signing.up') : t('speaker.form.sign.up')}
       </Button>
     </Form>
   );

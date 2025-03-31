@@ -19,9 +19,7 @@ export default function Home() {
 
       <div className="space-y-8">
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">
-            Avatar Component Demo
-          </h2>
+          <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">{t('avatar.demo')}</h2>
           <div className="flex items-center gap-4">
             <Avatar
               src="https://api.dicebear.com/7.x/avataaars/svg?seed=small"
@@ -42,7 +40,9 @@ export default function Home() {
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">Fallback State</h2>
+          <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">
+            {t('fallback.state')}
+          </h2>
           <div className="flex items-center gap-4">
             <Avatar alt="John Doe" fallback="John Doe" size="md" />
             <Avatar alt="Jane Smith" fallback="Jane Smith" size="md" />
@@ -50,7 +50,7 @@ export default function Home() {
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">With Border</h2>
+          <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">{t('with.border')}</h2>
           <div className="flex items-center gap-4">
             <Avatar
               src="https://api.dicebear.com/7.x/avataaars/svg?seed=bordered"
@@ -62,13 +62,15 @@ export default function Home() {
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">Empty State Demo</h2>
+          <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">
+            {t('empty.state.demo')}
+          </h2>
           <SpeakersTable speakers={[]} />
         </div>
 
         <div className="space-y-4">
           <h2 className="text-2xl font-semibold text-[var(--color-text-2)]">
-            Register Speaker Form Demo
+            {t('register.speaker.form.demo')}
           </h2>
           <div className="flex items-center gap-4">
             <RegisterSpeakerButton />

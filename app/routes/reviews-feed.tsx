@@ -1,5 +1,5 @@
 import { MessageSquare } from 'lucide-react';
-
+import { useTranslation } from 'react-i18next';
 import { Star } from 'lucide-react';
 import { EmptyResponseView } from '~/components/EmptyResponseView';
 import { RatingStars } from '~/components/RatingStars';
@@ -17,13 +17,10 @@ type ReviewsFeedProps = {
 };
 
 export default function ReviewsFeed(props: ReviewsFeedProps) {
+  const { t } = useTranslation();
+
   if (props.reviews.length === 0) {
-    return (
-      <EmptyResponseView
-        message="No reviews yet, be the first to write one!"
-        cta={<WriteReviewButton />}
-      />
-    );
+    return <EmptyResponseView message={t('reviews.empty')} cta={<WriteReviewButton />} />;
   }
   return (
     <div
@@ -55,10 +52,11 @@ const ReviewsList = ({ reviews, rating, reviewsCount }: ReviewsFeedProps) => {
 };
 
 const WriteReviewButton = () => {
+  const { t } = useTranslation();
   return (
     <Button>
       <MessageSquare className="w-4 h-4 mr-2" />
-      Write a Review
+      {t('write.review')}
     </Button>
   );
 };

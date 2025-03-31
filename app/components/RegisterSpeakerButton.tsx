@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Button } from './ui/button';
 
 type RegisterSpeakerButtonProps = {
@@ -5,5 +6,6 @@ type RegisterSpeakerButtonProps = {
 };
 
 export function RegisterSpeakerButton({ onClick }: RegisterSpeakerButtonProps) {
-  return <Button onClick={onClick}>Register as Speaker</Button>;
+  const { t } = useTranslation();
+  return <Button onClick={onClick}>{t('register.as.speaker')}</Button>;
 }

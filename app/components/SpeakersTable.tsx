@@ -1,5 +1,6 @@
 import type { Speaker } from '~/lib/types';
 import { use } from 'react';
+import { useTranslation } from 'react-i18next';
 import { TableCell } from './ui/table/TableCell';
 import { Table } from './ui/table/Table';
 import { SpeakerRow } from './SpeakersRow';
@@ -18,31 +19,33 @@ interface SpeakersTableViewProps {
 }
 
 export function SpeakersTable({ speakers }: SpeakersTableViewProps) {
+  const { t } = useTranslation();
+
   const tableHeaders = (
     <div className="flex w-full items-center">
       <TableCell width={columnWidths.name}>
         <Text variant="span" className="truncate">
-          Name
+          {t('table.header.name')}
         </Text>
       </TableCell>
       <TableCell width={columnWidths.topics}>
         <Text variant="span" className="truncate">
-          Topics
+          {t('table.header.topics')}
         </Text>
       </TableCell>
       <TableCell width={columnWidths.languages}>
         <Text variant="span" className="truncate">
-          Languages
+          {t('table.header.languages')}
         </Text>
       </TableCell>
       <TableCell width={columnWidths.social}>
         <Text variant="span" className="truncate">
-          Social
+          {t('table.header.social')}
         </Text>
       </TableCell>
       <TableCell width={columnWidths.information}>
         <Text variant="span" className="truncate">
-          Information
+          {t('table.header.information')}
         </Text>
       </TableCell>
     </div>
@@ -55,7 +58,7 @@ export function SpeakersTable({ speakers }: SpeakersTableViewProps) {
         <SpeakerRow key={speaker.id} speaker={speaker} columnWidths={columnWidths} />
       )}
       headers={tableHeaders}
-      emptyMessage="No speakers found"
+      emptyMessage={t('no.speakers.found')}
       aria-label="Speakers list"
       className="w-full min-h-[500px] bg-white"
     />

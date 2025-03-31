@@ -1,4 +1,5 @@
 import type React from 'react';
+import { useTranslation } from 'react-i18next';
 import { cn } from '../../../lib/utils';
 import { Row } from './Row';
 import { TableEmptyView } from './TableEmptyView';
@@ -16,12 +17,17 @@ export function Table<T>({
   data,
   renderRow,
   headers,
-  emptyMessage = 'No data found',
+  emptyMessage,
   className,
   'aria-label': ariaLabel = 'Data table',
 }: TableProps<T>) {
+  const { t } = useTranslation();
+  const defaultEmptyMessage = t('no.data.found');
+
   if (!data?.length) {
-    return <TableEmptyView emptyMessage={emptyMessage} className={className} />;
+    return (
+      <TableEmptyView emptyMessage={emptyMessage || defaultEmptyMessage} className={className} />
+    );
   }
 
   return (

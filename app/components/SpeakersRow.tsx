@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Avatar } from './Avatar';
 import { StarRating } from './StarRating';
 import { Youtube } from 'lucide-react';
@@ -21,6 +22,7 @@ interface SpeakerRowProps {
 }
 
 export function SpeakerRow({ speaker, columnWidths }: SpeakerRowProps) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   return (
     <Row onClick={() => navigate(`/speakers/${speaker.id}`)}>
@@ -59,7 +61,7 @@ export function SpeakerRow({ speaker, columnWidths }: SpeakerRowProps) {
             >
               <Youtube className="h-3.5 w-3.5 text-[#FF0000]" />
               <Text variant="p" className="truncate">
-                Sessions
+                {t('sessions')}
               </Text>
             </Button>
           )}
