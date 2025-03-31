@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useState } from 'react';
-import { Await, type ActionFunctionArgs } from 'react-router';
+import { Await, useLocation, type ActionFunctionArgs } from 'react-router';
 import { SpeakersTableView, SuspendedSpeakersTableView } from '~/components/SpeakersTable';
 import { SpeakersFilters, SuspendedSpeakersFilters } from '~/components/SpeakersFilters';
 import { Spinner } from '~/components/Spinner';
@@ -13,6 +13,7 @@ import { NetworkError } from '~/components/NetworkErrorBoundary';
 import { getSpeakers } from '~/lib/fetchers/getSpeakers';
 import { getLanguages } from '~/lib/fetchers/getLanguages';
 import { getTopics } from '~/lib/fetchers/getTopics';
+import { SpeakersTableSkeleton } from '~/components/SpeakersTableSkeleton';
 
 type SpeakersLoaderData = {
   speakers: Promise<Speaker[]>;
@@ -45,6 +46,7 @@ export default function Speakers({ loaderData }: { loaderData: SpeakersLoaderDat
   const { speakers, languages, topics } = loaderData;
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
+  const location = useLocation();
   return (
     <>
       <div>
@@ -57,7 +59,7 @@ export default function Speakers({ loaderData }: { loaderData: SpeakersLoaderDat
             }}
           />
         </Suspense>
-        <Suspense fallback={<Spinner size="lg" />}>
+        <Suspense key={location.search} fallback={<SpeakersTableSkeleton rows={10} />}>
           <SuspendedSpeakersTableView speakers={speakers} />
         </Suspense>
       </div>
