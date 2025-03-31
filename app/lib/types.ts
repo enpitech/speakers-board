@@ -68,3 +68,9 @@ export type SpeakerPageLoaderData = {
   sessions: Session[];
   reviews: Review[];
 };
+
+export type SpeakersLoaderData = {
+  speakers: Promise<Speaker[]>;
+  languages: Promise<string[]>;
+  topics: Promise<string[]>;
+};

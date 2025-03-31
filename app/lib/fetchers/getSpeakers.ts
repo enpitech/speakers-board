@@ -50,5 +50,5 @@ export const getSpeakers = async ({
       return false;
     });
   }
-  return speakers;
+  return speakers as Speaker[];
 };
