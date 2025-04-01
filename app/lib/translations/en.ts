@@ -76,5 +76,6 @@ export const en = {
     'sessions.watch.recording': 'Watch Recording',
     'sessions.title': '🎤 Sessions',
     'reviews.title': '💬 Reviews',
+    'sessions.button': 'Sessions',
   },
 } as const;

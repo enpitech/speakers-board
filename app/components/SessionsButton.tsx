@@ -17,12 +17,12 @@ export function SessionsButton({ isPending = false, className, ...props }: Sessi
     <Button
       variant="outline"
       isLoading={isPending}
-      className={cn('gap-2 text-sm font-medium', className)}
+      className={cn('gap-1 text-sm font-medium items-center justify-center', className)}
       aria-label="View sessions"
       {...props}
     >
-      <Text variant="span" size="sm">
-        {t('sessions.title')}
+      <Text variant="span" size="sm" className="hidden md:block md:p-0">
+        {t('sessions.button')}
       </Text>
       <YoutubeIcon className="w-4 h-4" />
     </Button>

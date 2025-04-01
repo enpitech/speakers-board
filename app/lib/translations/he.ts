@@ -72,5 +72,6 @@ export const he = {
     'sessions.watch.recording': 'צפייה בהרצאה',
     'sessions.title': '🎤 הרצאות',
     'reviews.title': '💬 ביקורות',
+    'sessions.button': 'הרצאות',
   },
 } as const;

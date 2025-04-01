@@ -9,6 +9,7 @@ import { SocialIconsGroup } from './ui/SocialIconsGroup';
 import type { Speaker } from '~/lib/types';
 import { useNavigate } from 'react-router';
 import { Text } from '~/components/Text';
+import { SessionsButton } from './SessionsButton';
 
 interface SpeakerRowProps {
   speaker: Speaker;
@@ -53,20 +54,8 @@ export function SpeakerRow({ speaker, columnWidths }: SpeakerRowProps) {
 
       <TableCell width={columnWidths.information}>
         <div className="flex items-center gap-3">
-          {speaker.sessionsUrl && (
-            <Button
-              variant="outline"
-              className="flex items-center gap-1.5 text-text-2 text-xs"
-              size="sm"
-            >
-              <Youtube className="h-3.5 w-3.5 text-primary" />
-              <Text variant="p" className="truncate">
-                {t('sessions')}
-              </Text>
-            </Button>
-          )}
-
           <StarRating rating={speaker.rating} readonly size="sm" />
+          {speaker.sessionsUrl && <SessionsButton />}
         </div>
       </TableCell>
     </Row>
