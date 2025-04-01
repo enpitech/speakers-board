@@ -1,11 +1,9 @@
 import { Link } from 'react-router';
-import { MapPin, Clock, Star } from 'lucide-react';
+import { MapPin, Clock } from 'lucide-react';
 import type { Speaker } from '~/lib/types';
 import { SocialIcon } from './SocialIcon';
 import { Text } from './Text';
-import { useTranslation } from 'react-i18next';
-import { RatingStars } from './RatingStars';
-
+import { SpeakerPageAvatar } from './SpeakerPageAvatar';
 export const SpeakerPageHeader = ({ speaker }: { speaker: Speaker }) => {
   const { avatar, name, location, experience, rating, sessionsUrl, socialLinks } = speaker;
   return (
@@ -13,17 +11,7 @@ export const SpeakerPageHeader = ({ speaker }: { speaker: Speaker }) => {
       <div className="h-48 bg-gradient-to-r from-primary to-secondary/90"></div>
       <div className="bg-white p-6 relative">
         <div className="absolute -top-16 left-8 w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-md">
-          {avatar ? (
-            <img
-              src={avatar || '/placeholder.svg'}
-              alt={name}
-              className="object-cover w-full h-full"
-            />
-          ) : (
-            <div className="w-full h-full bg-stroke text-text-2 flex items-center justify-center text-4xl font-bold">
-              {name.charAt(0)}
-            </div>
-          )}
+          <SpeakerPageAvatar speaker={speaker} />
         </div>
 
         <div className="ml-44 flex flex-col md:flex-row md:items-center justify-between">

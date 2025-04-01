@@ -10,4 +10,5 @@ export default [
     ]),
   ]),
   route('generate-speaker-bio', 'routes/generate-speaker-bio.tsx'),
+  route('generate-speaker-avatar', 'routes/generate-speaker-avatar.tsx'),
 ] satisfies RouteConfig;

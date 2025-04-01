@@ -2,9 +2,10 @@ import { cn } from '~/lib/utils';
 
 type SpinnerProps = {
   size?: 'sm' | 'md' | 'lg';
+  className?: string;
 };
 
-export function Spinner({ size = 'sm' }: SpinnerProps) {
+export function Spinner({ size = 'sm', className }: SpinnerProps) {
   return (
     <div
       className={cn(
@@ -12,6 +13,7 @@ export function Spinner({ size = 'sm' }: SpinnerProps) {
         size === 'sm' && 'w-4 h-4',
         size === 'md' && 'w-6 h-6',
         size === 'lg' && 'w-8 h-8',
+        className,
       )}
     ></div>
   );
