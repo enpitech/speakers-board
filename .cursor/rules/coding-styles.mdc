@@ -1,0 +1,306 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Coding Style Guide
+Project Structure
+Component Organization
+Component Location: All reusable React components must reside within the app/components/ directory.
+Component Categorization:
+Organize components into logical subdirectories:
+app/components/ui/ - UI primitives (buttons, inputs, cards)
+app/components/layout/ - Layout components (containers, grids)
+app/components - put components directly under folder for all cases
+Avoid deep nesting beyond 2 levels
+Shared Components: Place widely reused components at the top level of their category
+File Organization
+File Naming: Use PascalCase for component files (e.g., UserProfileCard.tsx)
+File Extensions:
+.tsx for files with JSX
+.ts for utility files without JSX
+.test.tsx or .spec.tsx for test files
+Index Files: Use barrel exports (index.ts) to simplify imports from directories
+Project Directory Structure
+Utilities: Place in app/lib/ or lib/
+Custom Hooks: Store in app/hooks/
+API Routes: Follow Next.js conventions in app/api/
+Data Models & Types: Define in app/types/ or types/
+Constants: Store in app/constants/ for app-wide values
+Services: Place API services in app/services/
+Coding Conventions
+Components
+Component Structure:
+Imports
+Type definitions (props)
+Component definition
+Helper functions (if component-specific)
+Component Style: Use functional components exclusively
+Props:
+Define using TypeScript interfaces named [ComponentName]Props
+Use destructuring for props
+Provide default values where appropriate
+Document complex props with JSDoc comments
+State Management
+Local State: Use React hooks (useState, useReducer)
+Global State: Choose one consistent approach (Context API, Zustand, Redux)
+State Updates: Prefer immutable update patterns
+Derived State: Calculate derived values inside the component, not in state
+TypeScript
+Strict Mode: Enable strict mode in tsconfig.json
+Type vs Interface:
+Use interfaces for object shapes that may be extended
+Use types for unions, intersections, and primitive types
+Type Exports: Export reusable types from dedicated files
+Type Assertions: Avoid as casting when possible; use type guards instead
+Generic Types: Use where appropriate for reusable components
+Styling
+Tailwind Priority: Use Tailwind CSS as the primary styling approach
+Class Organization: Group Tailwind classes by category (layout, typography, colors)
+Responsive Design: Always consider mobile-first with appropriate breakpoints
+Custom Utilities: Define reusable utility classes for common patterns
+CSS Variables: Use for theme colors and values that need to be shared
+Error Handling
+Error Boundaries: Implement for critical UI sections
+Form Errors: Display inline with form fields
+API Errors: Handle gracefully with user-friendly messages
+Fallbacks: Provide fallback UI for loading and error states
+Code Quality
+Performance
+Memoization: Use useMemo and useCallback for expensive calculations
+Virtualization: Implement for long lists using libraries like react-window
+Code Splitting: Use dynamic imports for large components
+Image Optimization: Use Next.js Image component with proper sizing
+Accessibility
+Semantic HTML: Use appropriate HTML elements
+ARIA Attributes: Add when necessary for complex components
+Keyboard Navigation: Ensure all interactive elements are keyboard accessible
+Color Contrast: Maintain WCAG AA standard minimum
+Testing
+Testing Framework: Use Jest with React Testing Library
+Test Coverage: Aim for at least 70% coverage for critical paths
+Test Naming: Follow describe('Component', () => it('should do something', ...)) pattern
+Mocking: Mock external dependencies and services
+Documentation
+Component Documentation: Use JSDoc comments for components and complex functions
+README Files: Include for major features explaining purpose and usage
+Code Comments: Add for non-obvious logic only
+Development Workflow
+Git Conventions
+Branching: Use feature/fix/chore prefix for branches
+Commits: Follow conventional commits format
+PR Size: Keep pull requests focused and reasonably sized
+Code Review
+Self-Review: Review your own code before requesting reviews
+Linting: Enforce ESLint rules before commit
+Formatting: Use Prettier for consistent formatting
+
+Each route module can export these key elements:
+
+- `loader` - For data fetching before rendering
+- `action` - For handling form submissions and data mutations
+- Default component - The UI for the route
+- `ErrorBoundary` - Custom error handling for the route
+- `links` - For preloading CSS and other assets
+
+Example of a route module:
+
+```typescript
+// routes/some-route.tsx
+import type { Route } from '../+types/root';
+
+// Data loading
+export const loader: Route.Loader = async ({ params, request }) => {
+  // Fetch data here
+  return { data };
+};
+
+// Handle form submissions
+export const action: Route.Action = async ({ params, request }) => {
+  const formData = await request.formData();
+  // Process data and return response
+};
+
+// UI component
+export default function SomeRoute() {
+  // useLoaderData to access loader data
+  const { data } = useLoaderData<typeof loader>();
+
+  return (
+    <div>
+      {/* Your component JSX */}
+    </div>
+  );
+}
+
+// Error handling
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  return <div>An error occurred: {error.message}</div>;
+}
+```
+
+## Navigation
+
+### Link Component
+
+Use the `Link` component for client-side navigation:
+
+```jsx
+import { Link } from 'react-router';
+
+<Link to="/speakers">View Speakers</Link>;
+```
+
+### Programmatic Navigation
+
+Use the `useNavigate` hook for programmatic navigation:
+
+```jsx
+import { useNavigate } from 'react-router';
+
+const navigate = useNavigate();
+// Navigate to a new page
+navigate('/speakers');
+// Navigate back
+navigate(-1);
+```
+
+## Data Loading
+
+### Loader Functions
+
+Loaders fetch data before your component renders:
+
+```typescript
+export const loader: Route.Loader = async ({ params, request }) => {
+  const response = await fetch(`/api/speakers/${params.speakerId}`);
+  if (!response.ok) {
+    throw new Response('Speaker not found', { status: 404 });
+  }
+  return await response.json();
+};
+```
+
+### Using Loader Data
+
+Access loader data with the `useLoaderData` hook:
+
+```jsx
+import { useLoaderData } from 'react-router';
+
+export default function Speaker() {
+  const speaker = useLoaderData<typeof loader>();
+  return <h1>{speaker.name}</h1>;
+}
+```
+
+## Data Mutations
+
+### Action Functions
+
+Handle form submissions and data mutations:
+
+```typescript
+export const action: Route.Action = async ({ request }) => {
+  const formData = await request.formData();
+  const response = await fetch('/api/speakers', {
+    method: 'POST',
+    body: formData,
+  });
+
+  if (!response.ok) {
+    return { error: 'Failed to create speaker' };
+  }
+
+  return { success: true };
+};
+```
+
+### Form Component
+
+Use the `Form` component to submit to action functions:
+
+```jsx
+import { Form, useActionData } from 'react-router';
+
+export default function NewSpeaker() {
+  const actionData = useActionData<typeof action>();
+
+  return (
+    <Form method="post">
+      <input type="text" name="name" placeholder="Speaker name" />
+      <button type="submit">Add Speaker</button>
+      {actionData?.error && <p>{actionData.error}</p>}
+    </Form>
+  );
+}
+```
+
+## Pending UI
+
+Show loading indicators during navigation:
+
+```jsx
+import { useNavigation } from 'react-router';
+
+function SomeComponent() {
+  const navigation = useNavigation();
+
+  return <div>{navigation.state === 'loading' ? <LoadingSpinner /> : <MainContent />}</div>;
+}
+```
+
+## Nested Routes & Layouts
+
+The `Outlet` component renders child routes:
+
+```jsx
+// routes/layout.tsx
+import { Outlet } from 'react-router';
+
+export default function Layout() {
+  return (
+    <div>
+      <header>
+        <nav>{/* Navigation links */}</nav>
+      </header>
+      <main>
+        <Outlet /> {/* Child routes render here */}
+      </main>
+      <footer>{/* Footer content */}</footer>
+    </div>
+  );
+}
+```
+
+## Error Handling
+
+Use `ErrorBoundary` for route-level error handling:
+
+```jsx
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  return (
+    <div className="error-container">
+      <h1>Error</h1>
+      <p>{error.message || 'Something went wrong'}</p>
+    </div>
+  );
+}
+```
+
+## URL Parameters
+
+Access URL parameters using the `useParams` hook:
+
+```jsx
+import { useParams } from 'react-router';
+
+function SpeakerDetail() {
+  const { speakerId } = useParams();
+  // Use speakerId to fetch or display data
+}
+```
+
+## Further Reading
+
+For more detailed information, visit the [React Router documentation](https://reactrouter.com/home).

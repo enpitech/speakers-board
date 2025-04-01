@@ -14,6 +14,10 @@ A modern, production-ready template for building full-stack React applications u
 - 🎉 TailwindCSS for styling
 - 📖 [React Router docs](https://reactrouter.com/)
 
+## React Router Framework Mode
+
+This project uses React Router in Framework Mode. For detailed information about routing, data loading, actions, and navigation, check out our [React Router Guide](app/ROUTER_GUIDE.mdx).
+
 ## Getting Started
 
 ### Installation
