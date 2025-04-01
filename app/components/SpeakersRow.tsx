@@ -1,10 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import { Avatar } from './Avatar';
 import { StarRating } from './StarRating';
-import { Youtube } from 'lucide-react';
 import { Row } from './ui/table/Row';
 import { TableCell } from './ui/table/TableCell';
-import { Button } from './ui/button';
 import { SocialIconsGroup } from './ui/SocialIconsGroup';
 import type { Speaker } from '~/lib/types';
 import { useNavigate } from 'react-router';
@@ -23,10 +20,9 @@ interface SpeakerRowProps {
 }
 
 export function SpeakerRow({ speaker, columnWidths }: SpeakerRowProps) {
-  const { t } = useTranslation();
   const navigate = useNavigate();
   return (
-    <Row onClick={() => navigate(`/speakers/${speaker.id}`)}>
+    <Row onClick={() => navigate(`/speakers/${speaker.id}/sessions`)}>
       <TableCell width={columnWidths.name}>
         <div className="flex items-center gap-3 min-w-0">
           <Avatar src={speaker.avatar} alt={speaker.name} size="sm" fallback={speaker.name} />
