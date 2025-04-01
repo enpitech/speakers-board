@@ -19,7 +19,7 @@ export default function Layout() {
         </Link>
         <RegisterSpeakerButton onClick={handleRegisterSpeakerDialogOpen} />
       </header>
-      <main className="p-4 w-full">
+      <main className="py-2 w-full">
         <Outlet />
       </main>
       {registerSpeakerDialogOpen && (

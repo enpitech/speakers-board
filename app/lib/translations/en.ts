@@ -53,7 +53,6 @@ export const en = {
     'error.network.description':
       "We couldn't connect to the server. Please check your internet connection and try again.",
     'error.network.refresh': 'Refresh Page',
-    'reviews.title': 'Reviews',
     'reviews.count': 'reviews',
     'sessions.past.title': 'Past Sessions',
     'sessions.past.description': 'Sessions that have been held in the past',
@@ -75,5 +74,8 @@ export const en = {
       'View all sessions that are scheduled to be held in the future',
     'sessions.attendees': 'Attendees',
     'sessions.watch.recording': 'Watch Recording',
+    'sessions.title': '🎤 Sessions',
+    'reviews.title': '💬 Reviews',
+    'sessions.button': 'Sessions',
   },
 } as const;

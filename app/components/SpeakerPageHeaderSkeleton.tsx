@@ -1,13 +1,13 @@
 export const SpeakerPageHeaderSkeleton = () => {
   return (
-    <div className="bg-stroke rounded-lg overflow-hidden mb-8">
+    <div className=" rounded-lg overflow-hidden mb-8">
       {/* Banner skeleton */}
-      <div className="h-48 bg-gradient-to-r from-gray-200 to-gray-300 animate-pulse"></div>
+      <div className="h-48 bg-gradient-to-r from-primary to-secondary/90 animate-pulse"></div>
 
-      <div className="bg-stroke p-6 relative">
+      <div className=" p-6 relative">
         {/* Avatar skeleton */}
         <div className="absolute -top-16 left-8 w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-md">
-          <div className="w-full h-full bg-gray-200 animate-pulse"></div>
+          <div className="w-full h-full  animate-pulse"></div>
         </div>
 
         <div className="ml-44 flex flex-col md:flex-row md:items-center justify-between">
