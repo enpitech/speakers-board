@@ -6,4 +6,5 @@ export default [
     route('speakers', 'routes/speakers.tsx'),
     route('speakers/:speakerId', 'routes/speaker.tsx'),
   ]),
+  route('generate-speaker-bio', 'routes/generate-speaker-bio.tsx'),
 ] satisfies RouteConfig;

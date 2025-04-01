@@ -66,5 +66,7 @@ export const en = {
     'sessions.upcoming.view.all': 'View All Sessions',
     'sessions.upcoming.view.all.description':
       'View all sessions that are scheduled to be held in the future',
+    'speaker.form.suggest': 'Suggest Bio Content from AI',
+    'ai.generating.bio': 'Generating Bio...',
   },
 } as const;

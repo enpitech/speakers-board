@@ -31,7 +31,7 @@
         }
       ],
       "sessionsUrl": "https://frontendistim.com/sessions/speaker-001",
-      "bio": "123asdasdsadfsdsfsd"
+      "bio": "I'm Sarah Johnson, a passionate software engineer based in San Francisco with over 5 years of experience specializing in React, TypeScript, and performance optimization. 💻 I thrive on sharing my knowledge, whether at conferences or mentoring fellow developers. Fluent in both English and Spanish, I enjoy connecting with diverse audiences and fostering inclusive tech communities. 🌍 My engaging speaking style combines technical depth with real-world applications, making complex topics accessible and enjoyable. Join me as we explore the latest in frontend development and push the boundaries of what's possible in technology! 🚀"
     },
     {
       "id": "speaker-002",
@@ -63,7 +63,8 @@
           "url": "https://github.com/michaelc"
         }
       ],
-      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001"
+      "sessionsUrl": "https://frontendistim.com/sessions/speaker-001",
+      "bio": "👋 Hi, I’m Michael Chen, a passionate developer based in Shanghai, China, with over 7 years of experience in the tech industry. I specialize in Vue.js, state management, and testing, helping teams build robust applications. 🌟 My speaking style is engaging and interactive, making complex topics accessible to all. Fluent in both English and Mandarin, I enjoy connecting with diverse audiences. When I’m not coding, you can find me sharing insights on Twitter or contributing to open-source projects on GitHub. Let’s explore the future of frontend development together! 🚀"
     },
     {
       "name": "Emma Rodriguez",
@@ -644,7 +645,8 @@
           "url": "https://github.com/elenap"
         }
       ],
-      "id": "56d5"
+      "id": "56d5",
+      "bio": "👩‍💻 Hi, I’m Elena Popova, a passionate expert in WebRTC, real-time communication, and video streaming, based in Kyiv, Ukraine. With over 7 years of experience in the tech industry, I thrive on sharing insights that empower others to harness the power of real-time technologies. My speaking style is engaging and approachable, making complex topics accessible to all. Fluent in English, Russian, and Ukrainian, I connect with diverse audiences and foster meaningful discussions. I’m excited to inspire and educate at your event, helping to shape the future of communication! 🌍✨"
     },
     {
       "name": "Kwame Osei",
@@ -810,7 +812,8 @@
           "url": "#"
         }
       ],
-      "id": "fc3b"
+      "id": "fc3b",
+      "bio": "👋 Hi, I’m Nadia Wong, a passionate web designer based in Singapore with over 7 years of experience. I specialize in Tailwind CSS, responsive design, and design systems, helping teams create visually stunning and user-friendly interfaces. 🌍 Fluent in English, Cantonese, and Mandarin, I connect with diverse audiences and share insights that resonate. My engaging speaking style, rated 4.8, ensures that attendees leave inspired and equipped with practical skills. I believe in the power of design to transform experiences, and I’m excited to share my knowledge with you! Let’s elevate your design game together! 🎨✨"
     },
     {
       "id": "e0be",
