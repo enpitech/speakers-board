@@ -17,6 +17,7 @@ export const TextareaInput = ({
   error,
   id,
   name,
+  icon,
 }: TextareaInputProps) => {
   return (
     <div className="flex flex-col gap-2">
@@ -25,7 +26,10 @@ export const TextareaInput = ({
           {label}
         </label>
       )}
-      <Textarea value={value} onChange={onChange} placeholder={placeholder} name={name} />
+      <div className="relative">
+        <Textarea value={value} onChange={onChange} placeholder={placeholder} name={name} />
+        {icon && <div className="absolute right-2 top-1/2 -translate-y-1/2">{icon}</div>}
+      </div>
       {error && <p className="text-red-500 text-sm">{error}</p>}
     </div>
   );
