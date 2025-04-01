@@ -76,6 +76,12 @@ export type SpeakersLoaderData = {
   languages: Promise<string[]>;
   topics: Promise<string[]>;
 };
+export type ReviewLoaderData = {
+  reviews: Promise<Review[]>;
+};
+export type SessionFeedLoaderData = {
+  sessions: Promise<Session[]>;
+};
 
 export type SocialNetworkOption = {
   value: SocialNetwork;

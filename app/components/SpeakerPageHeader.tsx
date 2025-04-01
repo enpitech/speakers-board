@@ -4,13 +4,13 @@ import type { Speaker } from '~/lib/types';
 import { SocialIcon } from './SocialIcon';
 import { Text } from './Text';
 import { useTranslation } from 'react-i18next';
+import { RatingStars } from './RatingStars';
 
 export const SpeakerPageHeader = ({ speaker }: { speaker: Speaker }) => {
   const { avatar, name, location, experience, rating, sessionsUrl, socialLinks } = speaker;
-  const { t } = useTranslation();
   return (
     <div className="bg-stroke rounded-lg overflow-hidden mb-8">
-      <div className="h-48 bg-gradient-to-r from-primary to-primary/90"></div>
+      <div className="h-48 bg-gradient-to-r from-primary to-secondary/90"></div>
       <div className="bg-white p-6 relative">
         <div className="absolute -top-16 left-8 w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-md">
           {avatar ? (
@@ -46,31 +46,8 @@ export const SpeakerPageHeader = ({ speaker }: { speaker: Speaker }) => {
               )}
             </div>
           </div>
-
-          <div className="flex items-center gap-2 mt-4 md:mt-0">
-            {/* Rating */}
-            <div className="flex items-center bg-stroke px-3 py-1 rounded-full shadow-sm">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star
-                  key={i}
-                  className={`w-5 h-5 ${i < rating ? 'fill-primary text-primary' : 'fill-stroke text-stroke'}`}
-                />
-              ))}
-            </div>
-
-            {sessionsUrl && (
-              <Link
-                to={sessionsUrl}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors"
-              >
-                {t('sessions.view.all')}
-                <SocialIcon platform="youtube" />
-              </Link>
-            )}
-          </div>
         </div>
 
-        {/* Social Links */}
         <div className="ml-44 flex items-center gap-3 mt-4">
           {socialLinks.map((link, index) => (
             <Link

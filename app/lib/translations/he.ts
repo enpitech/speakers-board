@@ -55,7 +55,6 @@ export const he = {
     'error.network.title': 'שגיאת רשת',
     'error.network.description': 'לא הצלחנו להתחבר לשרת. אנא בדוק את חיבור האינטרנט שלך ונסה שנית.',
     'error.network.refresh': 'טען מחדש',
-    'reviews.title': 'ביקורות',
     'reviews.count': 'ביקורות',
     'sessions.past.title': 'הרצאות קודמות',
     'sessions.past.description': 'הרצאות שהובאו בעבר',
@@ -71,5 +70,7 @@ export const he = {
     'ai.generating.bio': 'יוצר ביוגרפיה...',
     'sessions.attendees': 'משתתפים',
     'sessions.watch.recording': 'צפייה בהרצאה',
+    'sessions.title': '🎤 הרצאות',
+    'reviews.title': '💬 ביקורות',
   },
 } as const;

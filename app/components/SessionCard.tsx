@@ -5,12 +5,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/
 import type { Session } from '~/lib/types';
 import { Text } from './Text';
 import { useTranslation } from 'react-i18next';
+import { cn } from '~/lib/utils';
 
 export const SessionCard = ({ session }: { session: Session }) => {
   const { id, title, date, attendees, videoUrl } = session;
   const { t } = useTranslation();
+  const isPast = new Date(date) < new Date();
   return (
-    <Card key={id} className="overflow-hidden">
+    <Card key={id} className={cn('overflow-hidden', isPast && 'bg-muted/50')}>
       <div className="border-l-4 border-primary">
         <CardHeader>
           <CardTitle className="text-lg">{title}</CardTitle>
