@@ -22,7 +22,10 @@ interface SpeakerRowProps {
 export function SpeakerRow({ speaker, columnWidths }: SpeakerRowProps) {
   const navigate = useNavigate();
   return (
-    <Row onClick={() => navigate(`/speakers/${speaker.id}/sessions`)}>
+    <Row
+      onClick={() => navigate(`/speakers/${speaker.id}/sessions`)}
+      className="cursor-pointer hover:bg-background-2 transition-colors duration-100"
+    >
       <TableCell width={columnWidths.name}>
         <div className="flex items-center gap-3 min-w-0">
           <Avatar src={speaker.avatar} alt={speaker.name} size="sm" fallback={speaker.name} />
