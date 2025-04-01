@@ -32,7 +32,6 @@ export function ChipInput({
       e.preventDefault();
       if (limit && values.length >= limit) return;
 
-      // Prevent duplicates
       if (!values.includes(inputValue.trim())) {
         onChange([...values, inputValue.trim()]);
       }

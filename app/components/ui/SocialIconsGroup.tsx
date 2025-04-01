@@ -33,7 +33,6 @@ export function SocialIconsGroup({
   maxIcons,
   showCount = false,
 }: SocialIconsGroupProps) {
-  // Convert object to array if needed
   const linksArray = Array.isArray(links)
     ? links
     : Object.entries(links).map(([platform, url]) => ({

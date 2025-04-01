@@ -26,7 +26,6 @@ export async function action({
   const bio = formData.get('bio') as string;
 
   try {
-    // await sleep(3000);
     const response = await fetch(`${process.env.API_BASE_URL}/speakers/${params.speakerId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
@@ -55,7 +54,7 @@ export async function action({
 export default function SpeakerProfilePage({ loaderData }: { loaderData: SpeakerPageLoaderData }) {
   const { speaker, sessions, reviews } = loaderData;
   const { t } = useTranslation();
-  
+
   return (
     <div className="mx-auto">
       <Suspense fallback={<SpeakerPageHeaderSkeleton />}>

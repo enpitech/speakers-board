@@ -99,18 +99,15 @@ const useSocialNetworks = (value: SocialLink, onChange: (value: SocialLink) => v
   const selectedNetwork =
     socialNetworks.find(network => network.value === value.platform) || socialNetworks[0];
 
-  // Calculate dropdown position when button is clicked
   const updateDropdownPosition = () => {
     if (buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect();
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-      // Calculate if dropdown would go off-screen at the bottom
       const dropdownHeight = 320; // Approximate max height
       const viewportHeight = window.innerHeight;
       const spaceBelow = viewportHeight - (rect.bottom - scrollTop);
 
-      // Position dropdown above or below based on available space
       const top =
         spaceBelow < dropdownHeight
           ? rect.top + scrollTop - dropdownHeight - 5 // Position above
@@ -142,7 +139,6 @@ const useSocialNetworks = (value: SocialLink, onChange: (value: SocialLink) => v
     onChange({ ...value, url: e.target.value });
   };
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (

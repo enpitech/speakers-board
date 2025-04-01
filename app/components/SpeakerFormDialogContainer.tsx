@@ -25,7 +25,6 @@ export function SpeakerFormDialogContainer({ isOpen, onClose }: SpeakerFormDialo
   });
   const isSubmitting = navigation.state === 'submitting';
 
-  // Close dialog on successful submission
   useEffect(() => {
     if (actionData?.success) {
       onClose();

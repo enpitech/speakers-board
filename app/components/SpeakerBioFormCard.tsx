@@ -27,7 +27,6 @@ export const SpeakerBioFormCard = ({ speaker }: { speaker: Speaker }) => {
   );
   const submit = useSubmit();
 
-  // onClick handler
   const handleSubmit = async (newBio: string) => {
     startTransition(async () => {
       setOptimisticBio(newBio);
