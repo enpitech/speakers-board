@@ -55,5 +55,16 @@ export const en = {
     'error.network.refresh': 'Refresh Page',
     'reviews.title': 'Reviews',
     'reviews.count': 'reviews',
+    'sessions.past.title': 'Past Sessions',
+    'sessions.past.description': 'Sessions that have been held in the past',
+    'sessions.past.view': 'View Sessions',
+    'sessions.past.view.all': 'View All Sessions',
+    'sessions.past.view.all.description': 'View all sessions that have been held in the past',
+    'sessions.upcoming.title': 'Upcoming Sessions',
+    'sessions.upcoming.description': 'Sessions that are scheduled to be held in the future',
+    'sessions.upcoming.view': 'View Sessions',
+    'sessions.upcoming.view.all': 'View All Sessions',
+    'sessions.upcoming.view.all.description':
+      'View all sessions that are scheduled to be held in the future',
   },
 } as const;
