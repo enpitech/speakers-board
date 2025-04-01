@@ -2,6 +2,7 @@ import { openai } from '@ai-sdk/openai';
 import { experimental_generateImage } from 'ai';
 import { updateSpeaker } from '~/lib/actions/updateSpeaker';
 import { getSpeaker } from '~/lib/fetchers/getSpeaker';
+import { avatarGenerationPrompt } from '~/lib/prompts/avatar-generation.prompt';
 import type { Speaker } from '~/lib/types';
 
 export const action = async ({ request }: { request: Request }) => {
@@ -32,10 +33,7 @@ const generateAvatarFromAI = async (speaker: Speaker) => {
     model: openai.image('dall-e-3'),
     size: '1024x1024',
     aspectRatio: '1:1',
-    prompt: `a professional, engaging, and authentic speaker avatar for ${speaker.name}, the avatar should be a single image that is 1024x1024 pixels.
-        Here is the speaker's bio: ${speaker.bio}.
-        make the avatar gender fit the speaker's gender based on the bio and name.
-        `,
+    prompt: avatarGenerationPrompt(speaker),
     providerOptions: {
       openai: {
         style: 'natural',
