@@ -89,7 +89,7 @@ export function SpeakerFormDialogView({
         icon={
           <Youtube
             size={18}
-            className="text-[#FF0000]"
+            className="text-red-500"
             onClick={() => onChange({ sessionsUrl: 'https://youtube.com/...' })}
           />
         }
@@ -102,7 +102,6 @@ export function SpeakerFormDialogView({
         onChange={e => onChange({ bio: e.target.value })}
         placeholder={t('speaker.bio.placeholder')}
         error={errors.bio}
-        icon={<User size={18} className="text-[#FF0000]" />}
       />
       <div className="space-y-4">
         <div className="flex flex-col">

@@ -33,7 +33,7 @@ export function ProfileSidebar({ speaker }: ProfileSidebarProps) {
         <CardContent>
           <div className="flex flex-wrap gap-2">
             {speaker.topics.map((topic, index) => (
-              <Badge key={index} className="bg-[#eefaff] text-[#006699] hover:bg-[#d0d8e8]">
+              <Badge key={index} className="bg-stroke text-text-2 hover:bg-dark-base">
                 {topic}
               </Badge>
             ))}
@@ -48,8 +48,8 @@ export function ProfileSidebar({ speaker }: ProfileSidebarProps) {
         <CardContent>
           <div className="space-y-2">
             {speaker.languages.map((language, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <Globe className="w-4 h-4 text-[#006699]" />
+              <div key={index} className="flex items-center gap-1">
+                <Globe className="w-4 h-4 text-text-2" />
                 <Text variant="span" size="sm">
                   {language}
                 </Text>

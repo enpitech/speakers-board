@@ -14,36 +14,36 @@ export function UpcomingSessions({ sessions = [] }: UpcomingSessionsProps) {
   const { t } = useTranslation();
   return (
     <div className="space-y-4">
-      <h2 className="text-2xl font-semibold text-[#006699]">Upcoming Sessions</h2>
+      <h2 className="text-2xl font-semibold text-text-2">Upcoming Sessions</h2>
 
       {sessions.length > 0 ? (
         sessions.map(session => (
           <Card key={session.id} className="overflow-hidden">
-            <div className="border-l-4 border-[#10bc4c]">
+            <div className="border-l-4 border-primary">
               <CardHeader>
                 <CardTitle>{session.title}</CardTitle>
                 <CardDescription>
                   <div className="flex flex-wrap gap-4 mt-2">
                     <div className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4 text-[#939393]" />
+                      <Calendar className="w-4 h-4 text-text-2" />
                       <Text variant="span" size="sm">
                         {session.date}
                       </Text>
                     </div>
                     <div className="flex items-center gap-1">
-                      <Clock className="w-4 h-4 text-[#939393]" />
+                      <Clock className="w-4 h-4 text-text-2" />
                       <Text variant="span" size="sm">
                         {session.time}
                       </Text>
                     </div>
                     <div className="flex items-center gap-1">
-                      <MapPin className="w-4 h-4 text-[#939393]" />
+                      <MapPin className="w-4 h-4 text-text-2" />
                       <Text variant="span" size="sm">
                         {session.location}
                       </Text>
                     </div>
                     <div className="flex items-center gap-1">
-                      <Users className="w-4 h-4 text-[#939393]" />
+                      <Users className="w-4 h-4 text-text-2" />
                       <Text variant="span" size="sm">
                         {session.attendees} {t('sessions.attendees')}
                       </Text>
@@ -58,7 +58,7 @@ export function UpcomingSessions({ sessions = [] }: UpcomingSessionsProps) {
           </Card>
         ))
       ) : (
-        <div className="text-center py-8 text-[#939393]">{t('sessions.no.upcoming')}</div>
+        <EmptyResponseView message={t('sessions.no.upcoming')} />
       )}
     </div>
   );
@@ -80,7 +80,7 @@ export function PastSessions({ sessions = [] }: PastSessionsProps) {
         {sessions.length > 0 ? (
           sessions.map(session => (
             <Card key={session.id} className="overflow-hidden">
-              <div className="border-l-4 border-[#8fb8c3]">
+              <div className="border-l-4 border-primary">
                 <CardHeader>
                   <CardTitle>
                     <Text variant="h3" size="md">
@@ -90,13 +90,13 @@ export function PastSessions({ sessions = [] }: PastSessionsProps) {
                   <CardDescription>
                     <div className="flex flex-wrap gap-2 mt-2">
                       <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4 text-[#939393]" />
+                        <Calendar className="w-4 h-4 text-text-2" />
                         <Text variant="span" size="sm">
                           {session.date}
                         </Text>
                       </div>
                       <div className="flex items-center gap-1">
-                        <Users className="w-4 h-4 text-[#939393]" />
+                        <Users className="w-4 h-4 text-text-2" />
                         <Text variant="span" size="sm">
                           {session.attendees} {t('sessions.attendees')}
                         </Text>

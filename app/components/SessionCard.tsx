@@ -17,13 +17,13 @@ export const SessionCard = ({ session }: { session: Session }) => {
           <CardDescription>
             <div className="flex flex-wrap gap-2 mt-2">
               <div className="flex items-center gap-1">
-                <Calendar className="w-4 h-4 text-[#939393]" />
+                <Calendar className="w-4 h-4 text-text-2" />
                 <Text variant="span" size="sm">
                   {date}
                 </Text>
               </div>
               <div className="flex items-center gap-1">
-                <Users className="w-4 h-4 text-[#939393]" />
+                <Users className="w-4 h-4 text-text-2" />
                 <Text variant="span" size="sm">
                   {attendees} {t('sessions.attendees')}
                 </Text>

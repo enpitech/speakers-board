@@ -20,7 +20,7 @@ export const SpeakerLanguagesCard = ({ speaker }: { speaker: Speaker }) => {
         <div className="space-y-2">
           {languages.map((language, index) => (
             <div key={index} className="flex items-center gap-2">
-              <Globe className="w-4 h-4 text-[#006699]" />
+              <Globe className="w-4 h-4 text-text-2" />
               <Text variant="p" size="sm">
                 {language}
               </Text>

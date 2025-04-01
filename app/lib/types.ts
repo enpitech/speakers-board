@@ -76,3 +76,9 @@ export type SpeakersLoaderData = {
   languages: Promise<string[]>;
   topics: Promise<string[]>;
 };
+
+export type SocialNetworkOption = {
+  value: SocialNetwork;
+  label: string;
+  icon: React.ReactNode;
+};

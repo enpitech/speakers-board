@@ -23,7 +23,7 @@ export function ReviewsList({ reviews = [], rating }: ReviewsListProps) {
               <Star
                 key={i}
                 className={`w-5 h-5 ${
-                  i < rating ? 'fill-[#10bc4c] text-[#10bc4c]' : 'fill-[#d0d8e8] text-[#d0d8e8]'
+                  i < rating ? 'fill-primary text-primary' : 'fill-stroke text-stroke'
                 }`}
               />
             ))}
@@ -50,7 +50,7 @@ export function ReviewsList({ reviews = [], rating }: ReviewsListProps) {
                         className="object-cover"
                       />
                     ) : (
-                      <div className="w-full h-full bg-[#eefaff] flex items-center justify-center text-[#006699] text-sm font-bold">
+                      <div className="w-full h-full bg-stroke text-text-2 flex items-center justify-center text-sm font-bold">
                         {review.author.charAt(0)}
                       </div>
                     )}
@@ -68,8 +68,8 @@ export function ReviewsList({ reviews = [], rating }: ReviewsListProps) {
                           key={i}
                           className={`w-4 h-4 ${
                             i < review.rating
-                              ? 'fill-[#10bc4c] text-[#10bc4c]'
-                              : 'fill-[#d0d8e8] text-[#d0d8e8]'
+                              ? 'fill-primary text-primary'
+                              : 'fill-stroke text-stroke'
                           }`}
                         />
                       ))}
@@ -82,12 +82,12 @@ export function ReviewsList({ reviews = [], rating }: ReviewsListProps) {
             </Card>
           ))
         ) : (
-          <div className="text-center py-8 text-[#939393]">{t('reviews.no.reviews')}</div>
+          <div className="text-center py-8 text-text-2">{t('reviews.no.reviews')}</div>
         )}
       </div>
 
       <div className="flex justify-center mt-8">
-        <Button className="bg-[#006699] hover:bg-[#005588]">
+        <Button className="bg-primary hover:bg-primary/90">
           <MessageSquare className="w-4 h-4 mr-2" />
           <Text variant="span">{t('reviews.write.review')}</Text>
         </Button>

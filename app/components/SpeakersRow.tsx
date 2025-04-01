@@ -56,10 +56,10 @@ export function SpeakerRow({ speaker, columnWidths }: SpeakerRowProps) {
           {speaker.sessionsUrl && (
             <Button
               variant="outline"
-              className="flex items-center gap-1.5 text-[var(--color-text-900)] text-xs"
+              className="flex items-center gap-1.5 text-text-2 text-xs"
               size="sm"
             >
-              <Youtube className="h-3.5 w-3.5 text-[#FF0000]" />
+              <Youtube className="h-3.5 w-3.5 text-primary" />
               <Text variant="p" className="truncate">
                 {t('sessions')}
               </Text>

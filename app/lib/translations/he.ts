@@ -69,5 +69,7 @@ export const he = {
     'sessions.upcoming.view.all.description': 'צפייה בכל ההרצאות שהגבילו בעתיד',
     'speaker.form.suggest': 'הצע תוכן ביוגרפיה מ-AI',
     'ai.generating.bio': 'יוצר ביוגרפיה...',
+    'sessions.attendees': 'משתתפים',
+    'sessions.watch.recording': 'צפייה בהרצאה',
   },
 } as const;

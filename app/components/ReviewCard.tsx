@@ -17,7 +17,7 @@ export const ReviewCard = ({ review }: { review: Review }) => {
                 className="object-cover"
               />
             ) : (
-              <div className="w-full h-full bg-[#eefaff] flex items-center justify-center text-[#006699] text-sm font-bold">
+              <div className="w-full h-full bg-stroke text-text-2 flex items-center justify-center text-sm font-bold">
                 {review.author.charAt(0)}
               </div>
             )}
@@ -37,7 +37,7 @@ export const ReviewCard = ({ review }: { review: Review }) => {
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star
                   key={i}
-                  className={`w-4 h-4 ${i < review.rating ? 'fill-primary  text-secondary' : 'fill-gray-300 text-gray-300'}`}
+                  className={`w-4 h-4 ${i < review.rating ? 'fill-primary  text-secondary' : 'fill-stroke text-stroke'}`}
                 />
               ))}
             </div>

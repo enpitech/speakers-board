@@ -24,48 +24,48 @@ export function SocialIcon({ platform, className = '' }: SocialIconProps) {
   > = {
     twitter: {
       icon: <Twitter size={18} />,
-      bgColor: 'bg-[#F2FBFF]',
-      iconColor: 'text-[#1DA1F2]',
+      bgColor: 'bg-stroke',
+      iconColor: 'text-primary',
     },
     tiktok: {
       icon: <TiktokIcon size={18} />,
-      bgColor: 'bg-[#F7F7F8]',
-      iconColor: 'text-[#000000]',
+      bgColor: 'bg-stroke',
+      iconColor: 'text-primary',
     },
     facebook: {
       icon: <Facebook size={18} />,
-      bgColor: 'bg-[#F1F4FE]',
-      iconColor: 'text-[#1877F2]',
+      bgColor: 'bg-stroke',
+      iconColor: 'text-primary',
     },
     youtube: {
       icon: <Youtube size={18} />,
-      bgColor: 'bg-[#FEF2F2]',
-      iconColor: 'text-[#FF0000]',
+      bgColor: 'bg-stroke',
+      iconColor: 'text-primary',
     },
     linkedin: {
       icon: <Linkedin size={18} />,
-      bgColor: 'bg-[#EFF9FF]',
-      iconColor: 'text-[#0A66C2]',
+      bgColor: 'bg-stroke',
+      iconColor: 'text-primary',
     },
     spotify: {
       icon: <SpotifyIcon size={18} />,
-      bgColor: 'bg-[#F0FDF4]',
-      iconColor: 'text-[#1DB954]',
+      bgColor: 'bg-stroke',
+      iconColor: 'text-primary',
     },
     instagram: {
       icon: <InstagramIcon size={18} />,
-      bgColor: 'bg-[#FDF2F8]',
-      iconColor: 'text-[#E4405F]',
+      bgColor: 'bg-stroke',
+      iconColor: 'text-primary',
     },
     discord: {
       icon: <DiscordIcon size={18} />,
-      bgColor: 'bg-[#F5F3FF]',
-      iconColor: 'text-[#5865F2]',
+      bgColor: 'bg-stroke',
+      iconColor: 'text-primary',
     },
     github: {
       icon: <Github size={18} />,
-      bgColor: 'bg-[#F8F9FA]',
-      iconColor: 'text-[#181717]',
+      bgColor: 'bg-stroke',
+      iconColor: 'text-primary',
     },
   };
 

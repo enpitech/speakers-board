@@ -17,7 +17,7 @@ export const RatingStars = ({ rating, reviewsCount }: { rating: number; reviewsC
           {Array.from({ length: rating }).map((_, i) => (
             <Star
               key={i}
-              className={`w-5 h-5 ${i < rating ? 'fill-[#10bc4c] text-[#10bc4c]' : 'fill-[#d0d8e8] text-[#d0d8e8]'}`}
+              className={`w-5 h-5 ${i < rating ? 'fill-primary text-primary' : 'fill-stroke text-stroke'}`}
             />
           ))}
         </div>

@@ -73,5 +73,7 @@ export const en = {
     'sessions.view.all.upcoming': 'View All Upcoming Sessions',
     'sessions.view.all.upcoming.description':
       'View all sessions that are scheduled to be held in the future',
+    'sessions.attendees': 'Attendees',
+    'sessions.watch.recording': 'Watch Recording',
   },
 } as const;
