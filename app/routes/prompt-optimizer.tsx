@@ -1,14 +1,10 @@
 import { Button } from '~/components/ui/button';
 import { Textarea } from '~/components/ui/textarea';
-import { getAutoComplete, getOptimizedPrompt } from '~/lib/fetchers/getOptimizedPrompt';
-import {
-  useFetcher,
-  type ActionFunctionArgs,
-  type FetcherWithComponents,
-  type LoaderFunctionArgs,
-  useSearchParams,
-} from 'react-router';
-import { use, useState } from 'react';
+import { getOptimizedPrompt } from '~/lib/fetchers/getOptimizedPrompt';
+import { useFetcher, type ActionFunctionArgs } from 'react-router';
+import { useState } from 'react';
+import { Text } from '~/components/Text';
+import { Copy, CopyPlusIcon } from 'lucide-react';
 
 export const action = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
@@ -17,17 +13,8 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   return { optimizedPrompt };
 };
 
-export async function loader({ request }: LoaderFunctionArgs) {
-  //   const url = new URL(request.url);
-  //   const prompt = url.searchParams.get('prompt');
-  //   const optimizedPrompt = getOptimizedPromptStreamGenerator(prompt as string);
-  //   const optimizedPrompt = fetchOptimizedPromptHandler(await request.formData());
-  //   return { optimizedPrompt };
-}
-
 export default function PromptOptimizerPage() {
   const formFetcher = useFetcher<typeof action>();
-  const autoCompleteFetcher = useFetcher<typeof autoCompleteAction>();
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -37,35 +24,31 @@ export default function PromptOptimizerPage() {
 
   return (
     <div className="container mx-auto p-12 md:px-6">
-      <OptimizerForm
-        formFetcher={formFetcher}
-        autoCompleteFetcher={autoCompleteFetcher}
-        handleFormSubmit={handleFormSubmit}
-      />
+      <OptimizerForm handleFormSubmit={handleFormSubmit} />
       {formFetcher.state === 'submitting' && <div>Submitting...</div>}
       {formFetcher.state === 'idle' && formFetcher.data?.optimizedPrompt && (
-        <OptimizedPrompt optimizedPrompt={formFetcher.data.optimizedPrompt} />
+        <OptimizedPromptOutput optimizedPrompt={formFetcher?.data?.optimizedPrompt ?? 'sadas'} />
       )}
     </div>
   );
 }
-const OptimizedPrompt = ({ optimizedPrompt }: { optimizedPrompt: string }) => {
-  return <div>{optimizedPrompt}</div>;
+const OptimizedPromptOutput = ({ optimizedPrompt }: { optimizedPrompt: string }) => {
+  return (
+    <div className="flex flex-col gap-2 relative">
+      <Button
+        className="absolute top-0 right-0  shadow-sm rounded-full"
+        onClick={() => {
+          navigator.clipboard.writeText(optimizedPrompt);
+        }}
+      >
+        Copy to clipboard
+      </Button>
+      <Text className="w-full whitespace-pre-wrap">{optimizedPrompt}</Text>
+    </div>
+  );
 };
 
-////////////////////////////////////////////////////////////
-
-const AutoCompleteInputForm = ({
-  fetcher,
-  storageKey = 'auto-complete-input',
-}: {
-  fetcher: FetcherWithComponents<{
-    autoComplete: string;
-  }>;
-  storageKey: string;
-}) => {
-  //   const { value: promptInput, setValue: setPromptInput } = useLocalStorage(storageKey, '');
-
+const AutoCompleteInputForm = () => {
   const [value, setValue] = useState('');
   return (
     <>
@@ -87,58 +70,15 @@ const AutoCompleteInputForm = ({
 };
 
 const OptimizerForm = ({
-  formFetcher,
-  autoCompleteFetcher,
   handleFormSubmit,
 }: {
-  formFetcher: FetcherWithComponents<{
-    optimizedPrompt: string;
-  }>;
-  autoCompleteFetcher: FetcherWithComponents<{
-    autoComplete: string;
-  }>;
   handleFormSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }) => {
-  const handleAutoCompleteSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
-    autoCompleteFetcher.submit(formData, { method: 'POST' });
-  };
-  const searchParams = useSearchParams();
-  //   useEffect(() => {
-  //     if (autoCompleteFetcher.data?.autoComplete) {
-  //       formFetcher.submit(
-  //         { optimizedPrompt: autoCompleteFetcher.data.autoComplete },
-  //         { method: 'POST' },
-  //       );
-  //     }
-  //   }, []);
   return (
     <form onSubmit={handleFormSubmit} className="flex flex-col gap-4 max-w-2xl mx-auto">
       <div className="flex flex-col gap-2">
-        <AutoCompleteInputForm fetcher={autoCompleteFetcher} storageKey="auto-complete-input" />
+        <AutoCompleteInputForm />
       </div>
-      {/* {formFetcher.data?.optimizedPrompt && (
-        <div className="flex flex-col gap-2">
-          <label htmlFor="optimizedPrompt">Optimized Prompt</label>
-          <Textarea
-            name="optimizedPrompt"
-            id="optimizedPrompt"
-          />
-        </div>
-      )} */}
     </form>
   );
-};
-
-const fetchOptimizedPromptHandler = async (formData: FormData) => {
-  const prompt = formData.get('prompt');
-  const optimizedPrompt = await getOptimizedPrompt(prompt as string);
-  return optimizedPrompt;
-};
-export const autoCompleteAction = async ({ request }: ActionFunctionArgs) => {
-  const formData = await request.formData();
-  const prompt = formData.get('prompt');
-  const autoComplete = await getAutoComplete(prompt as string);
-  return { autoComplete };
 };
