@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, Outlet } from 'react-router';
 import { RegisterSpeakerButton } from '~/components/RegisterSpeakerButton';
 import { SpeakerFormDialogContainer } from '~/components/SpeakerFormDialogContainer';
+import { Button } from '~/components/ui/button';
 
 export default function Layout() {
   const [registerSpeakerDialogOpen, setRegisterSpeakerDialogOpen] = useState(false);
@@ -17,7 +18,15 @@ export default function Layout() {
         <Link to="/speakers">
           <img src="/logoIcon.svg" alt="logo" className="w-40 h-16" />
         </Link>
-        <RegisterSpeakerButton onClick={handleRegisterSpeakerDialogOpen} />
+        <div className="flex items-center gap-2">
+          <Link to="/speakers">
+            <Button variant="outline">Speakers</Button>
+          </Link>
+          <Link to="/prompt-optimizer">
+            <Button variant="outline">Prompt Optimizer</Button>
+          </Link>
+          <RegisterSpeakerButton onClick={handleRegisterSpeakerDialogOpen} />
+        </div>
       </header>
       <main className="py-2 w-full">
         <Outlet />

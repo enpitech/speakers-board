@@ -1,9 +1,9 @@
 import type { Speaker } from '../types';
 
 export const generateBioPrompt = (speaker: Speaker) => {
+  const { name, languages, location, bio } = speaker;
   return `Based on the following information about the speaker:
-    ${JSON.stringify(speaker)}
-    
+    ${JSON.stringify({ name, languages, location, bio })}
     Create a compelling 100-word bio written in first person that highlights the speaker's expertise, 
     experience, and unique qualities. Include relevant details like location, years of experience, 
     and areas of specialization. The bio should be professional yet personable, and appropriate for 

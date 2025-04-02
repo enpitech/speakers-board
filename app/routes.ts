@@ -8,6 +8,7 @@ export default [
       route('reviews', 'routes/reviews-feed.tsx'),
       route('sessions', 'routes/session-feed.tsx'),
     ]),
+    route('prompt-optimizer', 'routes/prompt-optimizer.tsx'),
   ]),
   route('generate-speaker-bio', 'routes/generate-speaker-bio.tsx'),
   route('generate-speaker-avatar', 'routes/generate-speaker-avatar.tsx'),
