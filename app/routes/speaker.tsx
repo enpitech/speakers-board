@@ -52,6 +52,7 @@ export default function SpeakerProfilePage({ loaderData }: { loaderData: Speaker
               <Outlet />
             </TabsContent>
           </Tabs>
+          <Outlet />
         </div>
       </div>
     </div>
