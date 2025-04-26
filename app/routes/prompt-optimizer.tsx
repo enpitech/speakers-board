@@ -5,10 +5,9 @@ import {
   useFetcher,
   type ActionFunctionArgs,
   type FetcherWithComponents,
-  type LoaderFunctionArgs,
   useSearchParams,
 } from 'react-router';
-import { use, useState } from 'react';
+import { useState } from 'react';
 
 export const action = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
@@ -16,14 +15,6 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   const optimizedPrompt = await getOptimizedPrompt(prompt as string);
   return { optimizedPrompt };
 };
-
-export async function loader({ request }: LoaderFunctionArgs) {
-  //   const url = new URL(request.url);
-  //   const prompt = url.searchParams.get('prompt');
-  //   const optimizedPrompt = getOptimizedPromptStreamGenerator(prompt as string);
-  //   const optimizedPrompt = fetchOptimizedPromptHandler(await request.formData());
-  //   return { optimizedPrompt };
-}
 
 export default function PromptOptimizerPage() {
   const formFetcher = useFetcher<typeof action>();
@@ -131,11 +122,6 @@ const OptimizerForm = ({
   );
 };
 
-const fetchOptimizedPromptHandler = async (formData: FormData) => {
-  const prompt = formData.get('prompt');
-  const optimizedPrompt = await getOptimizedPrompt(prompt as string);
-  return optimizedPrompt;
-};
 export const autoCompleteAction = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
   const prompt = formData.get('prompt');

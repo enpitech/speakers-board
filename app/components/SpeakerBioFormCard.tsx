@@ -108,10 +108,15 @@ export const SpeakerBioFormCard = ({ speaker }: { speaker: Speaker }) => {
           </form>
         ) : (
           <Text variant="p" size="sm">
-            {optimisticBio}
+            {replaceCustomTags(optimisticBio)}
           </Text>
         )}
       </CardContent>
     </Card>
   );
 };
+
+function replaceCustomTags(input: string) {
+  // This regex matches any XML/HTML-style tags and captures the tag name and content
+  return input.replace(/<linkedin>(.*?)<\/linkedin>/g, '<a href="$1" target="_blank">$1</a>');
+}

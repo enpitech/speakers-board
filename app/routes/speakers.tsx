@@ -12,12 +12,31 @@ import { NetworkError } from '~/components/NetworkErrorBoundary';
 
 import { SpeakersTableSkeleton } from '~/components/SpeakersTableSkeleton';
 import { speakersPageLoader } from '~/lib/loaders/speakers.loader';
+import { getSpeakers } from '~/lib/fetchers/getSpeakers';
+import { getLanguages } from '~/lib/fetchers/getLanguages';
+import { getTopics } from '~/lib/fetchers/getTopics';
+import { sleep } from '~/lib/utils';
 
 export async function action(args: ActionFunctionArgs) {
   return await speakerRegistration(args);
 }
 
-export const loader = speakersPageLoader;
+export async function loader({ request }: Route.LoaderArgs) {
+  const url = new URL(request.url);
+  const searchParams = new URLSearchParams(url.search);
+  const language = searchParams.get('language');
+  const topic = searchParams.get('topic');
+  const rating = searchParams.get('rating');
+
+  const speakers = getSpeakers({
+    languages: language ? language.split(',') : null,
+    topics: topic ? topic.split(',') : null,
+    rating: rating ? parseInt(rating) : null,
+  });
+  const languages = getLanguages();
+  const topics = getTopics();
+  return { speakers, languages, topics };
+}
 
 export default function Speakers({ loaderData }: { loaderData: SpeakersLoaderData }) {
   const { speakers, languages, topics } = loaderData;
