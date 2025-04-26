@@ -40,7 +40,7 @@ export default function Home({ loaderData }: { loaderData: Awaited<ReturnType<ty
             <div className="flex items-center justify-center w-8 h-8 rounded-md bg-[#f79326] text-white">
               <Code className="w-5 h-5" />
             </div>
-            <span className="text-xl font-bold">Frontendisting</span>
+            <span className="text-xl font-bold">Frontendistim</span>
           </div>
           <nav className="hidden md:flex items-center gap-6">
             <Link to="#speakers" className="text-sm font-medium hover:underline underline-offset-4">
@@ -127,7 +127,7 @@ export default function Home({ loaderData }: { loaderData: Awaited<ReturnType<ty
                 <div className="relative overflow-hidden rounded-lg border bg-background p-2 shadow-xl">
                   <img
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Frontendistim___App-ay269cchZvad69wl2vY4DRFzRGWmn5.png"
-                    alt="Frontendisting App Screenshot"
+                    alt="Frontendistim App Screenshot"
                     width={600}
                     height={400}
                     className="rounded-md object-cover"
@@ -512,7 +512,7 @@ export default function Home({ loaderData }: { loaderData: Awaited<ReturnType<ty
                   </h2>
                   <p className="max-w-[600px] md:text-xl opacity-90">
                     Whether you're looking to speak at events or find the perfect speaker,
-                    Frontendisting has you covered.
+                    Frontendistim has you covered.
                   </p>
                 </div>
                 <div className="space-y-4">
@@ -567,7 +567,7 @@ export default function Home({ loaderData }: { loaderData: Awaited<ReturnType<ty
       <footer className="border-t py-6 md:py-0 bg-[#03293f] text-white">
         <div className="container mx-auto flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
           <p className="text-center text-sm leading-loose md:text-left">
-            © 2025 Frontendisting. All rights reserved.
+            © 2025 Frontendistim. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-sm">
             <Link to="#" className="hover:underline underline-offset-4">

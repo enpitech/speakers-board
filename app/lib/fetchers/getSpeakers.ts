@@ -1,5 +1,4 @@
 import type { Speaker } from '../types';
-import { sleep } from '../utils';
 
 export const getSpeakers = async ({
   languages,
